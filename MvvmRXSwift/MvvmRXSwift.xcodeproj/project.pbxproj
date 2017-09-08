@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2AD71E841F61945700C96705 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD71E831F61945700C96705 /* AppDelegate.swift */; };
-		2AD71E861F61945700C96705 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD71E851F61945700C96705 /* ViewController.swift */; };
-		2AD71E891F61945700C96705 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AD71E871F61945700C96705 /* Main.storyboard */; };
 		2AD71E8B1F61945700C96705 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AD71E8A1F61945700C96705 /* Assets.xcassets */; };
 		2AD71E8E1F61945700C96705 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AD71E8C1F61945700C96705 /* LaunchScreen.storyboard */; };
 		2ADF9A221F629211004CF313 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A1B1F629211004CF313 /* Alamofire.framework */; };
@@ -32,6 +30,20 @@
 		2ADF9A461F629660004CF313 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A411F629660004CF313 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2ADF9A471F629660004CF313 /* RxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A421F629660004CF313 /* RxMoya.framework */; };
 		2ADF9A481F629660004CF313 /* RxMoya.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A421F629660004CF313 /* RxMoya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2ADF9A4A1F629946004CF313 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF9A491F629946004CF313 /* UIView+Extension.swift */; };
+		2ADF9A4D1F629A9F004CF313 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF9A4C1F629A9F004CF313 /* BaseViewController.swift */; };
+		2ADF9A4F1F629AE6004CF313 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF9A4E1F629AE6004CF313 /* Constants.swift */; };
+		2ADF9A511F629BB1004CF313 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF9A501F629BB1004CF313 /* UIButton+Extension.swift */; };
+		2ADF9A5A1F629C1E004CF313 /* calibri.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF9A541F629C1E004CF313 /* calibri.ttf */; };
+		2ADF9A5B1F629C1E004CF313 /* calibrib.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF9A551F629C1E004CF313 /* calibrib.ttf */; };
+		2ADF9A5C1F629C1E004CF313 /* calibrii.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF9A561F629C1E004CF313 /* calibrii.ttf */; };
+		2ADF9A5D1F629C1E004CF313 /* calibril.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF9A571F629C1E004CF313 /* calibril.ttf */; };
+		2ADF9A5E1F629C1E004CF313 /* calibrili.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF9A581F629C1E004CF313 /* calibrili.ttf */; };
+		2ADF9A5F1F629C1E004CF313 /* calibriz.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF9A591F629C1E004CF313 /* calibriz.ttf */; };
+		2ADF9A611F629CCF004CF313 /* KDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF9A601F629CCF004CF313 /* KDevice.swift */; };
+		2ADF9A631F629D81004CF313 /* Device.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A621F629D81004CF313 /* Device.framework */; };
+		2ADF9A641F629D81004CF313 /* Device.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A621F629D81004CF313 /* Device.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2ADF9A661F629FD3004CF313 /* Window+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF9A651F629FD3004CF313 /* Window+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,6 +58,7 @@
 				2ADF9A291F629211004CF313 /* RxCocoa.framework in Embed Frameworks */,
 				2ADF9A271F629211004CF313 /* ObjectMapper.framework in Embed Frameworks */,
 				2ADF9A461F629660004CF313 /* Result.framework in Embed Frameworks */,
+				2ADF9A641F629D81004CF313 /* Device.framework in Embed Frameworks */,
 				2ADF9A441F629660004CF313 /* ReactiveSwift.framework in Embed Frameworks */,
 				2ADF9A251F629211004CF313 /* Moya.framework in Embed Frameworks */,
 				2ADF9A2F1F629211004CF313 /* SwiftyJSON.framework in Embed Frameworks */,
@@ -60,8 +73,6 @@
 /* Begin PBXFileReference section */
 		2AD71E801F61945700C96705 /* MvvmRXSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MvvmRXSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AD71E831F61945700C96705 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2AD71E851F61945700C96705 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2AD71E881F61945700C96705 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2AD71E8A1F61945700C96705 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AD71E8D1F61945700C96705 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2AD71E8F1F61945700C96705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,6 +86,19 @@
 		2ADF9A401F629660004CF313 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		2ADF9A411F629660004CF313 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		2ADF9A421F629660004CF313 /* RxMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMoya.framework; path = Carthage/Build/iOS/RxMoya.framework; sourceTree = "<group>"; };
+		2ADF9A491F629946004CF313 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		2ADF9A4C1F629A9F004CF313 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		2ADF9A4E1F629AE6004CF313 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2ADF9A501F629BB1004CF313 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		2ADF9A541F629C1E004CF313 /* calibri.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = calibri.ttf; sourceTree = "<group>"; };
+		2ADF9A551F629C1E004CF313 /* calibrib.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = calibrib.ttf; sourceTree = "<group>"; };
+		2ADF9A561F629C1E004CF313 /* calibrii.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = calibrii.ttf; sourceTree = "<group>"; };
+		2ADF9A571F629C1E004CF313 /* calibril.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = calibril.ttf; sourceTree = "<group>"; };
+		2ADF9A581F629C1E004CF313 /* calibrili.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = calibrili.ttf; sourceTree = "<group>"; };
+		2ADF9A591F629C1E004CF313 /* calibriz.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = calibriz.ttf; sourceTree = "<group>"; };
+		2ADF9A601F629CCF004CF313 /* KDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDevice.swift; sourceTree = "<group>"; };
+		2ADF9A621F629D81004CF313 /* Device.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Device.framework; path = Carthage/Build/iOS/Device.framework; sourceTree = "<group>"; };
+		2ADF9A651F629FD3004CF313 /* Window+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Window+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +111,7 @@
 				2ADF9A281F629211004CF313 /* RxCocoa.framework in Frameworks */,
 				2ADF9A261F629211004CF313 /* ObjectMapper.framework in Frameworks */,
 				2ADF9A451F629660004CF313 /* Result.framework in Frameworks */,
+				2ADF9A631F629D81004CF313 /* Device.framework in Frameworks */,
 				2ADF9A431F629660004CF313 /* ReactiveSwift.framework in Frameworks */,
 				2ADF9A241F629211004CF313 /* Moya.framework in Frameworks */,
 				2ADF9A2E1F629211004CF313 /* SwiftyJSON.framework in Frameworks */,
@@ -118,14 +143,13 @@
 		2AD71E821F61945700C96705 /* MvvmRXSwift */ = {
 			isa = PBXGroup;
 			children = (
+				2ADF9A521F629BEC004CF313 /* Resources */,
+				2AD71E831F61945700C96705 /* AppDelegate.swift */,
 				2ADF9A321F6295FA004CF313 /* API */,
 				2ADF9A331F6295FA004CF313 /* Components */,
 				2ADF9A371F6295FA004CF313 /* Models */,
 				2ADF9A381F6295FA004CF313 /* ViewModels */,
 				2ADF9A3C1F6295FA004CF313 /* Views */,
-				2AD71E831F61945700C96705 /* AppDelegate.swift */,
-				2AD71E851F61945700C96705 /* ViewController.swift */,
-				2AD71E871F61945700C96705 /* Main.storyboard */,
 				2AD71E8A1F61945700C96705 /* Assets.xcassets */,
 				2AD71E8C1F61945700C96705 /* LaunchScreen.storyboard */,
 				2AD71E8F1F61945700C96705 /* Info.plist */,
@@ -136,6 +160,7 @@
 		2ADF9A311F62921B004CF313 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				2ADF9A621F629D81004CF313 /* Device.framework */,
 				2ADF9A401F629660004CF313 /* ReactiveSwift.framework */,
 				2ADF9A411F629660004CF313 /* Result.framework */,
 				2ADF9A421F629660004CF313 /* RxMoya.framework */,
@@ -170,6 +195,7 @@
 		2ADF9A341F6295FA004CF313 /* Constant */ = {
 			isa = PBXGroup;
 			children = (
+				2ADF9A4E1F629AE6004CF313 /* Constants.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -177,6 +203,9 @@
 		2ADF9A351F6295FA004CF313 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				2ADF9A491F629946004CF313 /* UIView+Extension.swift */,
+				2ADF9A501F629BB1004CF313 /* UIButton+Extension.swift */,
+				2ADF9A651F629FD3004CF313 /* Window+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -184,6 +213,7 @@
 		2ADF9A361F6295FA004CF313 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				2ADF9A601F629CCF004CF313 /* KDevice.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -246,6 +276,7 @@
 		2ADF9A3E1F6295FA004CF313 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2ADF9A4B1F629A7C004CF313 /* BaseViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -255,6 +286,36 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2ADF9A4B1F629A7C004CF313 /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2ADF9A4C1F629A9F004CF313 /* BaseViewController.swift */,
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		2ADF9A521F629BEC004CF313 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2ADF9A531F629C1E004CF313 /* FontCustom */,
+			);
+			name = Resources;
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		2ADF9A531F629C1E004CF313 /* FontCustom */ = {
+			isa = PBXGroup;
+			children = (
+				2ADF9A541F629C1E004CF313 /* calibri.ttf */,
+				2ADF9A551F629C1E004CF313 /* calibrib.ttf */,
+				2ADF9A561F629C1E004CF313 /* calibrii.ttf */,
+				2ADF9A571F629C1E004CF313 /* calibril.ttf */,
+				2ADF9A581F629C1E004CF313 /* calibrili.ttf */,
+				2ADF9A591F629C1E004CF313 /* calibriz.ttf */,
+			);
+			path = FontCustom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,9 +378,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ADF9A5F1F629C1E004CF313 /* calibriz.ttf in Resources */,
+				2ADF9A5D1F629C1E004CF313 /* calibril.ttf in Resources */,
+				2ADF9A5C1F629C1E004CF313 /* calibrii.ttf in Resources */,
+				2ADF9A5B1F629C1E004CF313 /* calibrib.ttf in Resources */,
 				2AD71E8E1F61945700C96705 /* LaunchScreen.storyboard in Resources */,
+				2ADF9A5A1F629C1E004CF313 /* calibri.ttf in Resources */,
 				2AD71E8B1F61945700C96705 /* Assets.xcassets in Resources */,
-				2AD71E891F61945700C96705 /* Main.storyboard in Resources */,
+				2ADF9A5E1F629C1E004CF313 /* calibrili.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,22 +396,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AD71E861F61945700C96705 /* ViewController.swift in Sources */,
+				2ADF9A4A1F629946004CF313 /* UIView+Extension.swift in Sources */,
 				2AD71E841F61945700C96705 /* AppDelegate.swift in Sources */,
+				2ADF9A4D1F629A9F004CF313 /* BaseViewController.swift in Sources */,
+				2ADF9A511F629BB1004CF313 /* UIButton+Extension.swift in Sources */,
+				2ADF9A661F629FD3004CF313 /* Window+Extension.swift in Sources */,
+				2ADF9A4F1F629AE6004CF313 /* Constants.swift in Sources */,
+				2ADF9A611F629CCF004CF313 /* KDevice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2AD71E871F61945700C96705 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2AD71E881F61945700C96705 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2AD71E8C1F61945700C96705 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
