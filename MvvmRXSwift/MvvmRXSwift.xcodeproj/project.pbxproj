@@ -47,6 +47,8 @@
 		2ADF9A6B1F62A0F3004CF313 /* KBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF9A6A1F62A0F3004CF313 /* KBaseView.swift */; };
 		2ADF9A6E1F62A12E004CF313 /* KBaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF9A6D1F62A12E004CF313 /* KBaseCollectionViewCell.swift */; };
 		2ADF9A701F62A157004CF313 /* KBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF9A6F1F62A157004CF313 /* KBaseTableViewCell.swift */; };
+		2ADF9A721F62A2F0004CF313 /* KDataServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF9A711F62A2F0004CF313 /* KDataServiceHelper.swift */; };
+		2ADF9A751F62A356004CF313 /* KBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF9A741F62A356004CF313 /* KBaseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -105,6 +107,8 @@
 		2ADF9A6A1F62A0F3004CF313 /* KBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KBaseView.swift; sourceTree = "<group>"; };
 		2ADF9A6D1F62A12E004CF313 /* KBaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KBaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		2ADF9A6F1F62A157004CF313 /* KBaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KBaseTableViewCell.swift; sourceTree = "<group>"; };
+		2ADF9A711F62A2F0004CF313 /* KDataServiceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDataServiceHelper.swift; sourceTree = "<group>"; };
+		2ADF9A741F62A356004CF313 /* KBaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KBaseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +188,7 @@
 		2ADF9A321F6295FA004CF313 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				2ADF9A711F62A2F0004CF313 /* KDataServiceHelper.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 		2ADF9A371F6295FA004CF313 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2ADF9A731F62A33A004CF313 /* BaseModel */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -343,6 +349,14 @@
 			path = BaseCell;
 			sourceTree = "<group>";
 		};
+		2ADF9A731F62A33A004CF313 /* BaseModel */ = {
+			isa = PBXGroup;
+			children = (
+				2ADF9A741F62A356004CF313 /* KBaseModel.swift */,
+			);
+			path = BaseModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -427,6 +441,8 @@
 				2AD71E841F61945700C96705 /* AppDelegate.swift in Sources */,
 				2ADF9A4D1F629A9F004CF313 /* KBaseViewController.swift in Sources */,
 				2ADF9A511F629BB1004CF313 /* UIButton+Extension.swift in Sources */,
+				2ADF9A751F62A356004CF313 /* KBaseModel.swift in Sources */,
+				2ADF9A721F62A2F0004CF313 /* KDataServiceHelper.swift in Sources */,
 				2ADF9A661F629FD3004CF313 /* Window+Extension.swift in Sources */,
 				2ADF9A4F1F629AE6004CF313 /* Constants.swift in Sources */,
 				2ADF9A6B1F62A0F3004CF313 /* KBaseView.swift in Sources */,
