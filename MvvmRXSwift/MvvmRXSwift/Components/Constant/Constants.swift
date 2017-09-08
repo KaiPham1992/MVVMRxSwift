@@ -9,7 +9,6 @@
 import UIKit
 
 struct KColor {
-    
     static let redColor = UIColor(red: 207/255, green: 15/255, blue: 37/255, alpha: 1)
     static let yellowColor = UIColor(red: 254/255, green: 246/255, blue: 163/255, alpha: 1)
     static let blueColor = UIColor(red: 0/255, green: 200/255, blue: 250/255, alpha: 1)

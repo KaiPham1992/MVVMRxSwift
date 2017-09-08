@@ -31,7 +31,7 @@
 		2ADF9A471F629660004CF313 /* RxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A421F629660004CF313 /* RxMoya.framework */; };
 		2ADF9A481F629660004CF313 /* RxMoya.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A421F629660004CF313 /* RxMoya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2ADF9A4A1F629946004CF313 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF9A491F629946004CF313 /* UIView+Extension.swift */; };
-		2ADF9A4D1F629A9F004CF313 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF9A4C1F629A9F004CF313 /* BaseViewController.swift */; };
+		2ADF9A4D1F629A9F004CF313 /* KBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF9A4C1F629A9F004CF313 /* KBaseViewController.swift */; };
 		2ADF9A4F1F629AE6004CF313 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF9A4E1F629AE6004CF313 /* Constants.swift */; };
 		2ADF9A511F629BB1004CF313 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF9A501F629BB1004CF313 /* UIButton+Extension.swift */; };
 		2ADF9A5A1F629C1E004CF313 /* calibri.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF9A541F629C1E004CF313 /* calibri.ttf */; };
@@ -44,6 +44,9 @@
 		2ADF9A631F629D81004CF313 /* Device.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A621F629D81004CF313 /* Device.framework */; };
 		2ADF9A641F629D81004CF313 /* Device.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A621F629D81004CF313 /* Device.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2ADF9A661F629FD3004CF313 /* Window+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF9A651F629FD3004CF313 /* Window+Extension.swift */; };
+		2ADF9A6B1F62A0F3004CF313 /* KBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF9A6A1F62A0F3004CF313 /* KBaseView.swift */; };
+		2ADF9A6E1F62A12E004CF313 /* KBaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF9A6D1F62A12E004CF313 /* KBaseCollectionViewCell.swift */; };
+		2ADF9A701F62A157004CF313 /* KBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF9A6F1F62A157004CF313 /* KBaseTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -87,7 +90,7 @@
 		2ADF9A411F629660004CF313 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		2ADF9A421F629660004CF313 /* RxMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMoya.framework; path = Carthage/Build/iOS/RxMoya.framework; sourceTree = "<group>"; };
 		2ADF9A491F629946004CF313 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
-		2ADF9A4C1F629A9F004CF313 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		2ADF9A4C1F629A9F004CF313 /* KBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KBaseViewController.swift; sourceTree = "<group>"; };
 		2ADF9A4E1F629AE6004CF313 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2ADF9A501F629BB1004CF313 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		2ADF9A541F629C1E004CF313 /* calibri.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = calibri.ttf; sourceTree = "<group>"; };
@@ -99,6 +102,9 @@
 		2ADF9A601F629CCF004CF313 /* KDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDevice.swift; sourceTree = "<group>"; };
 		2ADF9A621F629D81004CF313 /* Device.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Device.framework; path = Carthage/Build/iOS/Device.framework; sourceTree = "<group>"; };
 		2ADF9A651F629FD3004CF313 /* Window+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Window+Extension.swift"; sourceTree = "<group>"; };
+		2ADF9A6A1F62A0F3004CF313 /* KBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KBaseView.swift; sourceTree = "<group>"; };
+		2ADF9A6D1F62A12E004CF313 /* KBaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KBaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		2ADF9A6F1F62A157004CF313 /* KBaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KBaseTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +275,7 @@
 		2ADF9A3D1F6295FA004CF313 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				2ADF9A6C1F62A111004CF313 /* BaseCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -284,6 +291,7 @@
 		2ADF9A3F1F6295FA004CF313 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2ADF9A671F62A093004CF313 /* BaseView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,7 +299,7 @@
 		2ADF9A4B1F629A7C004CF313 /* BaseViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2ADF9A4C1F629A9F004CF313 /* BaseViewController.swift */,
+				2ADF9A4C1F629A9F004CF313 /* KBaseViewController.swift */,
 			);
 			path = BaseViewController;
 			sourceTree = "<group>";
@@ -316,6 +324,23 @@
 				2ADF9A591F629C1E004CF313 /* calibriz.ttf */,
 			);
 			path = FontCustom;
+			sourceTree = "<group>";
+		};
+		2ADF9A671F62A093004CF313 /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				2ADF9A6A1F62A0F3004CF313 /* KBaseView.swift */,
+			);
+			path = BaseView;
+			sourceTree = "<group>";
+		};
+		2ADF9A6C1F62A111004CF313 /* BaseCell */ = {
+			isa = PBXGroup;
+			children = (
+				2ADF9A6D1F62A12E004CF313 /* KBaseCollectionViewCell.swift */,
+				2ADF9A6F1F62A157004CF313 /* KBaseTableViewCell.swift */,
+			);
+			path = BaseCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,11 +422,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2ADF9A4A1F629946004CF313 /* UIView+Extension.swift in Sources */,
+				2ADF9A6E1F62A12E004CF313 /* KBaseCollectionViewCell.swift in Sources */,
+				2ADF9A701F62A157004CF313 /* KBaseTableViewCell.swift in Sources */,
 				2AD71E841F61945700C96705 /* AppDelegate.swift in Sources */,
-				2ADF9A4D1F629A9F004CF313 /* BaseViewController.swift in Sources */,
+				2ADF9A4D1F629A9F004CF313 /* KBaseViewController.swift in Sources */,
 				2ADF9A511F629BB1004CF313 /* UIButton+Extension.swift in Sources */,
 				2ADF9A661F629FD3004CF313 /* Window+Extension.swift in Sources */,
 				2ADF9A4F1F629AE6004CF313 /* Constants.swift in Sources */,
+				2ADF9A6B1F62A0F3004CF313 /* KBaseView.swift in Sources */,
 				2ADF9A611F629CCF004CF313 /* KDevice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
