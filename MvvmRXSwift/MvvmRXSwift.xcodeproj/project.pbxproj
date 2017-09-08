@@ -12,7 +12,50 @@
 		2AD71E891F61945700C96705 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AD71E871F61945700C96705 /* Main.storyboard */; };
 		2AD71E8B1F61945700C96705 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AD71E8A1F61945700C96705 /* Assets.xcassets */; };
 		2AD71E8E1F61945700C96705 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AD71E8C1F61945700C96705 /* LaunchScreen.storyboard */; };
+		2ADF9A221F629211004CF313 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A1B1F629211004CF313 /* Alamofire.framework */; };
+		2ADF9A231F629211004CF313 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A1B1F629211004CF313 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2ADF9A241F629211004CF313 /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A1C1F629211004CF313 /* Moya.framework */; };
+		2ADF9A251F629211004CF313 /* Moya.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A1C1F629211004CF313 /* Moya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2ADF9A261F629211004CF313 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A1D1F629211004CF313 /* ObjectMapper.framework */; };
+		2ADF9A271F629211004CF313 /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A1D1F629211004CF313 /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2ADF9A281F629211004CF313 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A1E1F629211004CF313 /* RxCocoa.framework */; };
+		2ADF9A291F629211004CF313 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A1E1F629211004CF313 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2ADF9A2A1F629211004CF313 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A1F1F629211004CF313 /* RxSwift.framework */; };
+		2ADF9A2B1F629211004CF313 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A1F1F629211004CF313 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2ADF9A2C1F629211004CF313 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A201F629211004CF313 /* SDWebImage.framework */; };
+		2ADF9A2D1F629211004CF313 /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A201F629211004CF313 /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2ADF9A2E1F629211004CF313 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A211F629211004CF313 /* SwiftyJSON.framework */; };
+		2ADF9A2F1F629211004CF313 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A211F629211004CF313 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2ADF9A431F629660004CF313 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A401F629660004CF313 /* ReactiveSwift.framework */; };
+		2ADF9A441F629660004CF313 /* ReactiveSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A401F629660004CF313 /* ReactiveSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2ADF9A451F629660004CF313 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A411F629660004CF313 /* Result.framework */; };
+		2ADF9A461F629660004CF313 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A411F629660004CF313 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2ADF9A471F629660004CF313 /* RxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A421F629660004CF313 /* RxMoya.framework */; };
+		2ADF9A481F629660004CF313 /* RxMoya.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A421F629660004CF313 /* RxMoya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2ADF9A301F629211004CF313 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2ADF9A481F629660004CF313 /* RxMoya.framework in Embed Frameworks */,
+				2ADF9A2B1F629211004CF313 /* RxSwift.framework in Embed Frameworks */,
+				2ADF9A291F629211004CF313 /* RxCocoa.framework in Embed Frameworks */,
+				2ADF9A271F629211004CF313 /* ObjectMapper.framework in Embed Frameworks */,
+				2ADF9A461F629660004CF313 /* Result.framework in Embed Frameworks */,
+				2ADF9A441F629660004CF313 /* ReactiveSwift.framework in Embed Frameworks */,
+				2ADF9A251F629211004CF313 /* Moya.framework in Embed Frameworks */,
+				2ADF9A2F1F629211004CF313 /* SwiftyJSON.framework in Embed Frameworks */,
+				2ADF9A2D1F629211004CF313 /* SDWebImage.framework in Embed Frameworks */,
+				2ADF9A231F629211004CF313 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2AD71E801F61945700C96705 /* MvvmRXSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MvvmRXSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +65,16 @@
 		2AD71E8A1F61945700C96705 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AD71E8D1F61945700C96705 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2AD71E8F1F61945700C96705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2ADF9A1B1F629211004CF313 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		2ADF9A1C1F629211004CF313 /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/iOS/Moya.framework; sourceTree = "<group>"; };
+		2ADF9A1D1F629211004CF313 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		2ADF9A1E1F629211004CF313 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		2ADF9A1F1F629211004CF313 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		2ADF9A201F629211004CF313 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
+		2ADF9A211F629211004CF313 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		2ADF9A401F629660004CF313 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
+		2ADF9A411F629660004CF313 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
+		2ADF9A421F629660004CF313 /* RxMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMoya.framework; path = Carthage/Build/iOS/RxMoya.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +82,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ADF9A471F629660004CF313 /* RxMoya.framework in Frameworks */,
+				2ADF9A2A1F629211004CF313 /* RxSwift.framework in Frameworks */,
+				2ADF9A281F629211004CF313 /* RxCocoa.framework in Frameworks */,
+				2ADF9A261F629211004CF313 /* ObjectMapper.framework in Frameworks */,
+				2ADF9A451F629660004CF313 /* Result.framework in Frameworks */,
+				2ADF9A431F629660004CF313 /* ReactiveSwift.framework in Frameworks */,
+				2ADF9A241F629211004CF313 /* Moya.framework in Frameworks */,
+				2ADF9A2E1F629211004CF313 /* SwiftyJSON.framework in Frameworks */,
+				2ADF9A2C1F629211004CF313 /* SDWebImage.framework in Frameworks */,
+				2ADF9A221F629211004CF313 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +101,7 @@
 		2AD71E771F61945700C96705 = {
 			isa = PBXGroup;
 			children = (
+				2ADF9A311F62921B004CF313 /* Framework */,
 				2AD71E821F61945700C96705 /* MvvmRXSwift */,
 				2AD71E811F61945700C96705 /* Products */,
 			);
@@ -54,6 +118,11 @@
 		2AD71E821F61945700C96705 /* MvvmRXSwift */ = {
 			isa = PBXGroup;
 			children = (
+				2ADF9A321F6295FA004CF313 /* API */,
+				2ADF9A331F6295FA004CF313 /* Components */,
+				2ADF9A371F6295FA004CF313 /* Models */,
+				2ADF9A381F6295FA004CF313 /* ViewModels */,
+				2ADF9A3C1F6295FA004CF313 /* Views */,
 				2AD71E831F61945700C96705 /* AppDelegate.swift */,
 				2AD71E851F61945700C96705 /* ViewController.swift */,
 				2AD71E871F61945700C96705 /* Main.storyboard */,
@@ -62,6 +131,130 @@
 				2AD71E8F1F61945700C96705 /* Info.plist */,
 			);
 			path = MvvmRXSwift;
+			sourceTree = "<group>";
+		};
+		2ADF9A311F62921B004CF313 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				2ADF9A401F629660004CF313 /* ReactiveSwift.framework */,
+				2ADF9A411F629660004CF313 /* Result.framework */,
+				2ADF9A421F629660004CF313 /* RxMoya.framework */,
+				2ADF9A1B1F629211004CF313 /* Alamofire.framework */,
+				2ADF9A1C1F629211004CF313 /* Moya.framework */,
+				2ADF9A1D1F629211004CF313 /* ObjectMapper.framework */,
+				2ADF9A1E1F629211004CF313 /* RxCocoa.framework */,
+				2ADF9A1F1F629211004CF313 /* RxSwift.framework */,
+				2ADF9A201F629211004CF313 /* SDWebImage.framework */,
+				2ADF9A211F629211004CF313 /* SwiftyJSON.framework */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
+		2ADF9A321F6295FA004CF313 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		2ADF9A331F6295FA004CF313 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2ADF9A341F6295FA004CF313 /* Constant */,
+				2ADF9A351F6295FA004CF313 /* Extension */,
+				2ADF9A361F6295FA004CF313 /* Helper */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2ADF9A341F6295FA004CF313 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		2ADF9A351F6295FA004CF313 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		2ADF9A361F6295FA004CF313 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		2ADF9A371F6295FA004CF313 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2ADF9A381F6295FA004CF313 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2ADF9A391F6295FA004CF313 /* Cells */,
+				2ADF9A3A1F6295FA004CF313 /* ViewControllers */,
+				2ADF9A3B1F6295FA004CF313 /* Views */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		2ADF9A391F6295FA004CF313 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		2ADF9A3A1F6295FA004CF313 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2ADF9A3B1F6295FA004CF313 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2ADF9A3C1F6295FA004CF313 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2ADF9A3D1F6295FA004CF313 /* Cells */,
+				2ADF9A3E1F6295FA004CF313 /* ViewControllers */,
+				2ADF9A3F1F6295FA004CF313 /* Views */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2ADF9A3D1F6295FA004CF313 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		2ADF9A3E1F6295FA004CF313 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2ADF9A3F1F6295FA004CF313 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +267,7 @@
 				2AD71E7C1F61945700C96705 /* Sources */,
 				2AD71E7D1F61945700C96705 /* Frameworks */,
 				2AD71E7E1F61945700C96705 /* Resources */,
+				2ADF9A301F629211004CF313 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -262,6 +456,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MvvmRXSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kai.MvvmRXSwift;
@@ -274,6 +472,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MvvmRXSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kai.MvvmRXSwift;
@@ -301,6 +503,7 @@
 				2AD71E941F61945700C96705 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,6 @@
+github "ReactiveX/RxSwift" ~> 3.0
+github "Moya/Moya"
+github "SwiftyJSON/SwiftyJSON"
+github "Hearst-DD/ObjectMapper" ~> 2.2
+github "rs/SDWebImage"
+github "RxSwiftCommunity/Action" ~> 2.3.0
