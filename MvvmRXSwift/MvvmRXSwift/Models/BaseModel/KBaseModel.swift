@@ -9,4 +9,16 @@
 import Foundation
 import ObjectMapper
 
-protocol KBaseModel: BaseMappable {}
+
+class KBaseModel: Mappable {
+    /// This function is where all variable mappings should occur. It is executed by Mapper during the mapping (serialization and deserialization) process.
+    func mapping(map: Map) {
+        
+    }
+
+    required init?(map: Map) {
+        
+    }
+
+    
+}

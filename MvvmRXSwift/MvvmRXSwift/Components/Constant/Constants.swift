@@ -8,6 +8,13 @@
 
 import UIKit
 
+
+public let BASE_URL = "https://api.themoviedb.org/3/"
+public let BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500/"
+public let MOVIEDB_API_KEY = "f7b6a27fedf4a430dd71f5a7e8bec2a5"
+public let BASE_IMAGE_URL_LANSCAPE = "https://image.tmdb.org/t/p/w500_and_h281_bestv2/"
+
+
 struct KColor {
     static let redColor = UIColor(red: 207/255, green: 15/255, blue: 37/255, alpha: 1)
     static let yellowColor = UIColor(red: 254/255, green: 246/255, blue: 163/255, alpha: 1)

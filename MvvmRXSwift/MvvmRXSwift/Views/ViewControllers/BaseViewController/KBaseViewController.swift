@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 //MARK: Style Navigation Bar
 
@@ -16,6 +17,8 @@ enum StyleNavigation {
 }
 
 class KBaseViewController: UIViewController {
+    let bag = DisposeBag()
+    
     let activityIndicator: UIActivityIndicatorView = {
         let aiv = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         aiv.startAnimating()
@@ -145,7 +148,6 @@ extension KBaseViewController {
         self.blackView.addSubview(lbUpLoading)
         lbUpLoading.anchorCenterXToSuperview()
         lbUpLoading.topAnchor.constraint(equalTo: activityIndicator.bottomAnchor, constant: 20).isActive = true
-        
     }
     
     func showActivityIndicator(){
