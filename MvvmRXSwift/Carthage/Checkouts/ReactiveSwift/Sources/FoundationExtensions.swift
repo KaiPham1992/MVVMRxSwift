@@ -35,7 +35,7 @@ extension Reactive where Base: NotificationCenter {
 				observer.send(value: notification)
 			}
 
-			return AnyDisposable {
+			return ActionDisposable {
 				base.removeObserver(notificationObserver)
 			}
 		}
@@ -63,7 +63,7 @@ extension Reactive where Base: URLSession {
 	///         side error (i.e. when a response with status code other than
 	///         200...299 is received).
 	public func data(with request: URLRequest) -> SignalProducer<(Data, URLResponse), AnyError> {
-		return SignalProducer { [base = self.base] observer, lifetime in
+		return SignalProducer { [base = self.base] observer, disposable in
 			let task = base.dataTask(with: request) { data, response, error in
 				if let data = data, let response = response {
 					observer.send(value: (data, response))
@@ -73,7 +73,9 @@ extension Reactive where Base: URLSession {
 				}
 			}
 
-			lifetime.observeEnded(task.cancel)
+			disposable += {
+				task.cancel()
+			}
 			task.resume()
 		}
 	}

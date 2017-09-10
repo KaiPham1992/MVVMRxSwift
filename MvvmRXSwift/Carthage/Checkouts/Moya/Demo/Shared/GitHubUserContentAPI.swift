@@ -21,10 +21,19 @@ extension GitHubUserContent: TargetType {
             return .get
         }
     }
+    public var parameters: [String: Any]? {
+        switch self {
+        case .downloadMoyaWebContent:
+            return nil
+        }
+    }
+    public var parameterEncoding: ParameterEncoding {
+        return URLEncoding.default
+    }
     public var task: Task {
         switch self {
         case .downloadMoyaWebContent:
-            return .downloadDestination(DefaultDownloadDestination)
+            return .download(.request(DefaultDownloadDestination))
         }
     }
     public var sampleData: Data {
@@ -33,9 +42,7 @@ extension GitHubUserContent: TargetType {
             return animatedBirdData() as Data
         }
     }
-    public var headers: [String: String]? {
-        return nil
-    }
+
 }
 
 private let DefaultDownloadDestination: DownloadDestination = { temporaryURL, response in

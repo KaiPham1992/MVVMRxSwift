@@ -56,7 +56,7 @@ extension GitHub: TargetType {
         return URLEncoding.default
     }
     public var task: Task {
-        return .requestPlain
+        return .request
     }
     public var validate: Bool {
         switch self {
@@ -75,9 +75,6 @@ extension GitHub: TargetType {
         case .userRepositories(_):
             return "[{\"name\": \"Repo Name\"}]".data(using: String.Encoding.utf8)!
         }
-    }
-    public var headers: [String: String]? {
-        return nil
     }
 }
 

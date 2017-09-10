@@ -6,18 +6,13 @@
 //  Copyright (c) 2014 GitHub. All rights reserved.
 //
 
+/// A uniquely identifying token for removing a value that was inserted into a
+/// Bag.
+public final class RemovalToken {}
+
 /// An unordered, non-unique collection of values of type `Element`.
 public struct Bag<Element> {
-	/// A uniquely identifying token for removing a value that was inserted into a
-	/// Bag.
-	public struct Token {
-		fileprivate let value: UInt64
-	}
-
-	fileprivate var elements: ContiguousArray<Element> = []
-	fileprivate var tokens: ContiguousArray<UInt64> = []
-
-	private var nextToken: Token = Token(value: 0)
+	fileprivate var elements: ContiguousArray<BagElement<Element>> = []
 
 	public init() {}
 
@@ -27,16 +22,11 @@ public struct Bag<Element> {
 	/// - parameters:
 	///   - value: A value that will be inserted.
 	@discardableResult
-	public mutating func insert(_ value: Element) -> Token {
-		let token = nextToken
+	public mutating func insert(_ value: Element) -> RemovalToken {
+		let token = RemovalToken()
+		let element = BagElement(value: value, token: token)
 
-		// Practically speaking, this would overflow only if we have 101% uptime and we
-		// manage to call `insert(_:)` every 1 ns for 500+ years non-stop.
-		nextToken = Token(value: token.value + 1)
-
-		elements.append(value)
-		tokens.append(token.value)
-
+		elements.append(element)
 		return token
 	}
 
@@ -46,57 +36,73 @@ public struct Bag<Element> {
 	///
 	/// - parameters:
 	///   - token: A token returned from a call to `insert()`.
-	@discardableResult
-	public mutating func remove(using token: Token) -> Element? {
-		for i in (elements.startIndex ..< elements.endIndex).reversed() {
-			if tokens[i] == token.value {
-				tokens.remove(at: i)
-				return elements.remove(at: i)
+	public mutating func remove(using token: RemovalToken) {
+		let tokenIdentifier = ObjectIdentifier(token)
+		// Removal is more likely for recent objects than old ones.
+		for i in elements.indices.reversed() {
+			if ObjectIdentifier(elements[i].token) == tokenIdentifier {
+				elements.remove(at: i)
+				break
 			}
 		}
-
-		return nil
 	}
 }
 
-extension Bag: RandomAccessCollection {
-	public var startIndex: Int {
+extension Bag: Collection {
+	public typealias Index = Array<Element>.Index
+
+	public var startIndex: Index {
 		return elements.startIndex
 	}
-
-	public var endIndex: Int {
+	
+	public var endIndex: Index {
 		return elements.endIndex
 	}
 
-	public subscript(index: Int) -> Element {
-		return elements[index]
+	public subscript(index: Index) -> Element {
+		return elements[index].value
 	}
 
-	public func makeIterator() -> Iterator {
-		return Iterator(elements)
+	public func index(after i: Index) -> Index {
+		return i + 1
 	}
 
-	/// An iterator of `Bag`.
-	public struct Iterator: IteratorProtocol {
-		private let base: ContiguousArray<Element>
-		private var nextIndex: Int
-		private let endIndex: Int
+	public func makeIterator() -> BagIterator<Element> {
+		return BagIterator(elements)
+	}
+}
 
-		fileprivate init(_ base: ContiguousArray<Element>) {
-			self.base = base
-			nextIndex = base.startIndex
-			endIndex = base.endIndex
+private struct BagElement<Value> {
+	let value: Value
+	let token: RemovalToken
+}
+
+extension BagElement: CustomStringConvertible {
+	var description: String {
+		return "BagElement(\(value))"
+	}
+}
+
+/// An iterator of `Bag`.
+public struct BagIterator<Element>: IteratorProtocol {
+	private let base: ContiguousArray<BagElement<Element>>
+	private var nextIndex: Int
+	private let endIndex: Int
+
+	fileprivate init(_ base: ContiguousArray<BagElement<Element>>) {
+		self.base = base
+		nextIndex = base.startIndex
+		endIndex = base.endIndex
+	}
+
+	public mutating func next() -> Element? {
+		let currentIndex = nextIndex
+
+		if currentIndex < endIndex {
+			nextIndex = currentIndex + 1
+			return base[currentIndex].value
 		}
 
-		public mutating func next() -> Element? {
-			let currentIndex = nextIndex
-
-			if currentIndex < endIndex {
-				nextIndex = currentIndex + 1
-				return base[currentIndex]
-			}
-
-			return nil
-		}
+		return nil
 	}
 }

@@ -1,21 +1,23 @@
-# ReactiveSwift
+ReactiveSwift
+=============
 
-Moya provides an optional `ReactiveSwift` implementation of
+Moya provides an optional `ReactiveSwiftMoyaProvider` subclass of
 `MoyaProvider` that does a few interesting things. Instead of
 calling the `request()` method and providing a callback closure
-to be executed when the request completes, we use `SignalProducer`s.
+to be executed when the request completes, we use `SignalProducer`s
+(`RACSignal`s are also available for those who need it).
 
-To use reactive extensions you don't need any additional setup.
-Just use your `MoyaProvider` instance.
+A `ReactiveSwiftMoyaProvider` can be created much like a
+[`MoyaProvider`](Providers.md) and can be used as follows:
 
 ```swift
-let provider = MoyaProvider<GitHub>()
+let provider = ReactiveSwiftMoyaProvider<GitHub>()
 ```
 
 After that simple setup, you're off to the races:
 
 ```swift
-provider.reactive.request(.zen).start { event in
+provider.request(.zen).start { event in
     switch event {
     case let .value(response):
         // do something with the data
@@ -27,26 +29,7 @@ provider.reactive.request(.zen).start { event in
 }
 ```
 
-You can also use `requestWithProgress` to track progress of 
-your request:
-```swift
-provider.reactive.requestWithProgress(.zen).start { event in
-    switch event {
-    case .value(let progressResponse):
-        if let response = progressResponse.response {
-            // do something with response
-        } else {
-            print("Progress: \(progressResponse.progress)")
-        }
-    case .failed(let error):
-        // handle the error
-    default:
-        break
-    }
-}
-```
-
-It's important to remember that network request is not started
+For `ReactiveSwiftMoyaProvider`, the network request is not started
 until the signal is subscribed to. If the subscription to the signal
 is disposed of before the request completes, the request is canceled.
 
@@ -60,11 +43,11 @@ then it sends an error, instead. The error's `code` is the failing
 request's status code, if any, and the response data, if any.
 
 The `Moya.Response` class contains a `statusCode`, some `data`,
-and a(n optional) `HTTPURLResponse`. You can use these values however
+and a(n optional) `URLResponse`. You can use these values however
 you like in `startWithNext` or `map` calls.
 
 To make things even awesomer, Moya provides some extensions to
-`SignalProducer` that make dealing with `Moya.Responses`
+`SignalProducer` (and `RACSignal`) that make dealing with `Moya.Responses`
 really easy.
 
 - `filter(statusCodes:)` takes a range of status codes. If the

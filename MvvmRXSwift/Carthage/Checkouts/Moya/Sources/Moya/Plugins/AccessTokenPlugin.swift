@@ -6,43 +6,40 @@ import Result
 /// A protocol for controlling the behavior of `AccessTokenPlugin`.
 public protocol AccessTokenAuthorizable {
 
-    /// Represents the authorization header to use for requests.
-    var authorizationType: AuthorizationType { get }
-}
-
-// MARK: - AuthorizationType
-
-/// An enum representing the header to use with an `AccessTokenPlugin`
-public enum AuthorizationType: String {
-    case none
-    case basic = "Basic"
-    case bearer = "Bearer"
+    /// Declares whether or not `AccessTokenPlugin` should add an authorization header
+    /// to requests.
+    var shouldAuthorize: Bool { get }
 }
 
 // MARK: - AccessTokenPlugin
 
 /**
- A plugin for adding basic or bearer-type authorization headers to requests. Example:
+ A plugin for adding bearer-type authorization headers to requests. Example:
 
  ```
  Authorization: Bearer <token>
- Authorization: Basic <token>
  ```
 
+ - Note: By default, requests to all `TargetType`s will receive this header. You can control this
+   behvaior by conforming to `AccessTokenAuthorizable`.
 */
 public struct AccessTokenPlugin: PluginType {
 
-    /// A closure returning the access token to be applied in the header.
-    public let tokenClosure: () -> String
+    /// The access token to be applied in the header.
+    public let token: String
+
+    private var authVal: String {
+        return "Bearer " + token
+    }
 
     /**
      Initialize a new `AccessTokenPlugin`.
 
      - parameters:
-       - tokenClosure: A closure returning the token to be applied in the pattern `Authorization: <AuthorizationType> <token>`
+       - token: The token to be applied in the pattern `Authorization: Bearer <token>`
     */
-    public init(tokenClosure: @escaping @autoclosure () -> String) {
-        self.tokenClosure = tokenClosure
+    public init(token: String) {
+        self.token = token
     }
 
     /**
@@ -54,19 +51,12 @@ public struct AccessTokenPlugin: PluginType {
      - returns: The modified `URLRequest`.
     */
     public func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
-        guard let authorizable = target as? AccessTokenAuthorizable else { return request }
-
-        let authorizationType = authorizable.authorizationType
+        if let authorizable = target as? AccessTokenAuthorizable, authorizable.shouldAuthorize == false {
+            return request
+        }
 
         var request = request
-
-        switch authorizationType {
-        case .basic, .bearer:
-            let authValue = authorizationType.rawValue + " " + tokenClosure()
-            request.addValue(authValue, forHTTPHeaderField: "Authorization")
-        case .none:
-            break
-        }
+        request.addValue(authVal, forHTTPHeaderField: "Authorization")
 
         return request
     }

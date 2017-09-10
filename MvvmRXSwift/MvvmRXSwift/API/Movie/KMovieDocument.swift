@@ -15,18 +15,14 @@ enum KMovieDocument {
 }
 
 extension KMovieDocument: TargetType {
-    var headers: [String : String]? {
-        return ["Content-type": "application/json"]
-    }
-
     /// The type of HTTP task to be performed.
     var task: Task {
-        return .requestPlain
+        return .request
     }
 
     /// Provides stub data for use in testing.
     var sampleData: Data {
-        return "".data(using: .utf8)!
+        return Data()
     }
 
     /// The HTTP method used in the request.
@@ -49,5 +45,23 @@ extension KMovieDocument: TargetType {
         return URL(string: BASE_URL)!
     }
 
+    /// The method used for parameter encoding.
+    var parameterEncoding: ParameterEncoding {
+        return URLEncoding.default
+    }
+
+    /// The parameters to be encoded in the request.
+    var parameters: [String : Any]? {
+        switch self {
+        case .getPopular(let page):
+            return KMovieParameterGetList(page: page).toParameter()
+        case .getTopRate(let page):
+            return KMovieParameterGetList(page: page).toParameter()
+        }
+    }
+    
+    var headers: [String : String]? {
+        return ["Content-type": "application/json"]
+    }
     
 }

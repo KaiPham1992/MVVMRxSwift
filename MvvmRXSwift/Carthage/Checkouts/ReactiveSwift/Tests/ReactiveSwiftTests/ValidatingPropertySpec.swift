@@ -265,7 +265,7 @@ private enum FlattenedResult<Value: Equatable>: Equatable {
 	case valid(Value)
 	case coerced(Value, Value, TestError?)
 
-	init(_ result: ValidatingProperty<Value, TestError>.Result) {
+	init(_ result: ValidationResult<Value, TestError>) {
 		switch result {
 		case let .valid(value):
 			self = .valid(value)

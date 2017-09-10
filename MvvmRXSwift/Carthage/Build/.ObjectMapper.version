@@ -2,7 +2,7 @@
   "commitish" : "2.2.8",
   "iOS" : [
     {
-      "hash" : "cac1e334ea8780da3a35ec5b177efef294e2f64f59a02e38d5eab8f633023405",
+      "hash" : "ce4912603f892b5606eec1bb333085a9ab0da8c4f4571bc208e20b89a130384c",
       "name" : "ObjectMapper"
     }
   ]

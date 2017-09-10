@@ -13,7 +13,7 @@ import UIKit
 class KBaseCollectionViewCell: UICollectionViewCell {
     let separatorLineView: UIView = {
         let lineView = UIView()
-        lineView.backgroundColor = KColor.grayColor
+        lineView.backgroundColor = KColor.lineColor
         lineView.isHidden = true
         return lineView
     }()

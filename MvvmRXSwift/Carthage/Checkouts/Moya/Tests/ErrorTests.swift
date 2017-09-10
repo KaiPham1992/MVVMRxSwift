@@ -40,7 +40,7 @@ class ErrorTests: QuickSpec {
 
             it("should not handle Underlying error ") {
                 let nsError = NSError(domain: "Domain", code: 200, userInfo: ["data": "some data"])
-                let error = MoyaError.underlying(nsError, nil)
+                let error = MoyaError.underlying(nsError)
 
                 expect(error.response).to( beNil() )
             }
@@ -52,7 +52,7 @@ class ErrorTests: QuickSpec {
             it("fails on mapJSON with default parameter") {
                 var mapJSONFailed = false
                 do {
-                    _ = try response.mapJSON()
+                    let _ = try response.mapJSON()
                 } catch {
                     mapJSONFailed = true
                 }
@@ -63,7 +63,7 @@ class ErrorTests: QuickSpec {
             it("returns default non-nil value on mapJSON with overridden parameter") {
                 var succeeded = true
                 do {
-                    _ = try response.mapJSON(failsOnEmptyData: false)
+                    let _ = try response.mapJSON(failsOnEmptyData: false)
                 } catch {
                     succeeded = false
                 }
@@ -82,7 +82,7 @@ class ErrorTests: QuickSpec {
                 switch result {
                 case let .failure(error):
                     switch error {
-                    case let .underlying(e, _):
+                    case let .underlying(e):
                         expect(e as NSError) == underlyingError
                     default:
                         XCTFail("expected to get underlying error")

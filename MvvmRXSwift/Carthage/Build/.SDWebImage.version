@@ -2,7 +2,7 @@
   "commitish" : "4.1.0",
   "iOS" : [
     {
-      "hash" : "6896d6006ddddeb880bf6f04b1c2794e19cd6a01b5353892f9bc8bb7a855391e",
+      "hash" : "8770cf7754e44fce7878a8ccbbd4a0a4fda06348b6cc8311e582a3ac975f5516",
       "name" : "SDWebImage"
     }
   ]

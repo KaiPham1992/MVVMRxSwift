@@ -8,44 +8,37 @@ final class AccessTokenPluginSpec: QuickSpec {
         let baseURL = URL(string: "http://www.api.com/")!
         let path = ""
         let method = Method.get
-        let task = Task.requestPlain
+        let parameters: [String: Any]? = nil
+        let parameterEncoding: ParameterEncoding = URLEncoding.default
+        let task = Task.request
         let sampleData = Data()
-        let headers: [String: String]? = nil
 
-        let authorizationType: AuthorizationType
+        let shouldAuthorize: Bool
     }
 
     override func spec() {
         let token = "eyeAm.AJsoN.weBTOKen"
-        let plugin = AccessTokenPlugin(tokenClosure: token)
+        let plugin = AccessTokenPlugin(token: token)
 
-        it("doesn't add an authorization header to TargetTypes by default") {
+        it("adds an authorization header to TargetTypes by default") {
             let target = GitHub.zen
-            let request = URLRequest(url: target.baseURL)
-            let preparedRequest = plugin.prepare(request, target: target)
-            expect(preparedRequest.allHTTPHeaderFields).to(beNil())
-        }
-
-        it("doesn't add an authorization header to AccessTokenAuthorizables when AuthorizationType is .none") {
-            let target = TestTarget(authorizationType: .none)
-            let request = URLRequest(url: target.baseURL)
-            let preparedRequest = plugin.prepare(request, target: target)
-            expect(preparedRequest.allHTTPHeaderFields).to(beNil())
-        }
-
-        it("adds a bearer authorization header to AccessTokenAuthorizables when AuthorizationType is .bearer") {
-            let target = TestTarget(authorizationType: .bearer)
             let request = URLRequest(url: target.baseURL)
             let preparedRequest = plugin.prepare(request, target: target)
             expect(preparedRequest.allHTTPHeaderFields) == ["Authorization": "Bearer eyeAm.AJsoN.weBTOKen"]
         }
 
-        it("adds a basic authorization header to AccessTokenAuthorizables when AuthorizationType is .basic") {
-            let target = TestTarget(authorizationType: .basic)
+        it("adds an authorization header to AccessTokenAuthorizables when it's supposed to") {
+            let target = TestTarget(shouldAuthorize: true)
             let request = URLRequest(url: target.baseURL)
             let preparedRequest = plugin.prepare(request, target: target)
-            expect(preparedRequest.allHTTPHeaderFields) == ["Authorization": "Basic eyeAm.AJsoN.weBTOKen"]
+            expect(preparedRequest.allHTTPHeaderFields) == ["Authorization": "Bearer eyeAm.AJsoN.weBTOKen"]
         }
 
+        it("doesn't add an authorization header to AccessTokenAuthorizables when it's not supposed to") {
+            let target = TestTarget(shouldAuthorize: false)
+            let request = URLRequest(url: target.baseURL)
+            let preparedRequest = plugin.prepare(request, target: target)
+            expect(preparedRequest.allHTTPHeaderFields).to(beNil())
+        }
     }
 }

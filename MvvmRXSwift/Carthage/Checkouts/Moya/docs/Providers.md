@@ -1,4 +1,5 @@
-# Providers
+Providers
+=========
 
 When using Moya, you make all API requests through a `MoyaProvider` instance,
 passing in a value of your enum that specifies which endpoint you want to call.
@@ -19,7 +20,7 @@ provider.request(.zen) { result in
 
 That's it! The `request()` method returns a `Cancellable`, which has
 only one public function, `cancel()`, which you can use to cancel the
-request. See [Examples](Examples) for more information about the `Result`
+request.  See [Examples](Examples) for more information about the `Result`
 type.
 
 Remember, *where* you put your target and the provider, are completely up
@@ -28,7 +29,8 @@ for an example.
 
 But don't forget to keep a reference for it in property. If it gets deallocated you'll see `-999 "canceled"` error on response.
 
-## Advanced Usage
+Advanced Usage
+------------
 
 To explain all configuration options you have with a `MoyaProvider` we will cover each parameter one by one in the following sections.
 
@@ -40,8 +42,8 @@ concrete `Endpoint` instance. Let's take a look at what one might look like.
 
 ```swift
 let endpointClosure = { (target: MyTarget) -> Endpoint<MyTarget> in
-    let url = URL(target: target).absoluteString
-    return Endpoint(url: url, sampleResponseClosure: {.networkResponse(200, target.sampleData)}, method: target.method, task: target.task)
+    let url = target.baseURL.appendingPathComponent(target.path).absoluteString
+    return Endpoint(url: url, sampleResponseClosure: {.networkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters)
 }
 let provider = MoyaProvider(endpointClosure: endpointClosure)
 ```
@@ -49,8 +51,6 @@ let provider = MoyaProvider(endpointClosure: endpointClosure)
 Notice that we don't have to specify the generic type in the `MoyaProvider`
 initializer anymore, since Swift will infer it from the type of our
 `endpointClosure`. Neat!
-
-You may also notice the `URL(target:)` initializer, Moya provides a convenient extension to create a `URL` from any `TargetType`.
 
 This `endpointClosure` is about as simple as you can get. It's actually the
 default implementation, too, stored in `MoyaProvider.defaultEndpointMapping`.

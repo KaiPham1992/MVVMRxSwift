@@ -14,7 +14,7 @@ class DisposableSpec: QuickSpec {
 	override func spec() {
 		describe("SimpleDisposable") {
 			it("should set disposed to true") {
-				let disposable = AnyDisposable()
+				let disposable = SimpleDisposable()
 				expect(disposable.isDisposed) == false
 
 				disposable.dispose()
@@ -25,7 +25,7 @@ class DisposableSpec: QuickSpec {
 		describe("ActionDisposable") {
 			it("should run the given action upon disposal") {
 				var didDispose = false
-				let disposable = AnyDisposable {
+				let disposable = ActionDisposable {
 					didDispose = true
 				}
 
@@ -51,7 +51,7 @@ class DisposableSpec: QuickSpec {
 			}
 
 			it("should dispose of added disposables") {
-				let simpleDisposable = AnyDisposable()
+				let simpleDisposable = SimpleDisposable()
 				disposable += simpleDisposable
 
 				var didDispose = false
@@ -70,12 +70,12 @@ class DisposableSpec: QuickSpec {
 			}
 
 			it("should not dispose of removed disposables") {
-				let simpleDisposable = AnyDisposable()
+				let simpleDisposable = SimpleDisposable()
 				let handle = disposable += simpleDisposable
 
 				// We should be allowed to call this any number of times.
-				handle?.dispose()
-				handle?.dispose()
+				handle.remove()
+				handle.remove()
 				expect(simpleDisposable.isDisposed) == false
 
 				disposable.dispose()
@@ -85,13 +85,13 @@ class DisposableSpec: QuickSpec {
 
 		describe("ScopedDisposable") {
 			it("should be initialized with an instance of `Disposable` protocol type") {
-				let d: Disposable = AnyDisposable()
+				let d: Disposable = SimpleDisposable()
 				let scoped = ScopedDisposable(d)
 				expect(type(of: scoped) == ScopedDisposable<AnyDisposable>.self) == true
 			}
 
 			it("should dispose of the inner disposable upon deinitialization") {
-				let simpleDisposable = AnyDisposable()
+				let simpleDisposable = SimpleDisposable()
 
 				func runScoped() {
 					let scopedDisposable = ScopedDisposable(simpleDisposable)
@@ -114,7 +114,7 @@ class DisposableSpec: QuickSpec {
 			}
 
 			it("should dispose of the inner disposable") {
-				let simpleDisposable = AnyDisposable()
+				let simpleDisposable = SimpleDisposable()
 				disposable.inner = simpleDisposable
 
 				expect(disposable.inner).notTo(beNil())
@@ -128,8 +128,8 @@ class DisposableSpec: QuickSpec {
 			}
 
 			it("should dispose of the previous disposable when swapping innerDisposable") {
-				let oldDisposable = AnyDisposable()
-				let newDisposable = AnyDisposable()
+				let oldDisposable = SimpleDisposable()
+				let newDisposable = SimpleDisposable()
 
 				disposable.inner = oldDisposable
 				expect(oldDisposable.isDisposed) == false

@@ -1,31 +1,22 @@
 import Foundation
 
-private func matcherMessage<T>(forType expectedType: T.Type) -> String {
-    return "be a kind of \(String(describing: expectedType))"
-}
-private func matcherMessage(forClass expectedClass: AnyClass) -> String {
-    return "be a kind of \(String(describing: expectedClass))"
-}
-
 /// A Nimble matcher that succeeds when the actual value is an instance of the given class.
-public func beAKindOf<T>(_ expectedType: T.Type) -> Predicate<Any> {
-    return Predicate.define { actualExpression in
-        let message: ExpectationMessage
-
+public func beAKindOf<T>(_ expectedType: T.Type) -> NonNilMatcherFunc<Any> {
+    return NonNilMatcherFunc {actualExpression, failureMessage in
+        failureMessage.postfixMessage = "be a kind of \(String(describing: expectedType))"
         let instance = try actualExpression.evaluate()
         guard let validInstance = instance else {
-            message = .expectedCustomValueTo(matcherMessage(forType: expectedType), "<nil>")
-            return PredicateResult(status: .fail, message: message)
+            failureMessage.actualValue = "<nil>"
+            return false
         }
-        message = .expectedCustomValueTo(
-            "be a kind of \(String(describing: expectedType))",
-            "<\(String(describing: type(of: validInstance))) instance>"
-        )
 
-        return PredicateResult(
-            bool: validInstance is T,
-            message: message
-        )
+        failureMessage.actualValue = "<\(String(describing: type(of: validInstance))) instance>"
+
+        guard validInstance is T else {
+            return false
+        }
+
+        return true
     }
 }
 
@@ -33,27 +24,16 @@ public func beAKindOf<T>(_ expectedType: T.Type) -> Predicate<Any> {
 
 /// A Nimble matcher that succeeds when the actual value is an instance of the given class.
 /// @see beAnInstanceOf if you want to match against the exact class
-public func beAKindOf(_ expectedClass: AnyClass) -> Predicate<NSObject> {
-    return Predicate.define { actualExpression in
-        let message: ExpectationMessage
-        let status: PredicateStatus
-
+public func beAKindOf(_ expectedClass: AnyClass) -> NonNilMatcherFunc<NSObject> {
+    return NonNilMatcherFunc { actualExpression, failureMessage in
         let instance = try actualExpression.evaluate()
         if let validInstance = instance {
-            status = PredicateStatus(bool: instance != nil && instance!.isKind(of: expectedClass))
-            message = .expectedCustomValueTo(
-                matcherMessage(forClass: expectedClass),
-                "<\(String(describing: type(of: validInstance))) instance>"
-            )
+            failureMessage.actualValue = "<\(String(describing: type(of: validInstance))) instance>"
         } else {
-            status = .fail
-            message = .expectedCustomValueTo(
-                matcherMessage(forClass: expectedClass),
-                "<nil>"
-            )
+            failureMessage.actualValue = "<nil>"
         }
-
-        return PredicateResult(status: status, message: message)
+        failureMessage.postfixMessage = "be a kind of \(String(describing: expectedClass))"
+        return instance != nil && instance!.isKind(of: expectedClass)
     }
 }
 

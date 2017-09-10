@@ -121,10 +121,6 @@ final class EqualTest: XCTestCase, XCTestCaseProvider {
         failsWithErrorMessageForNil("expected to not equal <nil>, got <[1: 1]>") {
             expect([1: 1]).toNot(equal(nil as [Int: Int]?))
         }
-
-        failsWithErrorMessageForNil("expected to not equal <nil>, got <1>") {
-            expect(1).toNot(equal(nil))
-        }
     }
 
     func testDictionaryEquality() {
@@ -204,6 +200,8 @@ final class EqualTest: XCTestCase, XCTestCaseProvider {
     func testOptionalEquality() {
         expect(1 as CInt?).to(equal(1))
         expect(1 as CInt?).to(equal(1 as CInt?))
+
+        expect(1).toNot(equal(nil))
     }
 
     func testArrayOfOptionalsEquality() {

@@ -1,6 +1,7 @@
 import Quick
 import Nimble
 import OHHTTPStubs
+import Alamofire
 
 @testable import Moya
 @testable import ReactiveMoya
@@ -30,10 +31,6 @@ class MoyaProviderIntegrationTests: QuickSpec {
 
             OHHTTPStubs.stubRequests(passingTest: {$0.url!.path == "/users/ashfurrow"}) { _ in
                 return OHHTTPStubsResponse(data: GitHub.userProfile("ashfurrow").sampleData, statusCode: 200, headers: nil)
-            }
-
-            OHHTTPStubs.stubRequests(passingTest: {$0.url!.path == "/users/invalid"}) { _ in
-                return OHHTTPStubsResponse(data: GitHub.userProfile("invalid").sampleData, statusCode: 400, headers: nil)
             }
 
             OHHTTPStubs.stubRequests(passingTest: {$0.url!.path == "/basic-auth/user/passwd"}) { _ in
@@ -85,23 +82,6 @@ class MoyaProviderIntegrationTests: QuickSpec {
                         expect(message) == userMessage
                     }
 
-                    it("returns real response when validation fails") {
-                        var response: Response?
-
-                        waitUntil { done in
-                            let target: GitHub = .userProfile("invalid")
-                            provider.request(target) { result in
-                                if case let .failure(error) = result {
-                                    response = error.response
-                                }
-                                done()
-                            }
-                        }
-
-                        expect(response).toNot(beNil())
-                        expect(response?.statusCode).to(equal(400))
-                    }
-
                     it("uses a custom Alamofire.Manager request generation") {
                         let manager = StubManager()
                         let provider = MoyaProvider<GitHub>(manager: manager)
@@ -113,13 +93,13 @@ class MoyaProviderIntegrationTests: QuickSpec {
                         expect(manager.called) == true
                     }
 
-                    it("uses a background queue") {
+                    it("uses other background queue") {
                         var isMainThread: Bool?
-                        let callbackQueue = DispatchQueue(label: "background_queue", attributes: .concurrent)
+                        let queue = DispatchQueue(label: "background_queue", attributes: .concurrent)
                         let target: GitHub = .zen
 
                         waitUntil { done in
-                            provider.request(target, callbackQueue: callbackQueue) { _ in
+                            provider.request(target, queue:queue) { _ in
                                 isMainThread = Thread.isMainThread
                                 done()
                             }
@@ -128,9 +108,10 @@ class MoyaProviderIntegrationTests: QuickSpec {
                         expect(isMainThread) == false
                     }
 
-                    it("uses the main queue") {
+                    it("uses main queue") {
                         var isMainThread: Bool?
                         let target: GitHub = .zen
+
                         waitUntil { done in
                             provider.request(target) { _ in
                                 isMainThread = Thread.isMainThread

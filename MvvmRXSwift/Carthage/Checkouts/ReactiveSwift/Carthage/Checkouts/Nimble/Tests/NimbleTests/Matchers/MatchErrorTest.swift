@@ -27,7 +27,6 @@ final class MatchErrorTest: XCTestCase, XCTestCaseProvider {
         expect(NimbleError.laugh).toNot(matchError(NimbleError.cry))
         expect(NimbleError.laugh as Error).toNot(matchError(NimbleError.cry))
         expect(NimbleError.laugh).toNot(matchError(EquatableError.self))
-        expect(EquatableError.parameterized(x: 1)).toNot(matchError(EquatableError.parameterized(x: 2)))
     }
 
     func testMatchNSErrorPositive() {

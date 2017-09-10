@@ -1,4 +1,5 @@
-# Creating a custom plugin
+Creating a custom plugin
+=========================================================
 
 As an example of building a custom plugin, let's say we wanted to inform the user about our network activity so we will show an alert view with some basic info about the request as it is being sent, and let users know if a response indicated a failed request (for this example we will also need to assume we don’t mind bothering the user with lots of alerts)
 
@@ -13,11 +14,11 @@ final class RequestAlertPlugin: PluginType {
         self.viewController = viewController
     }
 
-    func willSend(_ request: RequestType, target: TargetType) {
+    func willSend(request: RequestType, target: TargetType) {
 
     }
 
-    func didReceive(_ result: Result<Moya.Response, MoyaError>, target: TargetType) {
+    func didReceive(result: Result<Response, MoyaError>, target: TargetType) {
 
     }
 }
@@ -26,7 +27,7 @@ final class RequestAlertPlugin: PluginType {
 Then we add some functionality to the function called when a request will be sent:
 
 ```swift
-func willSend(_ request: RequestType, target: TargetType) {
+func willSend(request: RequestType, target: TargetType) {
 
     //make sure we have a URL string to display
     guard let requestURLString = request.request?.url?.absoluteString else { return }
@@ -43,7 +44,7 @@ func willSend(_ request: RequestType, target: TargetType) {
 Finally, let's implement `didReceive` to show an alert if the result was a failure
 
 ```swift
-func didReceive(_ result: Result<Moya.Response, MoyaError>, target: TargetType) {
+func didReceive(result: Result<Response, MoyaError>, target: TargetType) {
 
     //only continue if result is a failure
     guard case Result.failure(_) = result else { return }

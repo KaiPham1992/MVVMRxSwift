@@ -27,7 +27,7 @@ a token.
 
 ```swift
 class TokenSource {
-  var token: String?
+  var token: String? = nil
   init() { }
 }
 

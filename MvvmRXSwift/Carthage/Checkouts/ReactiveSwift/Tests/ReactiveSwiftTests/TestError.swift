@@ -18,7 +18,8 @@ internal enum TestError: Int {
 extension TestError: Error {
 }
 
-internal extension SignalProducer {
+
+internal extension SignalProducerProtocol {
 	/// Halts if an error is emitted in the receiver signal.
 	/// This is useful in tests to be able to just use `startWithNext`
 	/// in cases where we know that an error won't be emitted.
@@ -27,7 +28,7 @@ internal extension SignalProducer {
 	}
 }
 
-internal extension Signal {
+internal extension SignalProtocol {
 	/// Halts if an error is emitted in the receiver signal.
 	/// This is useful in tests to be able to just use `startWithNext`
 	/// in cases where we know that an error won't be emitted.
@@ -39,3 +40,4 @@ internal extension Signal {
 		}
 	}
 }
+

@@ -14,8 +14,12 @@ class KMoviePopularViewController: KBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .red
         bindUI()
+    }
+    
+    override func setupNavigation() {
+        super.setupNavigation()
+        addButtonToNavigation(image: KImage.imgCategory, style: .left, action: nil)
     }
     
     func bindUI() {
@@ -24,5 +28,7 @@ class KMoviePopularViewController: KBaseViewController {
                 print(movieResponse)
             })
             .addDisposableTo(bag)
+        
+        
     }
 }

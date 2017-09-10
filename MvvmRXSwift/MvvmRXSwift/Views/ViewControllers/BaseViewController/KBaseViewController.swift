@@ -12,8 +12,8 @@ import RxSwift
 //MARK: Style Navigation Bar
 
 enum StyleNavigation {
-    case Left
-    case Right
+    case left
+    case right
 }
 
 class KBaseViewController: UIViewController {
@@ -41,8 +41,6 @@ class KBaseViewController: UIViewController {
     }()
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = KColor.background
@@ -59,7 +57,7 @@ class KBaseViewController: UIViewController {
     //MARK: Base navigation
     func setupNavigation(){
         //---
-        self.navigationController?.navigationBar.barTintColor = KColor.redColor
+        self.navigationController?.navigationBar.barTintColor = KColor.navigationColor
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.isHidden = false
         self.view.backgroundColor = KColor.background
@@ -75,7 +73,7 @@ class KBaseViewController: UIViewController {
         btn.sizeToFit()
         
         let button = UIBarButtonItem(customView: btn)
-        if style == .Left {
+        if style == .left {
             self.navigationItem.leftBarButtonItem = button
         } else {
             self.navigationItem.rightBarButtonItem = button
@@ -90,7 +88,7 @@ class KBaseViewController: UIViewController {
         btn.sizeToFit()
         
         let button = UIBarButtonItem(customView: btn)
-        if style == .Left {
+        if style == .left {
             self.navigationItem.leftBarButtonItem = button
         } else {
             self.navigationItem.rightBarButtonItem = button
@@ -98,11 +96,11 @@ class KBaseViewController: UIViewController {
     }
     
     func addBackToNavigation(){
-        addButtonToNavigation(image: KImage.imgBack, style: .Left, action: #selector(btnBackTapped))
+        addButtonToNavigation(image: KImage.imgBack, style: .left, action: #selector(btnBackTapped))
     }
     
     func addCloseToNavigation(){
-        addButtonToNavigation(image: KImage.imgClose, style: .Left, action: #selector(btnCloseTapped))
+        addButtonToNavigation(image: KImage.imgClose, style: .left, action: #selector(btnCloseTapped))
     }
     
     func setTitle(title: String) {

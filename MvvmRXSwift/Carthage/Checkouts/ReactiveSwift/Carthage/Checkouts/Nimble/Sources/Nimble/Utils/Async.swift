@@ -109,7 +109,7 @@ internal class AwaitPromise<T> {
     /// this method will resolve in a no-op.
     ///
     /// @returns a Bool that indicates if the async result was accepted or rejected because another
-    ///          value was received first.
+    ///          value was recieved first.
     func resolveResult(_ result: AwaitResult<T>) -> Bool {
         if signal.wait(timeout: .now()) == .success {
             self.asyncResult = result
@@ -218,7 +218,7 @@ internal class AwaitPromiseBuilder<T> {
     /// @discussion
     /// This function must be executed on the main thread and cannot be nested. This is because
     /// this function (and it's related methods) coordinate through the main run loop. Tampering
-    /// with the run loop can cause undesirable behavior.
+    /// with the run loop can cause undesireable behavior.
     ///
     /// This method will return an AwaitResult in the following cases:
     ///
@@ -282,23 +282,20 @@ internal class Awaiter {
     }
 
     func performBlock<T>(
-        file: FileString,
-        line: UInt,
-        _ closure: @escaping (@escaping (T) -> Void) throws -> Void
-        ) -> AwaitPromiseBuilder<T> {
+        _ closure: @escaping (@escaping (T) -> Void) throws -> Void) -> AwaitPromiseBuilder<T> {
             let promise = AwaitPromise<T>()
             let timeoutSource = createTimerSource(timeoutQueue)
             var completionCount = 0
             let trigger = AwaitTrigger(timeoutSource: timeoutSource, actionSource: nil) {
                 try closure {
                     completionCount += 1
-                    if completionCount < 2 {
-                        if promise.resolveResult(.completed($0)) {
-                            CFRunLoopStop(CFRunLoopGetMain())
-                        }
-                    } else {
-                        fail("waitUntil(..) expects its completion closure to be only called once",
-                             file: file, line: line)
+                    nimblePrecondition(
+                        completionCount < 2,
+                        "InvalidNimbleAPIUsage",
+                        "Done closure's was called multiple times. waitUntil(..) expects its " +
+                        "completion closure to only be called once.")
+                    if promise.resolveResult(.completed($0)) {
+                        CFRunLoopStop(CFRunLoopGetMain())
                     }
                 }
             }
@@ -350,10 +347,14 @@ internal func pollBlock(
     expression: @escaping () throws -> Bool) -> AwaitResult<Bool> {
         let awaiter = NimbleEnvironment.activeInstance.awaiter
         let result = awaiter.poll(pollInterval) { () throws -> Bool? in
-            if try expression() {
-                return true
+            do {
+                if try expression() {
+                    return true
+                }
+                return nil
+            } catch let error {
+                throw error
             }
-            return nil
         }.timeout(timeoutInterval, forcefullyAbortTimeout: timeoutInterval / 2.0).wait(fnName, file: file, line: line)
 
         return result

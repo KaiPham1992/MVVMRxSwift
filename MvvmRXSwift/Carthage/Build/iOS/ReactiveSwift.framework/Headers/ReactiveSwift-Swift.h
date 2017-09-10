@@ -142,6 +142,14 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @end
 
 
+@interface NSNotificationCenter (SWIFT_EXTENSION(ReactiveSwift))
+@end
+
+
+@interface NSURLSession (SWIFT_EXTENSION(ReactiveSwift))
+@end
+
+
 @interface NSURLSession (SWIFT_EXTENSION(ReactiveSwift))
 @end
 

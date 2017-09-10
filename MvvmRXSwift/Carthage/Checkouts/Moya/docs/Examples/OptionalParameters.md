@@ -1,4 +1,5 @@
-# Optional request parameters
+Optional request parameters
+===========================
 
 Suppose you want to call `api/users?limit=10` but also `api/users`:
 
@@ -9,14 +10,14 @@ public enum MyService {
 
 extension MyService: TargetType {
 //...
-    public var task: Task {
+    public var parameters: [String: Any]? {
         switch self {
         case .users(let limit):
             var params: [String: Any] = [:]
             params["limit"] = limit
-            return .requestParameters(parameters: params, encoding: URLEncoding.default)
+            return params
         default:
-            return .requestPlain
+            return nil
         }
     }
 //...
@@ -42,8 +43,9 @@ extension MyService: TargetType {
 }
 ```
 
-## Important Note
 
+Important Note
+--------------
 You **have to** add optional parameters like shown above, one per line. Optional parameters won't be removed in case of ```nil``` if you try to initialize them within one line, e.g.:
 
 ```swift
@@ -53,9 +55,9 @@ You **have to** add optional parameters like shown above, one per line. Optional
 	    switch self {
 	    case .users(let limit):
 	        let params: [String: Any] = ["limit": limit]
-	        return .requestParameters(parameters: params, encoding: URLEncoding.default)
+	        return params
         default:
-            return .requestPlain
+            return nil
         }
     }
 //...

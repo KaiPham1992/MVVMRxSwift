@@ -1,13 +1,12 @@
 import Moya
-
-#if os(iOS) || os(watchOS) || os(tvOS)
-import UIKit
 import Foundation
-#elseif os(OSX)
-import AppKit
-#endif
 
-// MARK: - Mock Services
+extension String {
+    var urlEscaped: String {
+        return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+    }
+}
+
 enum GitHub {
     case zen
     case userProfile(String)
@@ -28,8 +27,16 @@ extension GitHub: TargetType {
         return .get
     }
 
+    var parameters: [String: Any]? {
+        return nil
+    }
+
+    public var parameterEncoding: ParameterEncoding {
+        return JSONEncoding.default
+    }
+
     var task: Task {
-        return .requestPlain
+        return .request
     }
 
     var sampleData: Data {
@@ -40,14 +47,6 @@ extension GitHub: TargetType {
             return "{\"login\": \"\(name)\", \"id\": 100}".data(using: String.Encoding.utf8)!
         }
     }
-
-    var validate: Bool {
-        return true
-    }
-
-    var headers: [String: String]? {
-        return nil
-    }
 }
 
 func url(_ route: TargetType) -> String {
@@ -56,78 +55,68 @@ func url(_ route: TargetType) -> String {
 
 let failureEndpointClosure = { (target: GitHub) -> Endpoint<GitHub> in
     let error = NSError(domain: "com.moya.moyaerror", code: 0, userInfo: [NSLocalizedDescriptionKey: "Houston, we have a problem"])
-    return Endpoint<GitHub>(url: url(target), sampleResponseClosure: {.networkError(error)}, method: target.method, task: target.task)
+    return Endpoint<GitHub>(url: url(target), sampleResponseClosure: {.networkError(error)}, method: target.method, parameters: target.parameters)
 }
 
 enum HTTPBin: TargetType {
     case basicAuth
-    case post
-    case upload(file: URL)
 
     var baseURL: URL { return URL(string: "http://httpbin.org")! }
     var path: String {
         switch self {
         case .basicAuth:
             return "/basic-auth/user/passwd"
-        case .post, .upload:
-            return "/post"
         }
     }
 
     var method: Moya.Method {
+        return .get
+    }
+
+    var parameters: [String: Any]? {
         switch self {
-        case .basicAuth:
-            return .get
-        case .post, .upload:
-            return .post
+        default:
+            return [:]
         }
     }
 
+    var parameterEncoding: ParameterEncoding {
+        return URLEncoding.default
+    }
+
     var task: Task {
-        switch self {
-        case .basicAuth, .post:
-        return .requestParameters(parameters: [:], encoding: URLEncoding.default)
-        case .upload(let fileURL):
-            return .uploadFile(fileURL)
-        }
+        return .request
     }
 
     var sampleData: Data {
         switch self {
         case .basicAuth:
             return "{\"authenticated\": true, \"user\": \"user\"}".data(using: String.Encoding.utf8)!
-        case .post, .upload:
-            return "{\"args\": {}, \"data\": \"\", \"files\": {}, \"form\": {}, \"headers\": { \"Connection\": \"close\", \"Content-Length\": \"0\", \"Host\": \"httpbin.org\" },  \"json\": null, \"origin\": \"198.168.1.1\", \"url\": \"https://httpbin.org/post\"}".data(using: String.Encoding.utf8)!
         }
-    }
-
-    var headers: [String: String]? {
-        return nil
     }
 }
 
 public enum GitHubUserContent {
     case downloadMoyaWebContent(String)
-    case requestMoyaWebContent(String)
 }
 
 extension GitHubUserContent: TargetType {
     public var baseURL: URL { return URL(string: "https://raw.githubusercontent.com")! }
     public var path: String {
         switch self {
-        case .downloadMoyaWebContent(let contentPath), .requestMoyaWebContent(let contentPath):
+        case .downloadMoyaWebContent(let contentPath):
             return "/Moya/Moya/master/web/\(contentPath)"
         }
     }
     public var method: Moya.Method {
         switch self {
-        case .downloadMoyaWebContent, .requestMoyaWebContent:
+        case .downloadMoyaWebContent:
             return .get
         }
     }
     public var parameters: [String: Any]? {
         switch self {
-        case .downloadMoyaWebContent, .requestMoyaWebContent:
+        case .downloadMoyaWebContent:
             return nil
         }
     }
@@ -137,36 +126,16 @@ extension GitHubUserContent: TargetType {
     public var task: Task {
         switch self {
         case .downloadMoyaWebContent:
-            return .downloadDestination(defaultDownloadDestination)
-        case .requestMoyaWebContent:
-            return .requestPlain
+            return .download(.request(defaultDownloadDestination))
         }
     }
     public var sampleData: Data {
         switch self {
-        case .downloadMoyaWebContent, .requestMoyaWebContent:
+        case .downloadMoyaWebContent:
             return Data(count: 4000)
         }
     }
 
-    public var headers: [String: String]? {
-        return nil
-    }
-}
-
-// MARK: - String Helpers
-extension String {
-    var urlEscaped: String {
-        return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-    }
-}
-
-// MARK: - DispatchQueue Test Helpers
-// https://lists.swift.org/pipermail/swift-users/Week-of-Mon-20160613/002280.html
-extension DispatchQueue {
-    class var currentLabel: String? {
-        return String(validatingUTF8: __dispatch_queue_get_label(nil))
-    }
 }
 
 private let defaultDownloadDestination: DownloadDestination = { temporaryURL, response in
@@ -177,28 +146,4 @@ private let defaultDownloadDestination: DownloadDestination = { temporaryURL, re
     }
 
     return (temporaryURL, [])
-}
-
-// MARK: - Image Test Helpers
-// Necessary since Image(named:) doesn't work correctly in the test bundle
-extension ImageType {
-    class TestClass { }
-
-    class func testPNGImage(named name: String) -> ImageType {
-        let bundle = Bundle(for: type(of: TestClass()))
-        let path = bundle.path(forResource: name, ofType: "png")
-        return Image(contentsOfFile: path!)!
-    }
-
-    #if os(iOS) || os(watchOS) || os(tvOS)
-        func asJPEGRepresentation(_ compression: CGFloat) -> Data? {
-            return UIImageJPEGRepresentation(self, compression)
-        }
-    #elseif os(OSX)
-        func asJPEGRepresentation(_ compression: CGFloat) -> Data? {
-            var imageRect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
-            let imageRep = NSBitmapImageRep(cgImage: self.cgImage(forProposedRect: &imageRect, context: nil, hints: nil)!)
-            return imageRep.representation(using: .JPEG, properties:[:])
-        }
-    #endif
 }

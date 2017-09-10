@@ -1,4 +1,5 @@
-# Targets
+Targets
+=======
 
 Using Moya starts with defining a target – typically some `enum` that conforms
 to the `TargetType` protocol. Then, the rest of your app deals *only* with
@@ -63,49 +64,44 @@ Nice. If some of your endpoints require POST or another method, then you can swi
 on `self` to return the appropriate value. This kind of switching technique is what
 we saw when calculating our `path` property.
 
-Our `TargetType` is shaping up, but we're not done yet. We also need a `task`
-computed property that returns the task type potentially including parameters.
-Here's an example:
+Our `TargetType` is shaping up, but we're not done yet. We also need a `parameters`
+computed property that returns parameters defined by the enum case. Here's an example:
 
 ```swift
-public var task: Task {
+public var parameters: [String: Any]? {
     switch self {
-    case .userRepositories:
-        return .requestParameters(parameters: ["sort": "pushed"], encoding: URLEncoding.default)
+    case .userRepositories(_):
+        return ["sort": "pushed"]
     case .branches(_, let protected):
-        return .requestParameters(parameters: ["protected": "\(protected)"], encoding: URLEncoding.default)
+        return ["protected": "\(protected)"]
     default:
-        return .requestPlain
+        return nil
     }
 }
 ```
 
-Unlike our `path` property earlier, we don't actually care about the associated values of our `userRepositories` case, so we just skip parenthesis.
+Unlike our `path` property earlier, we don't actually care about the associated values of our `userRepositories` case, so we use the Swift `_` ignored-value symbol.
 Let's take a look at the `branches` case: we'll use our `Bool` associated value (`protected`) as a request parameter by assigning it to the `"protected"` key. We're parsing our `Bool` value to `String`. (Alamofire does not encode `Bool` parameters automatically, so we need to do it by our own).
 
-While we are talking about parameters, we needed to indicate how we want our
+While we are talking about parameters, we need to indicate how we want our
 parameters to be encoded into our request. We do this by returning a
-`ParameterEncoding` alongside the `.requestParameters` task type. Out of the
+`ParameterEncoding` from a `parameterEncoding` computed property. Out of the
 box, Moya has `URLEncoding`, `JSONEncoding`, and `PropertyListEncoding`. You can
 also create your own encoder that conforms to `ParameterEncoding` (e.g.
 `XMLEncoder`).
 
-A `task` property represents how you are sending / receiving data and allows you to add data, files and streams to the request body. There are several `.request` types:
-- `.requestPlain` with nothing to send at all
-- `.requestData(_:)` with which you can send `Data` (useful for `Encodable` types in Swift 4)
-- `.requestParameters(parameters:encoding:)` which allows you to send parameters with an encoding
-- `.requestCompositeData(bodyData:urlParameters:)` & `.requestCompositeParameters(bodyParameters:bodyEncoding:urlParameters)` which allow you to combine url encoded parameters with another type (data / parameters)
+```swift
+public var parameterEncoding: ParameterEncoding {
+    switch self {
+    case .zen:
+        return JSONEncoding.default
+    default:
+        return URLEncoding.default
+    }
+}
+```
 
-Also, there are three upload types: 
-- `.uploadFile(_:)` to upload a file from a URL, 
-- `.uploadMultipart(_:)` for multipart uploads
-- `.uploadCompositeMultipart(_:urlParameters:)` which allows you to pass multipart data and url parameters at once
-
-And two download types: 
-- `.downloadDestination(_:)` for a plain file download
-- `.downloadParameters(parameters:encoding:destination:)` for downloading with parameters sent alongside the request.
-
-Next, notice the `sampleData` property on the enum. This is a requirement of
+Notice the `sampleData` property on the enum. This is a requirement of
 the `TargetType` protocol. Any target you want to hit must provide some non-nil
 `Data` that represents a sample response. This can be used later for tests or
 for providing offline support for developers. This *should* depend on `self`.
@@ -125,11 +121,14 @@ public var sampleData: Data {
 }
 ```
 
-Finally, the `headers` property stores header fields that should be sent on the request.
+Finally, our `TargetType` has a `task` property that represents how you are sending / receiving data. This can be either `.request`, `.upload` or `.download`, and allows you to add data, files and streams to the request body.
 
 ```swift
-public var headers: [String: String]? {
-    return ["Content-Type": "application/json"]
+public var task: Task {
+    switch self {
+    case .zen, .userProfile, .userRepositories, .branches:
+        return .request
+    }
 }
 ```
 
@@ -148,7 +147,7 @@ Here's an example extension that allows you to easily escape normal strings
 ```swift
 extension String {
     var urlEscaped: String {
-        return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
     }
 }
 ```

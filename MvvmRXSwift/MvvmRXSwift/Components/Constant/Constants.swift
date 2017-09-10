@@ -10,22 +10,24 @@ import UIKit
 
 
 public let BASE_URL = "https://api.themoviedb.org/3/"
-public let BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500/"
-public let MOVIEDB_API_KEY = "f7b6a27fedf4a430dd71f5a7e8bec2a5"
-public let BASE_IMAGE_URL_LANSCAPE = "https://image.tmdb.org/t/p/w500_and_h281_bestv2/"
-
+public let BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
+public let API_KEY = "f7b6a27fedf4a430dd71f5a7e8bec2a5"
 
 struct KColor {
-    static let redColor = UIColor(red: 207/255, green: 15/255, blue: 37/255, alpha: 1)
-    static let yellowColor = UIColor(red: 254/255, green: 246/255, blue: 163/255, alpha: 1)
-    static let blueColor = UIColor(red: 0/255, green: 200/255, blue: 250/255, alpha: 1)
-    static let background = UIColor(red: 249/255, green: 249/255, blue: 249/255, alpha: 1)
-    static let grayColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
+    static let navigationColor = UIColor(red: 51/255, green: 51/255, blue: 56/255, alpha: 1)
+    static let background = UIColor(red: 240/255, green: 244/255, blue: 244/255, alpha: 1)
+    static let yellowColor = UIColor(red: 255/255, green: 205/255, blue: 0/255, alpha: 1)
+    static let lineColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
+    
+    //---
+    static let smallTextColor = UIColor(red: 155/255, green: 163/255, blue: 158/255, alpha: 1)
+    static let normalTextColor = UIColor(red: 51/255, green: 51/255, blue: 56/255, alpha: 1)
     static let whiteColor = UIColor.white
+    
+    
+    static let blueColor = UIColor(red: 0/255, green: 200/255, blue: 250/255, alpha: 1)
     static let backgroundPopUp =  UIColor.black.withAlphaComponent(0.5)
     static let backgroundIndicator = UIColor.black.withAlphaComponent(0.5)
-    static let blackColor = UIColor.black
-
 }
 
 
@@ -47,4 +49,5 @@ struct KFont {
 struct KImage {
     static let imgBack = UIImage(named: "back")!
     static let imgClose = UIImage(named: "close")!
+    static let imgCategory = UIImage(named: "category")!
 }

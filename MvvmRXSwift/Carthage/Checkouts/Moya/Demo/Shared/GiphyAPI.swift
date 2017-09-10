@@ -21,11 +21,19 @@ extension Giphy: TargetType {
             return .post
         }
     }
+    public var parameters: [String: Any]? {
+        switch self {
+        case .upload:
+            return ["api_key": "dc6zaTOxFJmzC", "username": "Moya"]
+        }
+    }
+    public var parameterEncoding: ParameterEncoding {
+        return URLEncoding.default
+    }
     public var task: Task {
         switch self {
         case let .upload(data):
-            let multipartFormData = [MultipartFormData(provider: .data(data), name: "file", fileName: "gif.gif", mimeType: "image/gif")]
-            return .uploadCompositeMultipart(multipartFormData, urlParameters: ["api_key": "dc6zaTOxFJmzC", "username": "Moya"])
+            return .upload(.multipart([MultipartFormData(provider: .data(data), name: "file", fileName: "gif.gif", mimeType: "image/gif")]))
         }
     }
     public var sampleData: Data {
@@ -33,10 +41,6 @@ extension Giphy: TargetType {
         case .upload:
             return "{\"data\":{\"id\":\"your_new_gif_id\"},\"meta\":{\"status\":200,\"msg\":\"OK\"}}".data(using: String.Encoding.utf8)!
         }
-    }
-
-    public var headers: [String: String]? {
-        return nil
     }
 }
 

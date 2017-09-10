@@ -4,29 +4,37 @@ import enum Result.NoError
 /// Represents the lifetime of an object, and provides a hook to observe when
 /// the object deinitializes.
 public final class Lifetime {
-	private let disposables: CompositeDisposable
+	// MARK: Type properties and methods
+
+	/// Factory method for creating a `Lifetime` and its associated `Token`.
+	///
+	/// - returns: A `(lifetime, token)` tuple.
+	public static func make() -> (lifetime: Lifetime, token: Token) {
+		let token = Token()
+		return (Lifetime(token), token)
+	}
+
+	/// A `Lifetime` that has already ended.
+	public static var empty: Lifetime {
+		return Lifetime(ended: .empty)
+	}
+
+	// MARK: Instance properties
 
 	/// A signal that sends a `completed` event when the lifetime ends.
 	///
 	/// - note: Consider using `Lifetime.observeEnded` if only a closure observer
 	///         is to be attached.
-	public var ended: Signal<Never, NoError> {
-		return Signal { observer in
-			return disposables += observer.sendCompleted
-		}
-	}
+ 	public let ended: Signal<(), NoError>
 
-	/// A flag indicating whether the lifetime has ended.
-	public var hasEnded: Bool {
-		return disposables.isDisposed
-	}
+	// MARK: Initializers
 
-	/// Initialize a `Lifetime` object with the supplied composite disposable.
+	/// Initialize a `Lifetime` object with the supplied ended signal.
 	///
 	/// - parameters:
-	///   - signal: The composite disposable.
-	internal init(_ disposables: CompositeDisposable) {
-		self.disposables = disposables
+	///   - signal: The ended signal.
+	private init(ended signal: Signal<(), NoError>) {
+		ended = signal
 	}
 
 	/// Initialize a `Lifetime` from a lifetime token, which is expected to be
@@ -39,7 +47,7 @@ public final class Lifetime {
 	///   - token: A lifetime token for detecting the deinitialization of the
 	///            associated object.
 	public convenience init(_ token: Token) {
-		self.init(token.disposables)
+		self.init(ended: token.ended)
 	}
 
 	/// Observe the termination of `self`.
@@ -51,40 +59,13 @@ public final class Lifetime {
 	///            if `lifetime` has already ended.
 	@discardableResult
 	public func observeEnded(_ action: @escaping () -> Void) -> Disposable? {
-		return disposables += action
+		return ended.observe { event in
+			if event.isTerminating {
+				action()
+			}
+		}
 	}
 
-	/// Add the given disposable as an observer of `self`.
-	///
-	/// - parameters:
-	///   - disposable: The disposable to be disposed of when `self` ends.
-	///
-	/// - returns: A disposable that detaches `disposable` from the lifetime, or `nil`
-	///            if `lifetime` has already ended.
-	@discardableResult
-	public static func += (lifetime: Lifetime, disposable: Disposable?) -> Disposable? {
-		return (disposable?.dispose).flatMap(lifetime.observeEnded)
-	}
-}
-
-extension Lifetime {
-	/// Factory method for creating a `Lifetime` and its associated `Token`.
-	///
-	/// - returns: A `(lifetime, token)` tuple.
-	public static func make() -> (lifetime: Lifetime, token: Token) {
-		let token = Token()
-		return (Lifetime(token), token)
-	}
-
-	/// A `Lifetime` that has already ended.
-	public static let empty: Lifetime = {
-		let disposables = CompositeDisposable()
-		disposables.dispose()
-		return Lifetime(disposables)
-	}()
-}
-
-extension Lifetime {
 	/// A token object which completes its signal when it deinitializes.
 	///
 	/// It is generally used in conjuncion with `Lifetime` as a private
@@ -97,14 +78,16 @@ extension Lifetime {
 	/// ```
 	public final class Token {
 		/// A signal that sends a Completed event when the lifetime ends.
-		fileprivate let disposables: CompositeDisposable
+		fileprivate let ended: Signal<(), NoError>
+
+		private let endedObserver: Signal<(), NoError>.Observer
 
 		public init() {
-			disposables = CompositeDisposable()
+			(ended, endedObserver) = Signal.pipe()
 		}
 
 		deinit {
-			disposables.dispose()
+			endedObserver.sendCompleted()
 		}
 	}
 }
