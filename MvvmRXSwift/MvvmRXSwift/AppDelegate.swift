@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func goToApp(){
-        let vc = KMoviePopularViewController()
+        let vc = KMoviePopularViewController.getViewController()
         let nc = UINavigationController(rootViewController: vc)
         window?.show(rootViewController: nc, animated: true)
     }

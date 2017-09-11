@@ -9,7 +9,7 @@
 
 import UIKit
 
-class BaseTableViewCell: UITableViewCell {
+class KBaseTableViewCell: UITableViewCell {
     let separatorLineView: UIView = {
         let lineView = UIView()
         lineView.backgroundColor = KColor.lineColor

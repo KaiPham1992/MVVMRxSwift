@@ -11,7 +11,7 @@
 import UIKit
 
 
-//-- Auto Layout
+//--MARK:  Auto Layout
 
 extension UIView {
     func addConstraintsWithFormat(_ format: String, views: UIView...) {
@@ -154,4 +154,17 @@ extension UIView {
         bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -constant).isActive = true
     }
     
+}
+
+
+
+//MARK: Border 
+
+extension UIView {
+    func setBorder(borderWidth: CGFloat = 0 , borderColor: UIColor = UIColor.clear, cornerRadius: CGFloat) {
+        self.layer.masksToBounds = true
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = borderColor.cgColor
+        self.layer.cornerRadius = cornerRadius
+    }
 }

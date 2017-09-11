@@ -59,6 +59,10 @@
 		2ADF9A6E1F62A12E004CF313 /* KBaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF9A6D1F62A12E004CF313 /* KBaseCollectionViewCell.swift */; };
 		2ADF9A701F62A157004CF313 /* KBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF9A6F1F62A157004CF313 /* KBaseTableViewCell.swift */; };
 		2ADF9A751F62A356004CF313 /* KBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF9A741F62A356004CF313 /* KBaseModel.swift */; };
+		2AFF30711F653CEB004020D2 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFF306F1F653CEB004020D2 /* MovieCell.swift */; };
+		2AFF30721F653CEB004020D2 /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AFF30701F653CEB004020D2 /* MovieCell.xib */; };
+		2AFF30741F654464004020D2 /* Movie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AFF30731F654464004020D2 /* Movie.storyboard */; };
+		2AFF30761F6544C0004020D2 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFF30751F6544C0004020D2 /* UIStoryboard+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -129,6 +133,10 @@
 		2ADF9A6D1F62A12E004CF313 /* KBaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KBaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		2ADF9A6F1F62A157004CF313 /* KBaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KBaseTableViewCell.swift; sourceTree = "<group>"; };
 		2ADF9A741F62A356004CF313 /* KBaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KBaseModel.swift; sourceTree = "<group>"; };
+		2AFF306F1F653CEB004020D2 /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		2AFF30701F653CEB004020D2 /* MovieCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
+		2AFF30731F654464004020D2 /* Movie.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Movie.storyboard; sourceTree = "<group>"; };
+		2AFF30751F6544C0004020D2 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				2A0820B81F62EE5C005EA1E2 /* KMoviePopularViewController.swift */,
+				2AFF30731F654464004020D2 /* Movie.storyboard */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -292,6 +301,7 @@
 				2ADF9A491F629946004CF313 /* UIView+Extension.swift */,
 				2ADF9A501F629BB1004CF313 /* UIButton+Extension.swift */,
 				2ADF9A651F629FD3004CF313 /* Window+Extension.swift */,
+				2AFF30751F6544C0004020D2 /* UIStoryboard+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -358,6 +368,7 @@
 		2ADF9A3D1F6295FA004CF313 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				2AFF306E1F653C9F004020D2 /* MovieCell */,
 				2ADF9A6C1F62A111004CF313 /* BaseCell */,
 			);
 			path = Cells;
@@ -435,6 +446,15 @@
 			path = BaseModel;
 			sourceTree = "<group>";
 		};
+		2AFF306E1F653C9F004020D2 /* MovieCell */ = {
+			isa = PBXGroup;
+			children = (
+				2AFF306F1F653CEB004020D2 /* MovieCell.swift */,
+				2AFF30701F653CEB004020D2 /* MovieCell.xib */,
+			);
+			path = MovieCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -500,7 +520,9 @@
 				2ADF9A5C1F629C1E004CF313 /* calibrii.ttf in Resources */,
 				2ADF9A5B1F629C1E004CF313 /* calibrib.ttf in Resources */,
 				2AD71E8E1F61945700C96705 /* LaunchScreen.storyboard in Resources */,
+				2AFF30741F654464004020D2 /* Movie.storyboard in Resources */,
 				2ADF9A5A1F629C1E004CF313 /* calibri.ttf in Resources */,
+				2AFF30721F653CEB004020D2 /* MovieCell.xib in Resources */,
 				2AD71E8B1F61945700C96705 /* Assets.xcassets in Resources */,
 				2ADF9A5E1F629C1E004CF313 /* calibrili.ttf in Resources */,
 			);
@@ -527,8 +549,10 @@
 				2A0820AF1F62DF7C005EA1E2 /* KMovieResponse.swift in Sources */,
 				2A0820B61F62EA31005EA1E2 /* KMovieAPI.swift in Sources */,
 				2A8166DE1F64E58400257A12 /* KAPIHelper.swift in Sources */,
+				2AFF30761F6544C0004020D2 /* UIStoryboard+Extension.swift in Sources */,
 				2A0820B41F62E3E9005EA1E2 /* KMovieDocument.swift in Sources */,
 				2ADF9A661F629FD3004CF313 /* Window+Extension.swift in Sources */,
+				2AFF30711F653CEB004020D2 /* MovieCell.swift in Sources */,
 				2ADF9A4F1F629AE6004CF313 /* Constants.swift in Sources */,
 				2ADF9A6B1F62A0F3004CF313 /* KBaseView.swift in Sources */,
 				2A8166E71F6508F600257A12 /* KTarget.swift in Sources */,

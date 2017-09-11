@@ -14,7 +14,7 @@ class KMovieResponse: KBaseModel {
     var dates: KMovieDate?
     var totalPages: Int?
     var totalResult: Int?
-    var movies: [KMovie]?
+    var movies = [KMovie]()
     
     
     required init?(map: Map) {

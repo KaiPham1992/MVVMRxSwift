@@ -50,4 +50,12 @@ struct KImage {
     static let imgBack = UIImage(named: "back")!
     static let imgClose = UIImage(named: "close")!
     static let imgCategory = UIImage(named: "category")!
+    static let imgLoadingPortrait = UIImage(named: "placeholder_l")!
+    static let imgLoadingLandscape = UIImage(named: "placeholder_sq")!
+}
+
+
+
+struct KCell {
+    static let movieCell = "MovieCell"
 }
