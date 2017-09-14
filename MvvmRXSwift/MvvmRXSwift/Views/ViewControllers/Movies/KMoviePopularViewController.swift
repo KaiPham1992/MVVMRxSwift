@@ -31,12 +31,22 @@ class KMoviePopularViewController: KBaseViewController {
     }
     
     func bindUI() {
-        let movies = vmPopularMovie.movieResponse.map {$0!.movies}
+        //-- remember skip(1) , because the first time vmPopularMovie.movieResponse = nil
+        let movies = vmPopularMovie.movieResponse.asObservable().skip(1).map { $0!.movies }
+        
+        movies.subscribe(onNext: { _movies in
+            print(_movies.count)
+        }).addDisposableTo(bag)
+        
         movies.bind(to: tbMovie.rx.items){ table, index, movie in
             let cell = table.dequeueReusableCell(withIdentifier: KCell.movieCell) as! MovieCell
             cell.movie = movie
             return cell
         }.addDisposableTo(bag)
+        
+        vmPopularMovie.isLoading.subscribe(onNext: { isLoading in
+            isLoading == true ? self.showActivityIndicator(): self.hideActivityIndicator()
+        }).addDisposableTo(bag)
     }
 }
 
@@ -45,7 +55,14 @@ extension KMoviePopularViewController: UITableViewDelegate {
     func configureTable(){
         tbMovie.register(UINib(nibName: KCell.movieCell, bundle: nil), forCellReuseIdentifier: KCell.movieCell)
         tbMovie.delegate = self
-        tbMovie.separatorStyle = .none 
+        tbMovie.separatorStyle = .none
+        
+        //--- load more
+        tbMovie.addInfiniteScrolling(actionHandler: { [unowned self] in
+            self.tbMovie.infiniteScrollingView.stopAnimating()
+            self.vmPopularMovie.loadMoreMovies()
+        })
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

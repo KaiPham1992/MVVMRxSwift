@@ -14,6 +14,8 @@
 		2A0820B61F62EA31005EA1E2 /* KMovieAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0820B51F62EA31005EA1E2 /* KMovieAPI.swift */; };
 		2A0820B91F62EE5C005EA1E2 /* KMoviePopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0820B81F62EE5C005EA1E2 /* KMoviePopularViewController.swift */; };
 		2A0820BC1F62F05F005EA1E2 /* KMoviePopularViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0820BB1F62F05F005EA1E2 /* KMoviePopularViewModel.swift */; };
+		2A1304461F6AE17800CB6643 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1304431F6AE17800CB6643 /* UIScrollView+SVInfiniteScrolling.m */; };
+		2A1304471F6AE17800CB6643 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1304451F6AE17800CB6643 /* UIScrollView+SVPullToRefresh.m */; };
 		2A19DA491F6A77F400BCC14E /* KGenreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A19DA481F6A77F400BCC14E /* KGenreResponse.swift */; };
 		2A8166DE1F64E58400257A12 /* KAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8166DD1F64E58400257A12 /* KAPIHelper.swift */; };
 		2A8166E21F64E5A700257A12 /* KAPIParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8166E11F64E5A700257A12 /* KAPIParameter.swift */; };
@@ -98,6 +100,12 @@
 		2A0820B51F62EA31005EA1E2 /* KMovieAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieAPI.swift; sourceTree = "<group>"; };
 		2A0820B81F62EE5C005EA1E2 /* KMoviePopularViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMoviePopularViewController.swift; sourceTree = "<group>"; };
 		2A0820BB1F62F05F005EA1E2 /* KMoviePopularViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMoviePopularViewModel.swift; sourceTree = "<group>"; };
+		2A1304411F6AE17800CB6643 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
+		2A1304421F6AE17800CB6643 /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
+		2A1304431F6AE17800CB6643 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
+		2A1304441F6AE17800CB6643 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
+		2A1304451F6AE17800CB6643 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
+		2A13044C1F6AE21800CB6643 /* MvvmRXSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MvvmRXSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		2A19DA481F6A77F400BCC14E /* KGenreResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGenreResponse.swift; sourceTree = "<group>"; };
 		2A8166DD1F64E58400257A12 /* KAPIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KAPIHelper.swift; path = Base/KAPIHelper.swift; sourceTree = "<group>"; };
 		2A8166E11F64E5A700257A12 /* KAPIParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KAPIParameter.swift; sourceTree = "<group>"; };
@@ -201,6 +209,26 @@
 			path = Movies;
 			sourceTree = "<group>";
 		};
+		2A13043F1F6AE14C00CB6643 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				2A1304401F6AE17800CB6643 /* SVPullToRefresh */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		2A1304401F6AE17800CB6643 /* SVPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				2A1304411F6AE17800CB6643 /* SVPullToRefresh.h */,
+				2A1304421F6AE17800CB6643 /* UIScrollView+SVInfiniteScrolling.h */,
+				2A1304431F6AE17800CB6643 /* UIScrollView+SVInfiniteScrolling.m */,
+				2A1304441F6AE17800CB6643 /* UIScrollView+SVPullToRefresh.h */,
+				2A1304451F6AE17800CB6643 /* UIScrollView+SVPullToRefresh.m */,
+			);
+			path = SVPullToRefresh;
+			sourceTree = "<group>";
+		};
 		2A8166DC1F64E56700257A12 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +250,7 @@
 		2AD71E771F61945700C96705 = {
 			isa = PBXGroup;
 			children = (
+				2A13044C1F6AE21800CB6643 /* MvvmRXSwift-Bridging-Header.h */,
 				2ADF9A311F62921B004CF313 /* Framework */,
 				2AD71E821F61945700C96705 /* MvvmRXSwift */,
 				2AD71E811F61945700C96705 /* Products */,
@@ -239,6 +268,7 @@
 		2AD71E821F61945700C96705 /* MvvmRXSwift */ = {
 			isa = PBXGroup;
 			children = (
+				2A13043F1F6AE14C00CB6643 /* Libraries */,
 				2ADF9A331F6295FA004CF313 /* Components */,
 				2ADF9A521F629BEC004CF313 /* Resources */,
 				2AD71E831F61945700C96705 /* AppDelegate.swift */,
@@ -543,11 +573,13 @@
 				2ADF9A6E1F62A12E004CF313 /* KBaseCollectionViewCell.swift in Sources */,
 				2A19DA491F6A77F400BCC14E /* KGenreResponse.swift in Sources */,
 				2ADF9A701F62A157004CF313 /* KBaseTableViewCell.swift in Sources */,
+				2A1304471F6AE17800CB6643 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				2AD71E841F61945700C96705 /* AppDelegate.swift in Sources */,
 				2A0820BC1F62F05F005EA1E2 /* KMoviePopularViewModel.swift in Sources */,
 				2ADF9A4D1F629A9F004CF313 /* KBaseViewController.swift in Sources */,
 				2ADF9A511F629BB1004CF313 /* UIButton+Extension.swift in Sources */,
 				2ADF9A751F62A356004CF313 /* KBaseModel.swift in Sources */,
+				2A1304461F6AE17800CB6643 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				2A8166E21F64E5A700257A12 /* KAPIParameter.swift in Sources */,
 				2A0820B91F62EE5C005EA1E2 /* KMoviePopularViewController.swift in Sources */,
 				2A0820AF1F62DF7C005EA1E2 /* KMovieResponse.swift in Sources */,
@@ -687,6 +719,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kai.MvvmRXSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MvvmRXSwift-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -703,6 +736,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kai.MvvmRXSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MvvmRXSwift-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
