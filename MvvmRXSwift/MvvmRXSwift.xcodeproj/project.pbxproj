@@ -14,6 +14,7 @@
 		2A0820B61F62EA31005EA1E2 /* KMovieAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0820B51F62EA31005EA1E2 /* KMovieAPI.swift */; };
 		2A0820B91F62EE5C005EA1E2 /* KMoviePopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0820B81F62EE5C005EA1E2 /* KMoviePopularViewController.swift */; };
 		2A0820BC1F62F05F005EA1E2 /* KMoviePopularViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0820BB1F62F05F005EA1E2 /* KMoviePopularViewModel.swift */; };
+		2A19DA491F6A77F400BCC14E /* KGenreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A19DA481F6A77F400BCC14E /* KGenreResponse.swift */; };
 		2A8166DE1F64E58400257A12 /* KAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8166DD1F64E58400257A12 /* KAPIHelper.swift */; };
 		2A8166E21F64E5A700257A12 /* KAPIParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8166E11F64E5A700257A12 /* KAPIParameter.swift */; };
 		2A8166E51F64E68400257A12 /* KMovieParameterGetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8166E41F64E68400257A12 /* KMovieParameterGetList.swift */; };
@@ -97,6 +98,7 @@
 		2A0820B51F62EA31005EA1E2 /* KMovieAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieAPI.swift; sourceTree = "<group>"; };
 		2A0820B81F62EE5C005EA1E2 /* KMoviePopularViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMoviePopularViewController.swift; sourceTree = "<group>"; };
 		2A0820BB1F62F05F005EA1E2 /* KMoviePopularViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMoviePopularViewModel.swift; sourceTree = "<group>"; };
+		2A19DA481F6A77F400BCC14E /* KGenreResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGenreResponse.swift; sourceTree = "<group>"; };
 		2A8166DD1F64E58400257A12 /* KAPIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KAPIHelper.swift; path = Base/KAPIHelper.swift; sourceTree = "<group>"; };
 		2A8166E11F64E5A700257A12 /* KAPIParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KAPIParameter.swift; sourceTree = "<group>"; };
 		2A8166E41F64E68400257A12 /* KMovieParameterGetList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieParameterGetList.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				2A0820AC1F62DCF2005EA1E2 /* KMovie.swift */,
 				2A0820AE1F62DF7C005EA1E2 /* KMovieResponse.swift */,
 				2A0820B01F62DFCB005EA1E2 /* KMovieDate.swift */,
+				2A19DA481F6A77F400BCC14E /* KGenreResponse.swift */,
 			);
 			path = Movie;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				2A8166E51F64E68400257A12 /* KMovieParameterGetList.swift in Sources */,
 				2ADF9A4A1F629946004CF313 /* UIView+Extension.swift in Sources */,
 				2ADF9A6E1F62A12E004CF313 /* KBaseCollectionViewCell.swift in Sources */,
+				2A19DA491F6A77F400BCC14E /* KGenreResponse.swift in Sources */,
 				2ADF9A701F62A157004CF313 /* KBaseTableViewCell.swift in Sources */,
 				2AD71E841F61945700C96705 /* AppDelegate.swift in Sources */,
 				2A0820BC1F62F05F005EA1E2 /* KMoviePopularViewModel.swift in Sources */,

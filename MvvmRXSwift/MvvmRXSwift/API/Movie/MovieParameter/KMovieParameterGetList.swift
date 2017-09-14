@@ -21,6 +21,8 @@ class KMovieParameterGetList: KAPIParameter {
         self.page = page
         self.api_key = API_KEY
     }
+    
+    
 
     
 }

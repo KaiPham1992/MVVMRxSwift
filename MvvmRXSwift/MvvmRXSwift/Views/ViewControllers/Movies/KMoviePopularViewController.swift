@@ -38,19 +38,22 @@ class KMoviePopularViewController: KBaseViewController {
             return cell
         }.addDisposableTo(bag)
     }
-    
-   
 }
 
-
+//---MARK: UITableViewDelegate
 extension KMoviePopularViewController: UITableViewDelegate {
     func configureTable(){
         tbMovie.register(UINib(nibName: KCell.movieCell, bundle: nil), forCellReuseIdentifier: KCell.movieCell)
         tbMovie.delegate = self
+        tbMovie.separatorStyle = .none 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tbMovie.frame.height / 3
+        if  KDevie.getTypeDevice() == TypeDevice.SMALL {
+            return tbMovie.frame.height / 2.5
+        } else {
+            return tbMovie.frame.height / 3
+        }
     }
 }
 

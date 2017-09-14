@@ -13,4 +13,8 @@ class KMovieAPI {
     class func getMoviesPopular(page: Int) -> Observable<KMovieResponse> {
         return KAPIHelper.fetch(target: .getPopular(page: page), KMovieDocument.self, KMovieResponse.self)
     }
+    
+    class func getGenresMovie() -> Observable<KGenreResponse> {
+        return KAPIHelper.fetch(target: .getGenres(), KMovieDocument.self, KGenreResponse.self)
+    }
 }

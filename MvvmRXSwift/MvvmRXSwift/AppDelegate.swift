@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarStyle = .lightContent
         
         //---
+//        getGrenresMovie()
         goToApp()
         return true
     }
@@ -28,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let nc = UINavigationController(rootViewController: vc)
         window?.show(rootViewController: nc, animated: true)
     }
+    
+   
     
     
 

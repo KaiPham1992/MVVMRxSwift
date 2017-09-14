@@ -25,6 +25,9 @@ class KMovie: KBaseModel {
     var video: Bool?
     var voteAverage: Double?
     
+    //--
+    var genres = [KGenre]()
+    
     required init?(map: Map) {
         super.init(map: map)
         self.id <- map["id"]
@@ -50,6 +53,44 @@ class KMovie: KBaseModel {
             self.backdropPath = "\(BASE_IMAGE_URL)\(self.backdropPath!)"
         }
         
+    }
+    
+    /**
+     1. input is all genres movie
+     2. compare current genre id to all genres movie
+     3. output is genre of current movie
+    */
+    
+    func getGenres(genresInput: [KGenre]) {
+        let tempGenres = genresInput.filter({ _genreInput in
+            if let _genreIds = self.genreIds, let _genreInputId = _genreInput.id {
+                return _genreIds.contains(_genreInputId)
+            }
+            
+            return false
+        })
+        
+        self.genres = tempGenres
+    }
+    /**
+     converter list genres to string
+    */
+    func genresToString() -> String {
+        var resultStr = ""
+        if self.genres.count > 0 {
+            for i in 0..<self.genres.count {
+                guard let name = genres[i].name else { return resultStr}
+                
+                if i == 0 {
+                    resultStr = name
+                } else {
+                    resultStr = "\(resultStr), \(name)"
+                }
+            }
+        }
+        
+        return resultStr
+
     }
     
 }
