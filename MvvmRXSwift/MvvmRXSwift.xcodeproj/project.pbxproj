@@ -17,6 +17,7 @@
 		2A1304461F6AE17800CB6643 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1304431F6AE17800CB6643 /* UIScrollView+SVInfiniteScrolling.m */; };
 		2A1304471F6AE17800CB6643 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1304451F6AE17800CB6643 /* UIScrollView+SVPullToRefresh.m */; };
 		2A19DA491F6A77F400BCC14E /* KGenreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A19DA481F6A77F400BCC14E /* KGenreResponse.swift */; };
+		2A77D6FD1F6BBC1700CCBAF0 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A77D6FC1F6BBC1700CCBAF0 /* UIViewController+Extension.swift */; };
 		2A8166DE1F64E58400257A12 /* KAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8166DD1F64E58400257A12 /* KAPIHelper.swift */; };
 		2A8166E21F64E5A700257A12 /* KAPIParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8166E11F64E5A700257A12 /* KAPIParameter.swift */; };
 		2A8166E51F64E68400257A12 /* KMovieParameterGetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8166E41F64E68400257A12 /* KMovieParameterGetList.swift */; };
@@ -107,6 +108,7 @@
 		2A1304451F6AE17800CB6643 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		2A13044C1F6AE21800CB6643 /* MvvmRXSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MvvmRXSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		2A19DA481F6A77F400BCC14E /* KGenreResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGenreResponse.swift; sourceTree = "<group>"; };
+		2A77D6FC1F6BBC1700CCBAF0 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		2A8166DD1F64E58400257A12 /* KAPIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KAPIHelper.swift; path = Base/KAPIHelper.swift; sourceTree = "<group>"; };
 		2A8166E11F64E5A700257A12 /* KAPIParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KAPIParameter.swift; sourceTree = "<group>"; };
 		2A8166E41F64E68400257A12 /* KMovieParameterGetList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieParameterGetList.swift; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 				2ADF9A501F629BB1004CF313 /* UIButton+Extension.swift */,
 				2ADF9A651F629FD3004CF313 /* Window+Extension.swift */,
 				2AFF30751F6544C0004020D2 /* UIStoryboard+Extension.swift */,
+				2A77D6FC1F6BBC1700CCBAF0 /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				2ADF9A4A1F629946004CF313 /* UIView+Extension.swift in Sources */,
 				2ADF9A6E1F62A12E004CF313 /* KBaseCollectionViewCell.swift in Sources */,
 				2A19DA491F6A77F400BCC14E /* KGenreResponse.swift in Sources */,
+				2A77D6FD1F6BBC1700CCBAF0 /* UIViewController+Extension.swift in Sources */,
 				2ADF9A701F62A157004CF313 /* KBaseTableViewCell.swift in Sources */,
 				2A1304471F6AE17800CB6643 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				2AD71E841F61945700C96705 /* AppDelegate.swift in Sources */,

@@ -25,7 +25,6 @@ class MovieCell: KBaseTableViewCell {
         didSet{
             vAverage.setBorder(cornerRadius: vAverage.frame.width / 2)
             guard let _movie = movie else { return }
-            _movie.getGenres(genresInput: golobalGenres)
             
             imgIcon.setBorder(borderWidth: 1, borderColor: KColor.lineColor, cornerRadius: 5)
             if let urlString =  _movie.posterPath , let url = URL(string: urlString) {

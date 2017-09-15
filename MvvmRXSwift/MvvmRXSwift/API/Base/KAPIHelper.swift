@@ -34,23 +34,18 @@ class KAPIHelper {
                         if let _message = json["status_message"].string {
                             message = _message
                         }
-                        print(message)
                         observer.onError(NSError(domain: message, code: response.statusCode, userInfo:nil))
                     } else {
                         let json = JSON(data: response.data)
                         let map = Map(mappingType: .fromJSON, JSON: json.dictionaryObject!)
                         if let objectRespond =  U(map: map) {
                             observer.onNext(objectRespond)
-                            observer.onCompleted()
                         } else {
                             observer.onError(NSError(domain: "Invalid respond", code: 500, userInfo:nil))
-                            observer.onCompleted()
                         }
                     }
                 case .failure(let error):
-                    print("error: \(error)")
                     observer.onError(error)
-                    observer.onCompleted()
                 }
             }
             return Disposables.create()

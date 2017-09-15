@@ -34,18 +34,20 @@ class KMoviePopularViewController: KBaseViewController {
         //-- remember skip(1) , because the first time vmPopularMovie.movieResponse = nil
         let movies = vmPopularMovie.movieResponse.asObservable().skip(1).map { $0!.movies }
         
-        movies.subscribe(onNext: { _movies in
-            print(_movies.count)
-        }).addDisposableTo(bag)
-        
         movies.bind(to: tbMovie.rx.items){ table, index, movie in
             let cell = table.dequeueReusableCell(withIdentifier: KCell.movieCell) as! MovieCell
             cell.movie = movie
             return cell
         }.addDisposableTo(bag)
         
-        vmPopularMovie.isLoading.subscribe(onNext: { isLoading in
+        vmPopularMovie.isLoading.subscribe(onNext:  { [unowned self] isLoading in
             isLoading == true ? self.showActivityIndicator(): self.hideActivityIndicator()
+        }).addDisposableTo(bag)
+        
+        
+        //--- handle when error
+        vmPopularMovie.errorMessage.subscribe(onNext: { [unowned self] errorString in
+            self.showErrorMessage(errorMessage: errorString)
         }).addDisposableTo(bag)
     }
 }
