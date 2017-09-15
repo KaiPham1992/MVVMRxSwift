@@ -59,11 +59,14 @@ extension KMoviePopularViewModel {
         //-- subscribe success
         movies.subscribe(onNext: { [unowned self] reponse in
             self.isLoading.onNext(false)
+            
+            //-- converter genreIds to genres (have id, name)
             let newResponse = reponse
             if let _genres = self.genreResponse.value?.genres {
                 _ = newResponse.movies.map { $0.getGenres(genresInput: _genres)}
             }
             
+            //---
             if page == 1 {
                 self.movieResponse.value = newResponse
             } else {
@@ -82,7 +85,7 @@ extension KMoviePopularViewModel {
         .addDisposableTo(bag)
     }
     
-    //--- get grenres
+    //--- get genres
     
     func getGenresMovie(){
         let genres = KMovieAPI.getGenresMovie()

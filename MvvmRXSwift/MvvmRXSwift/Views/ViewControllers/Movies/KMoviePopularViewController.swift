@@ -15,6 +15,8 @@ class KMoviePopularViewController: KBaseViewController {
     
     var vmPopularMovie = KMoviePopularViewModel()
     
+    let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bindUI()
@@ -31,26 +33,41 @@ class KMoviePopularViewController: KBaseViewController {
     }
     
     func bindUI() {
+        handleDataMoives()
+        handleError()
+        handleLoading()
+    }
+}
+
+//---MARK: action
+extension KMoviePopularViewController {
+    func handleDataMoives(){
         //-- remember skip(1) , because the first time vmPopularMovie.movieResponse = nil
         let movies = vmPopularMovie.movieResponse.asObservable().skip(1).map { $0!.movies }
         
+        //-- show data to table
         movies.bind(to: tbMovie.rx.items){ table, index, movie in
             let cell = table.dequeueReusableCell(withIdentifier: KCell.movieCell) as! MovieCell
             cell.movie = movie
             return cell
-        }.addDisposableTo(bag)
-        
+            }.addDisposableTo(bag)
+    }
+    
+    func handleLoading(){
+        //-- show or hide indicator when isLoading changed
         vmPopularMovie.isLoading.subscribe(onNext:  { [unowned self] isLoading in
             isLoading == true ? self.showActivityIndicator(): self.hideActivityIndicator()
         }).addDisposableTo(bag)
-        
-        
+    }
+    
+    func handleError(){
         //--- handle when error
         vmPopularMovie.errorMessage.subscribe(onNext: { [unowned self] errorString in
             self.showErrorMessage(errorMessage: errorString)
         }).addDisposableTo(bag)
     }
 }
+
 
 //---MARK: UITableViewDelegate
 extension KMoviePopularViewController: UITableViewDelegate {
@@ -65,6 +82,14 @@ extension KMoviePopularViewController: UITableViewDelegate {
             self.vmPopularMovie.loadMoreMovies()
         })
         
+        //-- 
+        refreshControl.addTarget(self , action: #selector(pullToRefresh), for: .valueChanged)
+        tbMovie.addSubview(refreshControl)
+    }
+    
+    func pullToRefresh(){
+        refreshControl.endRefreshing()
+        vmPopularMovie.refreshMovies()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

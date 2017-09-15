@@ -613,7 +613,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+DisposeBag",
+											"text": "+bag",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -642,7 +642,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+KMovieResponse",
+											"text": "+movieResponse",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -675,6 +675,93 @@
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFehLUNSwfDX9o=",
+											"_parent": {
+												"$ref": "AAAAAAFef2l0UrsJsGk="
+											},
+											"model": {
+												"$ref": "AAAAAAFehLUNCQfAh70="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 597,
+											"top": 507,
+											"width": 163,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+genreResponse",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFehLVPdAfKlow=",
+											"_parent": {
+												"$ref": "AAAAAAFef2l0UrsJsGk="
+											},
+											"model": {
+												"$ref": "AAAAAAFehLVPQwfHGhQ="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 597,
+											"top": 522,
+											"width": 163,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+isLoading",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFehLV4sgfRR9k=",
+											"_parent": {
+												"$ref": "AAAAAAFef2l0UrsJsGk="
+											},
+											"model": {
+												"$ref": "AAAAAAFehLV4gwfOPD0="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 597,
+											"top": 537,
+											"width": 163,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+page",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
 										}
 									],
 									"visible": true,
@@ -689,7 +776,7 @@
 									"left": 592,
 									"top": 457,
 									"width": 173,
-									"height": 53,
+									"height": 98,
 									"autoResize": false
 								},
 								{
@@ -721,12 +808,128 @@
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 597,
-											"top": 515,
+											"top": 560,
 											"width": 163,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+getMovie(page)",
+											"text": "+getMoviesPopular(page)",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFehLvjzAfkC50=",
+											"_parent": {
+												"$ref": "AAAAAAFef2l0U7sKKjg="
+											},
+											"model": {
+												"$ref": "AAAAAAFehLvjlgfhAsw="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 597,
+											"top": 575,
+											"width": 163,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+getGenresMovie()",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFehL22xgfrQ6c=",
+											"_parent": {
+												"$ref": "AAAAAAFef2l0U7sKKjg="
+											},
+											"model": {
+												"$ref": "AAAAAAFehL22lgfoUtI="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 597,
+											"top": 590,
+											"width": 163,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+init()",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFehL3JZwfykJ4=",
+											"_parent": {
+												"$ref": "AAAAAAFef2l0U7sKKjg="
+											},
+											"model": {
+												"$ref": "AAAAAAFehL3JOAfvwZs="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 597,
+											"top": 605,
+											"width": 163,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+refreshMovies()",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFehL3nJQf5z2c=",
+											"_parent": {
+												"$ref": "AAAAAAFef2l0U7sKKjg="
+											},
+											"model": {
+												"$ref": "AAAAAAFehL3m+Af2vLw="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 597,
+											"top": 620,
+											"width": 163,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "+loadMoreMovies()",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -742,9 +945,9 @@
 									"containerChangeable": false,
 									"containerExtending": false,
 									"left": 592,
-									"top": 510,
+									"top": 555,
 									"width": 173,
-									"height": 23,
+									"height": 83,
 									"autoResize": false
 								},
 								{
@@ -808,7 +1011,7 @@
 							"left": 592,
 							"top": 432,
 							"width": 173,
-							"height": 101,
+							"height": 206,
 							"autoResize": false,
 							"stereotypeDisplay": "label",
 							"showVisibility": true,
@@ -1588,12 +1791,12 @@
 							"showShadow": true,
 							"containerChangeable": false,
 							"containerExtending": false,
-							"left": 576,
-							"top": 568,
-							"width": 289,
-							"height": 51,
+							"left": 768,
+							"top": 432,
+							"width": 449,
+							"height": 209,
 							"autoResize": false,
-							"text": "quản lí logic cho KMoviePopularViewController: return data, error..",
+							"text": "quản lí logic cho KMoviePopularViewController: return data, error..\n\n1. movieResponse  = Variable<KMovieResponse?>(nil) . chua thong tin movie sau khi get duoc. view controller se lang subscribe de show len table\n2. errorMessage: lắng nghe lỗi. View controller se lang subscribe de show error len .\n3.genreResponse chứa mảng thể loại được load một lần duy nhất khi nó chưa có giá trị\n4.isLoading: để cho controller biết khi nào cần show ui loading....\n5. page : khi page onNext load thêm hoặc refresh dữ liệu\n//------\n1. khi init kiểm tra xem mảng genres đã có chưa, chưa có load.\n2. Sau khi  load getGenresMovie() completion or error ta đều load page 1. getMoviesPopular(in page)\n\n\n\n\n",
 							"wordWrap": true
 						},
 						{
@@ -2675,8 +2878,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 498,
-									"top": 492,
+									"left": 496,
+									"top": 519,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -2709,8 +2912,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 498,
-									"top": 507,
+									"left": 494,
+									"top": 534,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -2743,8 +2946,8 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 497,
-									"top": 463,
+									"left": 499,
+									"top": 490,
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -2776,7 +2979,7 @@
 								"$ref": "AAAAAAFef2l0UbsDJU0="
 							},
 							"lineStyle": 1,
-							"points": "591:483;405:486",
+							"points": "591:523;405:500",
 							"stereotypeDisplay": "label",
 							"showVisibility": true,
 							"showProperty": true,
@@ -2951,11 +3154,10 @@
 							"_parent": {
 								"$ref": "AAAAAAFef2l0UbsBCiE="
 							},
-							"name": "DisposeBag",
+							"name": "bag",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
-							"type": "",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
@@ -2969,11 +3171,10 @@
 							"_parent": {
 								"$ref": "AAAAAAFef2l0UbsBCiE="
 							},
-							"name": "KMovieResponse",
+							"name": "movieResponse",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
-							"type": "",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
@@ -2998,6 +3199,57 @@
 							"isDerived": false,
 							"aggregation": "none",
 							"isID": false
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFehLUNCQfAh70=",
+							"_parent": {
+								"$ref": "AAAAAAFef2l0UbsBCiE="
+							},
+							"name": "genreResponse",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"isReadOnly": false,
+							"isOrdered": false,
+							"isUnique": false,
+							"isDerived": false,
+							"aggregation": "none",
+							"isID": false
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFehLVPQwfHGhQ=",
+							"_parent": {
+								"$ref": "AAAAAAFef2l0UbsBCiE="
+							},
+							"name": "isLoading",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"isReadOnly": false,
+							"isOrdered": false,
+							"isUnique": false,
+							"isDerived": false,
+							"aggregation": "none",
+							"isID": false
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFehLV4gwfOPD0=",
+							"_parent": {
+								"$ref": "AAAAAAFef2l0UbsBCiE="
+							},
+							"name": "page",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"isReadOnly": false,
+							"isOrdered": false,
+							"isUnique": false,
+							"isDerived": false,
+							"aggregation": "none",
+							"isID": false
 						}
 					],
 					"operations": [
@@ -3007,7 +3259,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFef2l0UbsBCiE="
 							},
-							"name": "getMovie",
+							"name": "getMoviesPopular",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
@@ -3022,13 +3274,68 @@
 									"visibility": "public",
 									"isStatic": false,
 									"isLeaf": false,
-									"type": "",
 									"isReadOnly": false,
 									"isOrdered": false,
 									"isUnique": false,
 									"direction": "in"
 								}
 							],
+							"concurrency": "sequential",
+							"isQuery": false,
+							"isAbstract": false
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFehLvjlgfhAsw=",
+							"_parent": {
+								"$ref": "AAAAAAFef2l0UbsBCiE="
+							},
+							"name": "getGenresMovie",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"concurrency": "sequential",
+							"isQuery": false,
+							"isAbstract": false
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFehL22lgfoUtI=",
+							"_parent": {
+								"$ref": "AAAAAAFef2l0UbsBCiE="
+							},
+							"name": "init",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"concurrency": "sequential",
+							"isQuery": false,
+							"isAbstract": false
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFehL3JOAfvwZs=",
+							"_parent": {
+								"$ref": "AAAAAAFef2l0UbsBCiE="
+							},
+							"name": "refreshMovies",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"concurrency": "sequential",
+							"isQuery": false,
+							"isAbstract": false
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFehL3m+Af2vLw=",
+							"_parent": {
+								"$ref": "AAAAAAFef2l0UbsBCiE="
+							},
+							"name": "loadMoreMovies",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
 							"concurrency": "sequential",
 							"isQuery": false,
 							"isAbstract": false
