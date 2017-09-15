@@ -10,28 +10,24 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class KMoviePopularViewController: KBaseViewController {
-    @IBOutlet weak var tbMovie: UITableView!
+class KMovieViewController: KBaseViewController {
+    @IBOutlet weak var tbMovie: UITableView!    
+    var vmPopularMovie: KMovieViewModel!
     
-    var vmPopularMovie = KMoviePopularViewModel()
-    
-    let refreshControl = UIRefreshControl()
+    var refreshControl: UIRefreshControl!
+    var typeMovie: KMovieType = KMovieType.popular
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindUI()
+        
+        vmPopularMovie = KMovieViewModel(typeMovie: typeMovie)
+        refreshControl = UIRefreshControl()
         configureTable()
+        
+        //---
+        bindUI()
+        
     }
-    
-    static func getViewController() -> UIViewController {
-        return UIStoryboard.movieStoryBoard().instantiateViewController(withIdentifier: "KMoviePopularViewController")
-    }
-    
-    override func setupNavigation() {
-        super.setupNavigation()
-        addButtonToNavigation(image: KImage.imgCategory, style: .left, action: nil)
-    }
-    
     func bindUI() {
         handleDataMoives()
         handleError()
@@ -39,23 +35,28 @@ class KMoviePopularViewController: KBaseViewController {
     }
 }
 
-//---MARK: action
-extension KMoviePopularViewController {
+//---MARK: handle logics
+extension KMovieViewController {
     func handleDataMoives(){
         //-- remember skip(1) , because the first time vmPopularMovie.movieResponse = nil
-        let movies = vmPopularMovie.movieResponse.asObservable().skip(1).map { $0!.movies }
+        let movies = vmPopularMovie.movieResponse.asObservable().skip(1).map { movieResponse -> [KMovie] in
+            guard let _movieResponse = movieResponse else { return [] }
+            return _movieResponse.movies
+        }
         
         //-- show data to table
         movies.bind(to: tbMovie.rx.items){ table, index, movie in
+            
             let cell = table.dequeueReusableCell(withIdentifier: KCell.movieCell) as! MovieCell
             cell.movie = movie
             return cell
+            
             }.addDisposableTo(bag)
     }
     
     func handleLoading(){
         //-- show or hide indicator when isLoading changed
-        vmPopularMovie.isLoading.subscribe(onNext:  { [unowned self] isLoading in
+        vmPopularMovie.isLoading.asObservable().subscribe(onNext:  { [unowned self] isLoading in
             isLoading == true ? self.showActivityIndicator(): self.hideActivityIndicator()
         }).addDisposableTo(bag)
     }
@@ -70,7 +71,7 @@ extension KMoviePopularViewController {
 
 
 //---MARK: UITableViewDelegate
-extension KMoviePopularViewController: UITableViewDelegate {
+extension KMovieViewController: UITableViewDelegate {
     func configureTable(){
         tbMovie.register(UINib(nibName: KCell.movieCell, bundle: nil), forCellReuseIdentifier: KCell.movieCell)
         tbMovie.delegate = self
@@ -82,7 +83,7 @@ extension KMoviePopularViewController: UITableViewDelegate {
             self.vmPopularMovie.loadMoreMovies()
         })
         
-        //-- 
+        //-- refesh
         refreshControl.addTarget(self , action: #selector(pullToRefresh), for: .valueChanged)
         tbMovie.addSubview(refreshControl)
     }

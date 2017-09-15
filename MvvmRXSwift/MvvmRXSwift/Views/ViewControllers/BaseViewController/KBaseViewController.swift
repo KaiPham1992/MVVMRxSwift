@@ -41,6 +41,11 @@ class KBaseViewController: UIViewController {
     }()
     
     
+    static func getViewController(storyboard: UIStoryboard = UIStoryboard.movieStoryBoard()) -> UIViewController {
+        let storyboardId = String(describing: self)
+        return storyboard.instantiateViewController(withIdentifier: storyboardId)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = KColor.background
@@ -52,8 +57,8 @@ class KBaseViewController: UIViewController {
         NotificationCenter.default.addObserver(self , selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self , selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
         
-        
     }
+    
     //MARK: Base navigation
     func setupNavigation(){
         //---

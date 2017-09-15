@@ -15,7 +15,14 @@ public let BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
 public let API_KEY = "f7b6a27fedf4a430dd71f5a7e8bec2a5"
 
 
-//var golobalGenres = [KGenre]()
+
+enum KMovieType: String {
+    case popular
+    case topRated
+    case nowPlaying
+    case upComing
+}
+
 
 struct KColor {
     static let navigationColor = UIColor(red: 51/255, green: 51/255, blue: 56/255, alpha: 1)

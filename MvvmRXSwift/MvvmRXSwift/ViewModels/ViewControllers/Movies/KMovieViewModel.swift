@@ -9,16 +9,20 @@
 import Foundation
 import RxSwift
 
-class KMoviePopularViewModel {
+class KMovieViewModel {
     let bag = DisposeBag()
     var movieResponse = Variable<KMovieResponse?>(nil)
     var genreResponse = Variable<KGenreResponse?>(nil)
     var errorMessage = PublishSubject<String?>()
     
-    var isLoading = PublishSubject<Bool>()
+    var isLoading = Variable<Bool>(false)
     var page = Variable<Int?>(nil) //--- nil to skip the first time subcribe
     
-    init(){
+    //-- to check before get movies
+    var typeMovie: KMovieType = KMovieType.popular
+        
+    init(typeMovie: KMovieType = KMovieType.popular){
+        self.typeMovie = typeMovie
         if genreResponse.value == nil {
             getGenresMovie()
         } else {
@@ -27,7 +31,7 @@ class KMoviePopularViewModel {
         
         page.asObservable().subscribe(onNext: { [unowned self] _page in
             guard let currentPage = _page else { return }
-            self.getMoviesPopular(page: currentPage)
+            self.getMovies(page: currentPage)
         }).addDisposableTo(bag)
     }
     
@@ -43,22 +47,39 @@ class KMoviePopularViewModel {
 }
 
 //--- MARK: Handle API
-extension KMoviePopularViewModel {
+extension KMovieViewModel {
     /**
      1. only show indicator when page == 1 => isLoading = true
+     2. input is kind of movie (popular, top rated, now playing, up comming)
+     3. get movies from kind of movies
      
     */
     
-    func getMoviesPopular(page: Int) {
+    func getMovies(page: Int) {
         if page == 1 {
-            isLoading.onNext(true)
+            isLoading.value = true
         }
        
-        let movies = KMovieAPI.getMoviesPopular(page: page)
+        var movies: Observable<KMovieResponse>!
+        
+        switch typeMovie {
+        case .popular:
+            movies = KMovieAPI.getMoviesPopular(page: page)
+            break
+        case .topRated:
+            movies = KMovieAPI.getMoviesTopRate(page: page)
+            break
+        case .nowPlaying:
+            movies = KMovieAPI.getMoviesNowPlaying(page: page)
+            break
+        case .upComing:
+            movies = KMovieAPI.getMoviesUpcoming(page: page)
+            break
+        }
         
         //-- subscribe success
         movies.subscribe(onNext: { [unowned self] reponse in
-            self.isLoading.onNext(false)
+            self.isLoading.value = false
             
             //-- converter genreIds to genres (have id, name)
             let newResponse = reponse
@@ -80,7 +101,7 @@ extension KMoviePopularViewModel {
         //--- subscribe when error
         movies.subscribe(onError: { [unowned self] error in
             self.errorMessage.onNext(error.localizedDescription)
-            self.isLoading.onNext(false)
+            self.isLoading.value = false
         })
         .addDisposableTo(bag)
     }

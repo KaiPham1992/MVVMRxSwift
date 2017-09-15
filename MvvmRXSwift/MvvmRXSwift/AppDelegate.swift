@@ -18,21 +18,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         UIApplication.shared.statusBarStyle = .lightContent
         
+        //hide black line below navigation ba
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        
         //---
-//        getGrenresMovie()
         goToApp()
         return true
     }
     
     
     func goToApp(){
-        let vc = KMoviePopularViewController.getViewController()
+        let vc = KMovieMainViewController.getViewController()
         let nc = UINavigationController(rootViewController: vc)
         window?.show(rootViewController: nc, animated: true)
     }
-    
-   
-    
     
 
     func applicationWillResignActive(_ application: UIApplication) {

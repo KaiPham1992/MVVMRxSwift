@@ -12,6 +12,8 @@ import Moya
 enum KMovieDocument {
     case getPopular(page: Int)
     case getTopRate(page: Int)
+    case getNowPlaying(page: Int)
+    case getUpcoming(page: Int)
     case getGenres()
 }
 
@@ -38,6 +40,10 @@ extension KMovieDocument: TargetType {
             return "/movie/popular"
         case .getTopRate(_):
             return "/movie/top_rated"
+        case .getNowPlaying(_):
+            return "/movie/now_playing"
+        case .getUpcoming(_):
+            return "/movie/upcoming"
         case .getGenres():
             return "/genre/movie/list"
         }
@@ -56,9 +62,7 @@ extension KMovieDocument: TargetType {
     /// The parameters to be encoded in the request.
     var parameters: [String : Any]? {
         switch self {
-        case .getPopular(let page):
-            return KMovieParameterGetList(page: page).toParameter()
-        case .getTopRate(let page):
+        case .getPopular(let page), .getTopRate(let page), .getNowPlaying(let page), .getUpcoming(let page):
             return KMovieParameterGetList(page: page).toParameter()
         case .getGenres():
             return ["api_key": API_KEY]

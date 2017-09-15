@@ -9,10 +9,54 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Movie Popular View Controller-->
+        <!--Movie Main View Controller-->
+        <scene sceneID="0bu-1U-lDZ">
+            <objects>
+                <viewController storyboardIdentifier="KMovieMainViewController" id="F7h-eh-afN" customClass="KMovieMainViewController" customModule="MvvmRXSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8iV-Td-lZX"/>
+                        <viewControllerLayoutGuide type="bottom" id="GlP-g0-gXh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qxE-hv-YBa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Whn-uV-jg3" customClass="KMenuSlideTopView" customModule="MvvmRXSwift" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="backgroundColor" red="1" green="0.80392156859999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="fOk-9k-Fb2"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lI4-W7-r3A">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Whn-uV-jg3" firstAttribute="top" secondItem="8iV-Td-lZX" secondAttribute="bottom" id="2vN-O1-tqE"/>
+                            <constraint firstAttribute="trailing" secondItem="lI4-W7-r3A" secondAttribute="trailing" id="Fua-BS-h7Z"/>
+                            <constraint firstAttribute="trailing" secondItem="Whn-uV-jg3" secondAttribute="trailing" id="Rij-hI-8ii"/>
+                            <constraint firstItem="lI4-W7-r3A" firstAttribute="top" secondItem="Whn-uV-jg3" secondAttribute="bottom" id="UK7-De-yNS"/>
+                            <constraint firstItem="lI4-W7-r3A" firstAttribute="leading" secondItem="qxE-hv-YBa" secondAttribute="leading" id="ddh-Vq-cjz"/>
+                            <constraint firstItem="GlP-g0-gXh" firstAttribute="top" secondItem="lI4-W7-r3A" secondAttribute="bottom" id="g67-cJ-dU1"/>
+                            <constraint firstItem="Whn-uV-jg3" firstAttribute="leading" secondItem="qxE-hv-YBa" secondAttribute="leading" id="gdH-AM-s5K"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="vContent" destination="lI4-W7-r3A" id="avJ-hu-ZWo"/>
+                        <outlet property="vMenu" destination="Whn-uV-jg3" id="9g8-2o-chg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c6t-zw-MTz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-534" y="160"/>
+        </scene>
+        <!--Movie View Controller-->
         <scene sceneID="pVe-Te-m1v">
             <objects>
-                <viewController storyboardIdentifier="KMoviePopularViewController" id="iGz-t7-Qt3" customClass="KMoviePopularViewController" customModule="MvvmRXSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="KMovieViewController" id="iGz-t7-Qt3" customClass="KMovieViewController" customModule="MvvmRXSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ejD-33-svD"/>
                         <viewControllerLayoutGuide type="bottom" id="Cq4-rU-Pq3"/>
@@ -29,9 +73,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="UAr-DZ-VH6" secondAttribute="trailing" id="0dP-KY-S1t"/>
-                            <constraint firstItem="UAr-DZ-VH6" firstAttribute="top" secondItem="ejD-33-svD" secondAttribute="bottom" id="O4F-yj-XeG"/>
                             <constraint firstItem="UAr-DZ-VH6" firstAttribute="leading" secondItem="j3d-zz-2GB" secondAttribute="leading" id="QHM-B5-7M5"/>
                             <constraint firstItem="Cq4-rU-Pq3" firstAttribute="top" secondItem="UAr-DZ-VH6" secondAttribute="bottom" id="iGS-uh-IE4"/>
+                            <constraint firstItem="UAr-DZ-VH6" firstAttribute="top" secondItem="ejD-33-svD" secondAttribute="bottom" id="lqV-0n-4MQ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -40,7 +84,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vJL-Mw-Vqc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="160"/>
+            <point key="canvasLocation" x="130" y="159"/>
         </scene>
     </scenes>
 </document>

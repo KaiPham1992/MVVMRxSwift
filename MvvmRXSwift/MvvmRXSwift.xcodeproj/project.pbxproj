@@ -12,11 +12,14 @@
 		2A0820B11F62DFCB005EA1E2 /* KMovieDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0820B01F62DFCB005EA1E2 /* KMovieDate.swift */; };
 		2A0820B41F62E3E9005EA1E2 /* KMovieDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0820B31F62E3E9005EA1E2 /* KMovieDocument.swift */; };
 		2A0820B61F62EA31005EA1E2 /* KMovieAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0820B51F62EA31005EA1E2 /* KMovieAPI.swift */; };
-		2A0820B91F62EE5C005EA1E2 /* KMoviePopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0820B81F62EE5C005EA1E2 /* KMoviePopularViewController.swift */; };
-		2A0820BC1F62F05F005EA1E2 /* KMoviePopularViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0820BB1F62F05F005EA1E2 /* KMoviePopularViewModel.swift */; };
+		2A0820B91F62EE5C005EA1E2 /* KMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0820B81F62EE5C005EA1E2 /* KMovieViewController.swift */; };
+		2A0820BC1F62F05F005EA1E2 /* KMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0820BB1F62F05F005EA1E2 /* KMovieViewModel.swift */; };
 		2A1304461F6AE17800CB6643 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1304431F6AE17800CB6643 /* UIScrollView+SVInfiniteScrolling.m */; };
 		2A1304471F6AE17800CB6643 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1304451F6AE17800CB6643 /* UIScrollView+SVPullToRefresh.m */; };
 		2A19DA491F6A77F400BCC14E /* KGenreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A19DA481F6A77F400BCC14E /* KGenreResponse.swift */; };
+		2A1FB1F01F6BFD520017F4C1 /* KMenuSlideTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FB1EF1F6BFD520017F4C1 /* KMenuSlideTopView.swift */; };
+		2A1FB1F21F6C03B40017F4C1 /* KMovieMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FB1F11F6C03B40017F4C1 /* KMovieMainViewController.swift */; };
+		2A1FB1F41F6C0CC00017F4C1 /* KMovieMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FB1F31F6C0CC00017F4C1 /* KMovieMainViewModel.swift */; };
 		2A77D6FD1F6BBC1700CCBAF0 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A77D6FC1F6BBC1700CCBAF0 /* UIViewController+Extension.swift */; };
 		2A8166DE1F64E58400257A12 /* KAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8166DD1F64E58400257A12 /* KAPIHelper.swift */; };
 		2A8166E21F64E5A700257A12 /* KAPIParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8166E11F64E5A700257A12 /* KAPIParameter.swift */; };
@@ -99,8 +102,8 @@
 		2A0820B01F62DFCB005EA1E2 /* KMovieDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieDate.swift; sourceTree = "<group>"; };
 		2A0820B31F62E3E9005EA1E2 /* KMovieDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieDocument.swift; sourceTree = "<group>"; };
 		2A0820B51F62EA31005EA1E2 /* KMovieAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieAPI.swift; sourceTree = "<group>"; };
-		2A0820B81F62EE5C005EA1E2 /* KMoviePopularViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMoviePopularViewController.swift; sourceTree = "<group>"; };
-		2A0820BB1F62F05F005EA1E2 /* KMoviePopularViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMoviePopularViewModel.swift; sourceTree = "<group>"; };
+		2A0820B81F62EE5C005EA1E2 /* KMovieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieViewController.swift; sourceTree = "<group>"; };
+		2A0820BB1F62F05F005EA1E2 /* KMovieViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieViewModel.swift; sourceTree = "<group>"; };
 		2A1304411F6AE17800CB6643 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
 		2A1304421F6AE17800CB6643 /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
 		2A1304431F6AE17800CB6643 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
@@ -108,6 +111,9 @@
 		2A1304451F6AE17800CB6643 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		2A13044C1F6AE21800CB6643 /* MvvmRXSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MvvmRXSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		2A19DA481F6A77F400BCC14E /* KGenreResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGenreResponse.swift; sourceTree = "<group>"; };
+		2A1FB1EF1F6BFD520017F4C1 /* KMenuSlideTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMenuSlideTopView.swift; sourceTree = "<group>"; };
+		2A1FB1F11F6C03B40017F4C1 /* KMovieMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieMainViewController.swift; sourceTree = "<group>"; };
+		2A1FB1F31F6C0CC00017F4C1 /* KMovieMainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieMainViewModel.swift; sourceTree = "<group>"; };
 		2A77D6FC1F6BBC1700CCBAF0 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		2A8166DD1F64E58400257A12 /* KAPIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KAPIHelper.swift; path = Base/KAPIHelper.swift; sourceTree = "<group>"; };
 		2A8166E11F64E5A700257A12 /* KAPIParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KAPIParameter.swift; sourceTree = "<group>"; };
@@ -197,7 +203,8 @@
 		2A0820B71F62EE24005EA1E2 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
-				2A0820B81F62EE5C005EA1E2 /* KMoviePopularViewController.swift */,
+				2A1FB1F11F6C03B40017F4C1 /* KMovieMainViewController.swift */,
+				2A0820B81F62EE5C005EA1E2 /* KMovieViewController.swift */,
 				2AFF30731F654464004020D2 /* Movie.storyboard */,
 			);
 			path = Movies;
@@ -206,7 +213,8 @@
 		2A0820BA1F62F03D005EA1E2 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
-				2A0820BB1F62F05F005EA1E2 /* KMoviePopularViewModel.swift */,
+				2A0820BB1F62F05F005EA1E2 /* KMovieViewModel.swift */,
+				2A1FB1F31F6C0CC00017F4C1 /* KMovieMainViewModel.swift */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -229,6 +237,14 @@
 				2A1304451F6AE17800CB6643 /* UIScrollView+SVPullToRefresh.m */,
 			);
 			path = SVPullToRefresh;
+			sourceTree = "<group>";
+		};
+		2A1FB1EE1F6BFD1D0017F4C1 /* MenuSlideTop */ = {
+			isa = PBXGroup;
+			children = (
+				2A1FB1EF1F6BFD520017F4C1 /* KMenuSlideTopView.swift */,
+			);
+			path = MenuSlideTop;
 			sourceTree = "<group>";
 		};
 		2A8166DC1F64E56700257A12 /* Base */ = {
@@ -422,6 +438,7 @@
 		2ADF9A3F1F6295FA004CF313 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2A1FB1EE1F6BFD1D0017F4C1 /* MenuSlideTop */,
 				2ADF9A671F62A093004CF313 /* BaseView */,
 			);
 			path = Views;
@@ -579,14 +596,17 @@
 				2ADF9A701F62A157004CF313 /* KBaseTableViewCell.swift in Sources */,
 				2A1304471F6AE17800CB6643 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				2AD71E841F61945700C96705 /* AppDelegate.swift in Sources */,
-				2A0820BC1F62F05F005EA1E2 /* KMoviePopularViewModel.swift in Sources */,
+				2A0820BC1F62F05F005EA1E2 /* KMovieViewModel.swift in Sources */,
 				2ADF9A4D1F629A9F004CF313 /* KBaseViewController.swift in Sources */,
 				2ADF9A511F629BB1004CF313 /* UIButton+Extension.swift in Sources */,
+				2A1FB1F01F6BFD520017F4C1 /* KMenuSlideTopView.swift in Sources */,
 				2ADF9A751F62A356004CF313 /* KBaseModel.swift in Sources */,
 				2A1304461F6AE17800CB6643 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				2A8166E21F64E5A700257A12 /* KAPIParameter.swift in Sources */,
-				2A0820B91F62EE5C005EA1E2 /* KMoviePopularViewController.swift in Sources */,
+				2A0820B91F62EE5C005EA1E2 /* KMovieViewController.swift in Sources */,
+				2A1FB1F21F6C03B40017F4C1 /* KMovieMainViewController.swift in Sources */,
 				2A0820AF1F62DF7C005EA1E2 /* KMovieResponse.swift in Sources */,
+				2A1FB1F41F6C0CC00017F4C1 /* KMovieMainViewModel.swift in Sources */,
 				2A0820B61F62EA31005EA1E2 /* KMovieAPI.swift in Sources */,
 				2A8166DE1F64E58400257A12 /* KAPIHelper.swift in Sources */,
 				2AFF30761F6544C0004020D2 /* UIStoryboard+Extension.swift in Sources */,
