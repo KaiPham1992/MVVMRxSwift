@@ -29,9 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func goToApp(){
-        let vc = KMovieMainViewController.getViewController()
-        let nc = UINavigationController(rootViewController: vc)
-        window?.show(rootViewController: nc, animated: true)
+        
+        let vc = KMovieTabbarController()// KMovieMainViewController.getViewController()
+//        let nc = UINavigationController(rootViewController: vc)
+        window?.show(rootViewController: vc, animated: true)
     }
     
 

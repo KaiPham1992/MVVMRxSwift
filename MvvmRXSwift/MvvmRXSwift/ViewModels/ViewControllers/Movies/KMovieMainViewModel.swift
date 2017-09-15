@@ -57,6 +57,5 @@ class KMovieMainViewModel {
     func changedViewController(index: Int) {
         olderController.value = currentController.value
         currentController.value = controllers[index]
-        let vc = controllers[index] as? KMovieViewController
     }
 }

@@ -58,6 +58,7 @@ extension KMovieMainViewController {
         let menuObservable = vmMovieMain.menuItems.asObservable()
         menuObservable.subscribe(onNext: { [unowned self] items in
             self.vMenu.listItem = items
+            self.view.layoutIfNeeded()
         }).addDisposableTo(bag)
     }
     

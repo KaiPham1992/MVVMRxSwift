@@ -20,6 +20,7 @@
 		2A1FB1F01F6BFD520017F4C1 /* KMenuSlideTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FB1EF1F6BFD520017F4C1 /* KMenuSlideTopView.swift */; };
 		2A1FB1F21F6C03B40017F4C1 /* KMovieMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FB1F11F6C03B40017F4C1 /* KMovieMainViewController.swift */; };
 		2A1FB1F41F6C0CC00017F4C1 /* KMovieMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FB1F31F6C0CC00017F4C1 /* KMovieMainViewModel.swift */; };
+		2A60F8A81F6C39E200E30EAA /* KMovieTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A60F8A71F6C39E200E30EAA /* KMovieTabbarController.swift */; };
 		2A77D6FD1F6BBC1700CCBAF0 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A77D6FC1F6BBC1700CCBAF0 /* UIViewController+Extension.swift */; };
 		2A8166DE1F64E58400257A12 /* KAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8166DD1F64E58400257A12 /* KAPIHelper.swift */; };
 		2A8166E21F64E5A700257A12 /* KAPIParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8166E11F64E5A700257A12 /* KAPIParameter.swift */; };
@@ -114,6 +115,7 @@
 		2A1FB1EF1F6BFD520017F4C1 /* KMenuSlideTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMenuSlideTopView.swift; sourceTree = "<group>"; };
 		2A1FB1F11F6C03B40017F4C1 /* KMovieMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieMainViewController.swift; sourceTree = "<group>"; };
 		2A1FB1F31F6C0CC00017F4C1 /* KMovieMainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieMainViewModel.swift; sourceTree = "<group>"; };
+		2A60F8A71F6C39E200E30EAA /* KMovieTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieTabbarController.swift; sourceTree = "<group>"; };
 		2A77D6FC1F6BBC1700CCBAF0 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		2A8166DD1F64E58400257A12 /* KAPIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KAPIHelper.swift; path = Base/KAPIHelper.swift; sourceTree = "<group>"; };
 		2A8166E11F64E5A700257A12 /* KAPIParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KAPIParameter.swift; sourceTree = "<group>"; };
@@ -245,6 +247,14 @@
 				2A1FB1EF1F6BFD520017F4C1 /* KMenuSlideTopView.swift */,
 			);
 			path = MenuSlideTop;
+			sourceTree = "<group>";
+		};
+		2A60F8A61F6C399800E30EAA /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				2A60F8A71F6C39E200E30EAA /* KMovieTabbarController.swift */,
+			);
+			path = Tabbar;
 			sourceTree = "<group>";
 		};
 		2A8166DC1F64E56700257A12 /* Base */ = {
@@ -438,6 +448,7 @@
 		2ADF9A3F1F6295FA004CF313 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2A60F8A61F6C399800E30EAA /* Tabbar */,
 				2A1FB1EE1F6BFD1D0017F4C1 /* MenuSlideTop */,
 				2ADF9A671F62A093004CF313 /* BaseView */,
 			);
@@ -606,6 +617,7 @@
 				2A0820B91F62EE5C005EA1E2 /* KMovieViewController.swift in Sources */,
 				2A1FB1F21F6C03B40017F4C1 /* KMovieMainViewController.swift in Sources */,
 				2A0820AF1F62DF7C005EA1E2 /* KMovieResponse.swift in Sources */,
+				2A60F8A81F6C39E200E30EAA /* KMovieTabbarController.swift in Sources */,
 				2A1FB1F41F6C0CC00017F4C1 /* KMovieMainViewModel.swift in Sources */,
 				2A0820B61F62EA31005EA1E2 /* KMovieAPI.swift in Sources */,
 				2A8166DE1F64E58400257A12 /* KAPIHelper.swift in Sources */,
