@@ -23,7 +23,16 @@
 		2A219F161F6CDD9600CB8B46 /* KProductionCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A219F151F6CDD9600CB8B46 /* KProductionCompany.swift */; };
 		2A219F1A1F6CF8D400CB8B46 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A219F191F6CF8D400CB8B46 /* String+Extension.swift */; };
 		2A219F1C1F6D05B300CB8B46 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A219F1B1F6D05B300CB8B46 /* Int+Extension.swift */; };
-		2A60F8A81F6C39E200E30EAA /* KMovieTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A60F8A71F6C39E200E30EAA /* KMovieTabbarController.swift */; };
+		2A219F1F1F6D0E1D00CB8B46 /* KTrailer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A219F1E1F6D0E1D00CB8B46 /* KTrailer.swift */; };
+		2A219F211F6D0ED200CB8B46 /* KTrailerReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A219F201F6D0ED200CB8B46 /* KTrailerReponse.swift */; };
+		2A219F231F6D2B7A00CB8B46 /* KPlayVideoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A219F221F6D2B7A00CB8B46 /* KPlayVideoHelper.swift */; };
+		2A219F251F6D2C4700CB8B46 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A219F241F6D2C4700CB8B46 /* UIApplication+Extension.swift */; };
+		2A219F281F6D2ED400CB8B46 /* KMovieTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A219F271F6D2ED400CB8B46 /* KMovieTabbarController.swift */; };
+		2A219F2D1F6D348500CB8B46 /* KReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A219F2C1F6D348500CB8B46 /* KReview.swift */; };
+		2A219F2F1F6D34EA00CB8B46 /* KReviewReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A219F2E1F6D34EA00CB8B46 /* KReviewReponse.swift */; };
+		2A219F311F6D374C00CB8B46 /* KMovieReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A219F301F6D374C00CB8B46 /* KMovieReviewViewController.swift */; };
+		2A219F3A1F6D380300CB8B46 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A219F381F6D380300CB8B46 /* ReviewCell.swift */; };
+		2A219F3B1F6D380300CB8B46 /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A219F391F6D380300CB8B46 /* ReviewCell.xib */; };
 		2A77D6FD1F6BBC1700CCBAF0 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A77D6FC1F6BBC1700CCBAF0 /* UIViewController+Extension.swift */; };
 		2A7994911F6CC50500F02184 /* KMovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7994901F6CC50500F02184 /* KMovieDetailViewController.swift */; };
 		2A7994931F6CCDDB00F02184 /* KMovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7994921F6CCDDB00F02184 /* KMovieDetailViewModel.swift */; };
@@ -123,7 +132,16 @@
 		2A219F151F6CDD9600CB8B46 /* KProductionCompany.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KProductionCompany.swift; sourceTree = "<group>"; };
 		2A219F191F6CF8D400CB8B46 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		2A219F1B1F6D05B300CB8B46 /* Int+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
-		2A60F8A71F6C39E200E30EAA /* KMovieTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieTabbarController.swift; sourceTree = "<group>"; };
+		2A219F1E1F6D0E1D00CB8B46 /* KTrailer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTrailer.swift; sourceTree = "<group>"; };
+		2A219F201F6D0ED200CB8B46 /* KTrailerReponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTrailerReponse.swift; sourceTree = "<group>"; };
+		2A219F221F6D2B7A00CB8B46 /* KPlayVideoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KPlayVideoHelper.swift; sourceTree = "<group>"; };
+		2A219F241F6D2C4700CB8B46 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		2A219F271F6D2ED400CB8B46 /* KMovieTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieTabbarController.swift; sourceTree = "<group>"; };
+		2A219F2C1F6D348500CB8B46 /* KReview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KReview.swift; sourceTree = "<group>"; };
+		2A219F2E1F6D34EA00CB8B46 /* KReviewReponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KReviewReponse.swift; sourceTree = "<group>"; };
+		2A219F301F6D374C00CB8B46 /* KMovieReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieReviewViewController.swift; sourceTree = "<group>"; };
+		2A219F381F6D380300CB8B46 /* ReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
+		2A219F391F6D380300CB8B46 /* ReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
 		2A77D6FC1F6BBC1700CCBAF0 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		2A7994901F6CC50500F02184 /* KMovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieDetailViewController.swift; sourceTree = "<group>"; };
 		2A7994921F6CCDDB00F02184 /* KMovieDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieDetailViewModel.swift; sourceTree = "<group>"; };
@@ -216,10 +234,11 @@
 		2A0820B71F62EE24005EA1E2 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
+				2AFF30731F654464004020D2 /* Movie.storyboard */,
 				2A1FB1F11F6C03B40017F4C1 /* KMovieMainViewController.swift */,
 				2A0820B81F62EE5C005EA1E2 /* KMovieViewController.swift */,
 				2A7994901F6CC50500F02184 /* KMovieDetailViewController.swift */,
-				2AFF30731F654464004020D2 /* Movie.storyboard */,
+				2A219F301F6D374C00CB8B46 /* KMovieReviewViewController.swift */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -262,12 +281,39 @@
 			path = MenuSlideTop;
 			sourceTree = "<group>";
 		};
-		2A60F8A61F6C399800E30EAA /* Tabbar */ = {
+		2A219F1D1F6D0E0000CB8B46 /* Trailer */ = {
 			isa = PBXGroup;
 			children = (
-				2A60F8A71F6C39E200E30EAA /* KMovieTabbarController.swift */,
+				2A219F1E1F6D0E1D00CB8B46 /* KTrailer.swift */,
+				2A219F201F6D0ED200CB8B46 /* KTrailerReponse.swift */,
+			);
+			path = Trailer;
+			sourceTree = "<group>";
+		};
+		2A219F261F6D2ED400CB8B46 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				2A219F271F6D2ED400CB8B46 /* KMovieTabbarController.swift */,
 			);
 			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		2A219F2B1F6D347100CB8B46 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				2A219F2C1F6D348500CB8B46 /* KReview.swift */,
+				2A219F2E1F6D34EA00CB8B46 /* KReviewReponse.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
+		2A219F321F6D37DA00CB8B46 /* ReviewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2A219F381F6D380300CB8B46 /* ReviewCell.swift */,
+				2A219F391F6D380300CB8B46 /* ReviewCell.xib */,
+			);
+			path = ReviewCell;
 			sourceTree = "<group>";
 		};
 		2A8166DC1F64E56700257A12 /* Base */ = {
@@ -379,6 +425,7 @@
 				2A77D6FC1F6BBC1700CCBAF0 /* UIViewController+Extension.swift */,
 				2A219F191F6CF8D400CB8B46 /* String+Extension.swift */,
 				2A219F1B1F6D05B300CB8B46 /* Int+Extension.swift */,
+				2A219F241F6D2C4700CB8B46 /* UIApplication+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -387,6 +434,7 @@
 			isa = PBXGroup;
 			children = (
 				2ADF9A601F629CCF004CF313 /* KDevice.swift */,
+				2A219F221F6D2B7A00CB8B46 /* KPlayVideoHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -394,6 +442,8 @@
 		2ADF9A371F6295FA004CF313 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2A219F2B1F6D347100CB8B46 /* Review */,
+				2A219F1D1F6D0E0000CB8B46 /* Trailer */,
 				2A0820AB1F62DCC3005EA1E2 /* Movie */,
 				2ADF9A731F62A33A004CF313 /* BaseModel */,
 			);
@@ -445,6 +495,7 @@
 		2ADF9A3D1F6295FA004CF313 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				2A219F321F6D37DA00CB8B46 /* ReviewCell */,
 				2AFF306E1F653C9F004020D2 /* MovieCell */,
 				2ADF9A6C1F62A111004CF313 /* BaseCell */,
 			);
@@ -454,6 +505,7 @@
 		2ADF9A3E1F6295FA004CF313 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2A219F261F6D2ED400CB8B46 /* Tabbar */,
 				2A0820B71F62EE24005EA1E2 /* Movies */,
 				2ADF9A4B1F629A7C004CF313 /* BaseViewController */,
 			);
@@ -463,7 +515,6 @@
 		2ADF9A3F1F6295FA004CF313 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2A60F8A61F6C399800E30EAA /* Tabbar */,
 				2A1FB1EE1F6BFD1D0017F4C1 /* MenuSlideTop */,
 				2ADF9A671F62A093004CF313 /* BaseView */,
 			);
@@ -601,6 +652,7 @@
 				2ADF9A5B1F629C1E004CF313 /* calibrib.ttf in Resources */,
 				2AD71E8E1F61945700C96705 /* LaunchScreen.storyboard in Resources */,
 				2AFF30741F654464004020D2 /* Movie.storyboard in Resources */,
+				2A219F3B1F6D380300CB8B46 /* ReviewCell.xib in Resources */,
 				2ADF9A5A1F629C1E004CF313 /* calibri.ttf in Resources */,
 				2AFF30721F653CEB004020D2 /* MovieCell.xib in Resources */,
 				2AD71E8B1F61945700C96705 /* Assets.xcassets in Resources */,
@@ -616,13 +668,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A8166E51F64E68400257A12 /* KMovieParameterGetList.swift in Sources */,
+				2A219F251F6D2C4700CB8B46 /* UIApplication+Extension.swift in Sources */,
 				2ADF9A4A1F629946004CF313 /* UIView+Extension.swift in Sources */,
 				2ADF9A6E1F62A12E004CF313 /* KBaseCollectionViewCell.swift in Sources */,
 				2A19DA491F6A77F400BCC14E /* KGenreResponse.swift in Sources */,
 				2A77D6FD1F6BBC1700CCBAF0 /* UIViewController+Extension.swift in Sources */,
+				2A219F1F1F6D0E1D00CB8B46 /* KTrailer.swift in Sources */,
 				2ADF9A701F62A157004CF313 /* KBaseTableViewCell.swift in Sources */,
 				2A1304471F6AE17800CB6643 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				2AD71E841F61945700C96705 /* AppDelegate.swift in Sources */,
+				2A219F231F6D2B7A00CB8B46 /* KPlayVideoHelper.swift in Sources */,
 				2A0820BC1F62F05F005EA1E2 /* KMovieViewModel.swift in Sources */,
 				2A219F161F6CDD9600CB8B46 /* KProductionCompany.swift in Sources */,
 				2ADF9A4D1F629A9F004CF313 /* KBaseViewController.swift in Sources */,
@@ -630,24 +685,29 @@
 				2ADF9A511F629BB1004CF313 /* UIButton+Extension.swift in Sources */,
 				2A1FB1F01F6BFD520017F4C1 /* KMenuSlideTopView.swift in Sources */,
 				2ADF9A751F62A356004CF313 /* KBaseModel.swift in Sources */,
+				2A219F2D1F6D348500CB8B46 /* KReview.swift in Sources */,
 				2A1304461F6AE17800CB6643 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				2A8166E21F64E5A700257A12 /* KAPIParameter.swift in Sources */,
 				2A0820B91F62EE5C005EA1E2 /* KMovieViewController.swift in Sources */,
 				2A1FB1F21F6C03B40017F4C1 /* KMovieMainViewController.swift in Sources */,
 				2A0820AF1F62DF7C005EA1E2 /* KMovieResponse.swift in Sources */,
-				2A60F8A81F6C39E200E30EAA /* KMovieTabbarController.swift in Sources */,
 				2A219F1C1F6D05B300CB8B46 /* Int+Extension.swift in Sources */,
 				2A7994911F6CC50500F02184 /* KMovieDetailViewController.swift in Sources */,
+				2A219F211F6D0ED200CB8B46 /* KTrailerReponse.swift in Sources */,
 				2A1FB1F41F6C0CC00017F4C1 /* KMovieMainViewModel.swift in Sources */,
 				2A0820B61F62EA31005EA1E2 /* KMovieAPI.swift in Sources */,
 				2A8166DE1F64E58400257A12 /* KAPIHelper.swift in Sources */,
 				2AFF30761F6544C0004020D2 /* UIStoryboard+Extension.swift in Sources */,
+				2A219F3A1F6D380300CB8B46 /* ReviewCell.swift in Sources */,
+				2A219F2F1F6D34EA00CB8B46 /* KReviewReponse.swift in Sources */,
 				2A0820B41F62E3E9005EA1E2 /* KMovieDocument.swift in Sources */,
 				2ADF9A661F629FD3004CF313 /* Window+Extension.swift in Sources */,
 				2A219F1A1F6CF8D400CB8B46 /* String+Extension.swift in Sources */,
 				2AFF30711F653CEB004020D2 /* MovieCell.swift in Sources */,
 				2ADF9A4F1F629AE6004CF313 /* Constants.swift in Sources */,
 				2ADF9A6B1F62A0F3004CF313 /* KBaseView.swift in Sources */,
+				2A219F281F6D2ED400CB8B46 /* KMovieTabbarController.swift in Sources */,
+				2A219F311F6D374C00CB8B46 /* KMovieReviewViewController.swift in Sources */,
 				2A8166E71F6508F600257A12 /* KTarget.swift in Sources */,
 				2A0820B11F62DFCB005EA1E2 /* KMovieDate.swift in Sources */,
 				2ADF9A611F629CCF004CF313 /* KDevice.swift in Sources */,

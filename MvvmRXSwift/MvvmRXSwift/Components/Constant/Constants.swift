@@ -13,9 +13,7 @@ public let BASE_URL = "https://api.themoviedb.org/3"
 //public let BASE_URL = "https://api.thessmoviedb.org/3"
 public let BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
 public let API_KEY = "f7b6a27fedf4a430dd71f5a7e8bec2a5"
-
-
-
+public let BASE_VIDEO = "https://www.themoviedb.org/video/play?key={key}&_={id}"
 var appMovieGenres = [KGenre]()
 
 enum KMovieType: String {

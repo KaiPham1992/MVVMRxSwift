@@ -12,6 +12,7 @@ class KMovieDetailViewController: KBaseViewController {
     
     @IBOutlet weak var imgBackdrop: UIImageView!
     @IBOutlet weak var imgPoster: UIImageView!
+    @IBOutlet weak var vContent: UIView!
     
     //---info
     @IBOutlet weak var lbTitle: UILabel!
@@ -47,7 +48,7 @@ class KMovieDetailViewController: KBaseViewController {
     }
     
     func setUpView(){
-//        imgPoster.setBorder(cornerRadius: 5)
+        self.vContent.isHidden = true
     }
     
     override func setupNavigation() {
@@ -83,7 +84,6 @@ extension KMovieDetailViewController {
         vmMovieDetail.movieSelected.asObservable().subscribe(onNext: { [unowned self] movie in
             guard let _movie = movie else { return }
             self.showInfoMovie(movie: _movie)
-            
         }).addDisposableTo(bag)
     }
     
@@ -95,6 +95,8 @@ extension KMovieDetailViewController {
     
     //---
     func showInfoMovie(movie: KMovie){
+        print("movie Id: \(movie.id!)")
+        self.vContent.isHidden = false
         imgPoster.setBorder(borderWidth: 1, borderColor: KColor.lineColor, cornerRadius: 5)
         imgBackdrop.setBorder(borderWidth: 1, borderColor: KColor.lineColor, cornerRadius: 5)
         imgBackdrop.sd_setImage(with: movie.backdropPath?.toUrl(), placeholderImage: KImage.imgLoadingLandscape)

@@ -21,8 +21,6 @@ class KMovieTabbarController: UITabBarController {
         let ncMovie = UINavigationController(rootViewController: vcMovie)
         
         self.viewControllers = [ncMovie]
-        
-        
     }
     
     func setUpBarItem(title: String?, normalImage: UIImage?, selectedImage: UIImage?) -> UITabBarItem {

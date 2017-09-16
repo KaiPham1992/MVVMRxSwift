@@ -37,19 +37,6 @@ class KMovieMainViewController: KBaseViewController {
         bindCurrentController()
         bindOlderController()
     }
-    
-    func removeController(controller: UIViewController){
-        controller.willMove(toParentViewController: nil)
-        controller.view.removeFromSuperview()
-        controller.removeFromParentViewController()
-    }
-    
-    func insertController(controller: UIViewController) {
-        self.addChildViewController(controller)
-        controller.view.frame = vContent.bounds
-        vContent.addSubview(controller.view)
-        controller.didMove(toParentViewController: self)
-    }
 }
 
 //--- MARK: handle logics
@@ -66,7 +53,7 @@ extension KMovieMainViewController {
         let currentObservable = vmMovieMain.currentController.asObservable()
         currentObservable.subscribe(onNext: { [unowned self] vc in
             guard let _vc = vc else { return }
-            self.insertController(controller: _vc)
+            self.insertController(controller: _vc, vContent: self.vContent)
         }).addDisposableTo(bag)
     }
     
@@ -77,8 +64,6 @@ extension KMovieMainViewController {
             self.removeController(controller: _vc)
         }).addDisposableTo(bag)
     }
-    
-    
 }
 
 

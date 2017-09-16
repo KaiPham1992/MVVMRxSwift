@@ -12,7 +12,7 @@ import RxCocoa
 
 class KMovieViewController: KBaseViewController {
     @IBOutlet weak var tbMovie: UITableView!    
-    var vmPopularMovie: KMovieViewModel!
+    var vmPopularMovie: KMovieViewModel?
     
     var refreshControl: UIRefreshControl!
     var typeMovie: KMovieType = KMovieType.popular
@@ -42,13 +42,13 @@ class KMovieViewController: KBaseViewController {
 extension KMovieViewController {
     func bindDataMoives(){
         //-- remember skip(1) , because the first time vmPopularMovie.movieResponse = nil
-        let movies = vmPopularMovie.movieResponse.asObservable().skip(1).map { movieResponse -> [KMovie] in
+        let movies = vmPopularMovie?.movieResponse.asObservable().skip(1).map { movieResponse -> [KMovie] in
             guard let _movieResponse = movieResponse else { return [] }
             return _movieResponse.movies
         }
         
         //-- show data to table
-        movies.bind(to: tbMovie.rx.items){ table, index, movie in
+        movies?.bind(to: tbMovie.rx.items){ table, index, movie in
             
             let cell = table.dequeueReusableCell(withIdentifier: KCell.movieCell) as! MovieCell
             cell.movie = movie
@@ -59,26 +59,25 @@ extension KMovieViewController {
     
     func bindLoading(){
         //-- show or hide indicator when isLoading changed
-        vmPopularMovie.isLoading.asObservable().subscribe(onNext:  { [unowned self] isLoading in
+        vmPopularMovie?.isLoading.asObservable().subscribe(onNext:  { [unowned self] isLoading in
             isLoading == true ? self.showActivityIndicator(): self.hideActivityIndicator()
         }).addDisposableTo(bag)
     }
     
     func bindError(){
         //--- handle when error
-        vmPopularMovie.errorMessage.subscribe(onNext: { [unowned self] errorString in
+        vmPopularMovie?.errorMessage.subscribe(onNext: { [unowned self] errorString in
             self.showErrorMessage(errorMessage: errorString)
         }).addDisposableTo(bag)
     }
     
     func goToDetail(){
-        tbMovie.rx.modelSelected(KBaseModel.self).subscribe(onNext: { movie in
+        tbMovie.rx.modelSelected(KBaseModel.self).subscribe(onNext: { [unowned self] movie in
             guard let _movie = movie as? KMovie else { return }
             
             let vc = KMovieDetailViewController.getViewController() as!KMovieDetailViewController
             vc.vmMovieDetail.movieIdSelected = _movie.id
             self.navigationController?.pushViewController(vc, animated: true)
-            
         }).addDisposableTo(bag)
     }
 }
@@ -94,7 +93,7 @@ extension KMovieViewController: UITableViewDelegate {
         //--- load more
         tbMovie.addInfiniteScrolling(actionHandler: { [unowned self] in
             self.tbMovie.infiniteScrollingView.stopAnimating()
-            self.vmPopularMovie.loadMoreMovies()
+            self.vmPopularMovie?.loadMoreMovies()
         })
         
         //-- refesh
@@ -104,12 +103,12 @@ extension KMovieViewController: UITableViewDelegate {
     
     func pullToRefresh(){
         refreshControl.endRefreshing()
-        vmPopularMovie.refreshMovies()
+        vmPopularMovie?.refreshMovies()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if  KDevie.getTypeDevice() == TypeDevice.SMALL {
-            return tbMovie.frame.height / 2.5
+            return tbMovie.frame.height / 2
         } else {
             return tbMovie.frame.height / 3
         }

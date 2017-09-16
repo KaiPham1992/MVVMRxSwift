@@ -205,5 +205,18 @@ extension KBaseViewController {
     func hideTabbar(){
         self.tabBarController?.tabBar.isHidden = true
     }
+    
+    func removeController(controller: UIViewController){
+        controller.willMove(toParentViewController: nil)
+        controller.view.removeFromSuperview()
+        controller.removeFromParentViewController()
+    }
+    
+    func insertController(controller: UIViewController, vContent: UIView) {
+        self.addChildViewController(controller)
+        controller.view.frame = vContent.bounds
+        vContent.addSubview(controller.view)
+        controller.didMove(toParentViewController: self)
+    }
 
 }
