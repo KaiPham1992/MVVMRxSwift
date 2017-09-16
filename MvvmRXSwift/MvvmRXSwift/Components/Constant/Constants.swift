@@ -16,6 +16,8 @@ public let API_KEY = "f7b6a27fedf4a430dd71f5a7e8bec2a5"
 
 
 
+var appMovieGenres = [KGenre]()
+
 enum KMovieType: String {
     case popular
     case topRated
@@ -41,7 +43,6 @@ struct KColor {
     static let backgroundIndicator = UIColor.black.withAlphaComponent(0.5)
 }
 
-
 struct KFont {
     static let fontBold27: UIFont = UIFont(name: "Calibri-Bold", size: 25)!
     static let fontRegular27: UIFont = KDevie.getTypeDevice() == TypeDevice.SMALL ? UIFont(name: "Calibri", size: 25)!: UIFont(name: "Calibri", size: 27)!
@@ -56,13 +57,17 @@ struct KFont {
     static let fontBold13: UIFont = KDevie.getTypeDevice() == TypeDevice.SMALL ? UIFont(name: "Calibri-Bold", size: 11)!: UIFont(name: "Calibri-Bold", size: 13)!
 }
 
-
 struct KImage {
     static let imgBack = UIImage(named: "back")!
     static let imgClose = UIImage(named: "close")!
     static let imgCategory = UIImage(named: "category")!
     static let imgLoadingPortrait = UIImage(named: "placeholder_l")!
     static let imgLoadingLandscape = UIImage(named: "placeholder_sq")!
+    
+    
+    
+    //--- tabbar
+    static let imgTabMovieNomarl = UIImage(named: "movie")!.withRenderingMode(.alwaysOriginal)
 }
 
 

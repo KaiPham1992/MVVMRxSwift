@@ -158,7 +158,7 @@ class MenuSlideTopViewCell: UICollectionViewCell {
     let lbTitle: UILabel = {
         let lb = UILabel()
         lb.textColor = UIColor.white
-        lb.font =  UIFont.boldSystemFont(ofSize: 15)
+        lb.font =  KFont.fontRegular15
         lb.textAlignment = .center
         
         return lb

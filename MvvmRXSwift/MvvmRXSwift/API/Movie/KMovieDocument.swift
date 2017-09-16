@@ -15,6 +15,10 @@ enum KMovieDocument {
     case getNowPlaying(page: Int)
     case getUpcoming(page: Int)
     case getGenres()
+    
+    //---
+    case getDetail(movieId: Int)
+    
 }
 
 extension KMovieDocument: TargetType {
@@ -46,6 +50,8 @@ extension KMovieDocument: TargetType {
             return "/movie/upcoming"
         case .getGenres():
             return "/genre/movie/list"
+        case .getDetail(let id ):
+            return "/movie/\(id)"
         }
     }
 
@@ -64,7 +70,7 @@ extension KMovieDocument: TargetType {
         switch self {
         case .getPopular(let page), .getTopRate(let page), .getNowPlaying(let page), .getUpcoming(let page):
             return KMovieParameterGetList(page: page).toParameter()
-        case .getGenres():
+        case .getGenres(), .getDetail(_):
             return ["api_key": API_KEY]
         }
     }

@@ -77,10 +77,13 @@ extension KMovieMainViewController {
             self.removeController(controller: _vc)
         }).addDisposableTo(bag)
     }
+    
+    
 }
 
 
 extension KMovieMainViewController: KMenuSlideTopViewDelegate {
+    //-- change view when tap menu
     func itemMenuSelected(index: Int) {
         vmMovieMain.changedViewController(index: index)
     }

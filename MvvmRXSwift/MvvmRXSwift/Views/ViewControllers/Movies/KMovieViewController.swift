@@ -29,15 +29,18 @@ class KMovieViewController: KBaseViewController {
         
     }
     func bindUI() {
-        handleDataMoives()
-        handleError()
-        handleLoading()
+        bindDataMoives()
+        bindLoading()
+        bindError()
+        
+        //---
+        goToDetail()
     }
 }
 
 //---MARK: handle logics
 extension KMovieViewController {
-    func handleDataMoives(){
+    func bindDataMoives(){
         //-- remember skip(1) , because the first time vmPopularMovie.movieResponse = nil
         let movies = vmPopularMovie.movieResponse.asObservable().skip(1).map { movieResponse -> [KMovie] in
             guard let _movieResponse = movieResponse else { return [] }
@@ -54,17 +57,28 @@ extension KMovieViewController {
             }.addDisposableTo(bag)
     }
     
-    func handleLoading(){
+    func bindLoading(){
         //-- show or hide indicator when isLoading changed
         vmPopularMovie.isLoading.asObservable().subscribe(onNext:  { [unowned self] isLoading in
             isLoading == true ? self.showActivityIndicator(): self.hideActivityIndicator()
         }).addDisposableTo(bag)
     }
     
-    func handleError(){
+    func bindError(){
         //--- handle when error
         vmPopularMovie.errorMessage.subscribe(onNext: { [unowned self] errorString in
             self.showErrorMessage(errorMessage: errorString)
+        }).addDisposableTo(bag)
+    }
+    
+    func goToDetail(){
+        tbMovie.rx.modelSelected(KBaseModel.self).subscribe(onNext: { movie in
+            guard let _movie = movie as? KMovie else { return }
+            
+            let vc = KMovieDetailViewController.getViewController() as!KMovieDetailViewController
+            vc.vmMovieDetail.movieIdSelected = _movie.id
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         }).addDisposableTo(bag)
     }
 }

@@ -30,6 +30,15 @@ class KMovieAPI {
     }
     
     class func getGenresMovie() -> Observable<KGenreResponse> {
+        print("getGenresMovie <-> in KMovieAPI)")
         return KAPIHelper.fetch(target: .getGenres(), KMovieDocument.self, KGenreResponse.self)
+    }
+    
+    
+    //--- get detail 
+    
+    class func getDetailMovie(movieId: Int) -> Observable<KMovie> {
+        print("getDetailMovie in KMovieAPI \(movieId)")
+        return KAPIHelper.fetch(target: .getDetail(movieId: movieId), KMovieDocument.self, KMovie.self)
     }
 }

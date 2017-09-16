@@ -12,7 +12,6 @@ import RxSwift
 class KMovieViewModel {
     let bag = DisposeBag()
     var movieResponse = Variable<KMovieResponse?>(nil)
-    var genreResponse = Variable<KGenreResponse?>(nil)
     var errorMessage = PublishSubject<String?>()
     
     var isLoading = Variable<Bool>(false)
@@ -20,10 +19,16 @@ class KMovieViewModel {
     
     //-- to check before get movies
     var typeMovie: KMovieType = KMovieType.popular
-        
+    
+    
+    /**
+     1. set type movie again
+     2. check genres if nil load genres, then load movie
+     3. page == 1 & subscribe page. onNext load movie
+    */
     init(typeMovie: KMovieType = KMovieType.popular){
         self.typeMovie = typeMovie
-        if genreResponse.value == nil {
+        if appMovieGenres.isEmpty {
             getGenresMovie()
         } else {
             page.value = 1
@@ -83,8 +88,8 @@ extension KMovieViewModel {
             
             //-- converter genreIds to genres (have id, name)
             let newResponse = reponse
-            if let _genres = self.genreResponse.value?.genres {
-                _ = newResponse.movies.map { $0.getGenres(genresInput: _genres)}
+            if !appMovieGenres.isEmpty {
+                _ = newResponse.movies.map { $0.getGenres(genresInput: appMovieGenres)}
             }
             
             //---
@@ -111,8 +116,7 @@ extension KMovieViewModel {
     func getGenresMovie(){
         let genres = KMovieAPI.getGenresMovie()
         genres.subscribe(onNext: { [unowned self] genreResponse in
-            
-            self.genreResponse.value = genreResponse
+            appMovieGenres = genreResponse.genres
             
             //---
             self.page.value = 1

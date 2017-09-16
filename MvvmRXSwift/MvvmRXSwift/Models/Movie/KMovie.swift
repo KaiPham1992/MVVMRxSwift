@@ -26,7 +26,21 @@ class KMovie: KBaseModel {
     var voteAverage: Double?
     
     //--
+    
     var genres = [KGenre]()
+    
+    //-- more info for detail
+    
+    var budget: Int?
+    var homePage: String?
+    var imbdId: String?
+    var tagline: String?
+    var status: String?
+    var revenue: Int?
+    var runtime: Int?
+    
+    var companys = [KCompany]()
+    
     
     required init?(map: Map) {
         super.init(map: map)
@@ -45,6 +59,8 @@ class KMovie: KBaseModel {
         self.video <- map["video"]
         self.voteAverage <- map["vote_average"]
         
+        self.genres <- map["genres"]
+        
         if self.posterPath != nil {
             self.posterPath = "\(BASE_IMAGE_URL)\(self.posterPath!)"
         }
@@ -52,6 +68,17 @@ class KMovie: KBaseModel {
         if self.backdropPath != nil {
             self.backdropPath = "\(BASE_IMAGE_URL)\(self.backdropPath!)"
         }
+        
+        
+        //-- detail 
+        self.budget <- map["budget"]
+        self.homePage <- map["homepage"]
+        self.imbdId <- map["imdb_id"]
+        self.tagline <- map["tagline"]
+        self.status <- map["status"]
+        self.revenue <- map["revenue"]
+        self.runtime <- map["runtime"]
+        self.companys <- map["production_companies"]
         
     }
     

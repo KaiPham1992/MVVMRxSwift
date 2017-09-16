@@ -46,6 +46,9 @@ class KBaseViewController: UIViewController {
         return storyboard.instantiateViewController(withIdentifier: storyboardId)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        showTabbar()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = KColor.background
@@ -190,4 +193,17 @@ extension KBaseViewController {
     }
     func keyboardWillHide(notification: Notification){
     }
+}
+
+
+//--- MARK: handle navigationbar & tabbar
+extension KBaseViewController {
+    func showTabbar(){
+        self.tabBarController?.tabBar.isHidden = false
+    }
+
+    func hideTabbar(){
+        self.tabBarController?.tabBar.isHidden = true
+    }
+
 }
