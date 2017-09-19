@@ -24,6 +24,7 @@ class KMovieTrailerViewController: KBaseViewController {
     
     func bindUI(){
         bindTrailer()
+        bindLoading()
     }
 }
 
@@ -34,6 +35,7 @@ extension KMovieTrailerViewController {
             return _response.trailers
         }
         
+        //--- bind to cvTrailer
         trailerObs.bind(to: cvTrailer.rx.items) { collectionView, index, trailer in
             let indexPath = IndexPath(item: index, section: 0)
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KCell.trailerCell, for: indexPath) as! KTrailerCell
@@ -42,6 +44,21 @@ extension KMovieTrailerViewController {
             return cell
         }.addDisposableTo(bag)
         
+        /**
+         1. cell tap
+         2. set vmMovieTrailer.youtubeId.value
+         3. load video from id -> [urlVideo]
+         4. play video
+        */
+        cvTrailer.rx.modelSelected(KTrailer.self).subscribe(onNext: { trailer in
+            self.vmMovieTrailer.youtubeId.value = trailer.key
+        }).addDisposableTo(bag)
+    }
+    
+    func bindLoading(){
+        vmMovieTrailer.isLoading.asObservable().subscribe(onNext: { isLoading in
+            isLoading == true ? self.showActivityIndicator(): self.hideActivityIndicator()
+        }).addDisposableTo(bag)
     }
     
 }

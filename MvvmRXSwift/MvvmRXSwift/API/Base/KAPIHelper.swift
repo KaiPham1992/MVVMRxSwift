@@ -54,38 +54,29 @@ class KAPIHelper {
         return observable.shareReplay(1)
     }
     
-    //-- get info video youtube 
-    
-    
-//    func getVideoYoutube(urlStr: String) -> Observable<[FormatStreamMap]>{
-    
-        
-//        let observable = Observable<[FormatStreamMap]>.create({ observer in
-//            if let url =  URL(string: urlStr) {
-//                let urlResquest = URLRequest(url: url)
-//            } else {
-//                observer.onError(NSError(domain: "Url video failed !", code: 500, userInfo: nil)
-//            }
-//
-//        })
-        
-        
-        
-        
-//        let observable = Observable<[FormatStreamMap]>.create { observer in
-//            
-//
-//        }
-    
-        //return observable.shareReplay(1)
-       
-        
-//
-//        URLSession.shared.dataTask(with: urlRequest) { (data, reponse, error) in
-//            let strData = String.init(data: data!, encoding: String.Encoding.utf8)!
-//            let model = try? FormatStreamMapFromString(strData)
-//            
-//            }.resume()
-        
-//    }
-//}
+    //-- get info video youtube
+    class func getVideoYoutube(youtubeId: String) -> Observable<[FormatStreamMap]> {
+        let urlStr = BASE_VIDEO_YOUTUBE.replacingOccurrences(of: "{id}", with: youtubeId)
+        let observable = Observable<[FormatStreamMap]>.create({ observer in
+            if let url = URL(string: urlStr) {
+                URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                    if error != nil {
+                        observer.onError(error!)
+                    } else {
+                        let strData = String.init(data: data!, encoding: String.Encoding.utf8)!
+                        do {
+                            let stream = try FormatStreamMapFromString(strData).filter {$0.type.contains("video/mp4")}
+                            observer.onNext(stream)
+                        } catch let error {
+                            observer.onError(error)
+                        }
+                    }
+                }).resume()
+            } else {
+                observer.onError(NSError(domain: "Url video failed !", code: 500, userInfo: nil))
+            }
+             return Disposables.create()
+        })
+         return observable.shareReplay(1)
+    }
+}

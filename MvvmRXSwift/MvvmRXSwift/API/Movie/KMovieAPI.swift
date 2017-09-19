@@ -47,4 +47,6 @@ extension KMovieAPI {
     class func getTrailler(movieId: Int) -> Observable<KTrailerReponse> {
         return KAPIHelper.fetch(target: .getTrailers(movieId: movieId), KMovieDocument.self, KTrailerReponse.self)
     }
+    
+    
 }

@@ -136,8 +136,7 @@ extension KMovieDetailViewController {
         }
     }
     
-    //--- bind ui menu 
-    
+    //--- bind ui menu
     
     func bindCurrentController(){
         let currentObservable = vmMovieDetail.currentController.asObservable()

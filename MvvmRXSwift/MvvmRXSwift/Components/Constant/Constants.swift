@@ -15,6 +15,7 @@ public let BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
 public let API_KEY = "f7b6a27fedf4a430dd71f5a7e8bec2a5"
 
 public let BASE_IMAGE_YOUTUBE = "https://i.ytimg.com/vi/{id}/hqdefault.jpg"
+public let BASE_VIDEO_YOUTUBE = "http://www.youtube.com/get_video_info?video_id={id}"
 var appMovieGenres = [KGenre]()
 
 enum KMovieType: String {

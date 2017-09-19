@@ -18,7 +18,6 @@ enum KMovieDocument {
     
     //---
     case getDetail(movieId: Int)
-    
     case getTrailers(movieId: Int)
     
 }
