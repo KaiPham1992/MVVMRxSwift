@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import YouTubePlayer
 
 class KMovieDetailViewController: KBaseViewController {
     
@@ -25,12 +26,13 @@ class KMovieDetailViewController: KBaseViewController {
     
     @IBOutlet weak var lbOverView: UILabel!
     
-    
     //---menu
     @IBOutlet weak var vMenu: KMenuSlideTopView!
     
     
     var vmMovieDetail = KMovieDetailViewModel()
+    
+    @IBOutlet weak var vContentMenu: UIView!
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,6 +63,9 @@ class KMovieDetailViewController: KBaseViewController {
         bindError()
         bindMovieDetail()
         bindLoading()
+        
+        //---
+        bindCurrentController()
     }
 }
 
@@ -129,6 +134,17 @@ extension KMovieDetailViewController {
         if let revenue = movie.revenue?.toCurrency() {
             lbRevenue.text = "Revenue: \(revenue)"
         }
+    }
+    
+    //--- bind ui menu 
+    
+    
+    func bindCurrentController(){
+        let currentObservable = vmMovieDetail.currentController.asObservable()
+        currentObservable.subscribe(onNext: { [unowned self] vc in
+            guard let _vc = vc else { return }
+            self.insertController(controller: _vc, vContent: self.vContentMenu)
+        }).addDisposableTo(bag)
     }
 }
 

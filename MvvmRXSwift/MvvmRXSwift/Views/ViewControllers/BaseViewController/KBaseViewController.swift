@@ -150,9 +150,9 @@ class KBaseViewController: UIViewController {
 extension KBaseViewController {
     func setupActivityIndicator(){
         blackView.addSubview(activityIndicator)
-        activityIndicator.anchorCenterSuperview()
+        activityIndicator.centerSuperview()
         self.blackView.addSubview(lbUpLoading)
-        lbUpLoading.anchorCenterXToSuperview()
+        lbUpLoading.centerXToSuperview()
         lbUpLoading.topAnchor.constraint(equalTo: activityIndicator.bottomAnchor, constant: 20).isActive = true
     }
     

@@ -53,4 +53,39 @@ class KAPIHelper {
         
         return observable.shareReplay(1)
     }
-}
+    
+    //-- get info video youtube 
+    
+    
+//    func getVideoYoutube(urlStr: String) -> Observable<[FormatStreamMap]>{
+    
+        
+//        let observable = Observable<[FormatStreamMap]>.create({ observer in
+//            if let url =  URL(string: urlStr) {
+//                let urlResquest = URLRequest(url: url)
+//            } else {
+//                observer.onError(NSError(domain: "Url video failed !", code: 500, userInfo: nil)
+//            }
+//
+//        })
+        
+        
+        
+        
+//        let observable = Observable<[FormatStreamMap]>.create { observer in
+//            
+//
+//        }
+    
+        //return observable.shareReplay(1)
+       
+        
+//
+//        URLSession.shared.dataTask(with: urlRequest) { (data, reponse, error) in
+//            let strData = String.init(data: data!, encoding: String.Encoding.utf8)!
+//            let model = try? FormatStreamMapFromString(strData)
+//            
+//            }.resume()
+        
+//    }
+//}

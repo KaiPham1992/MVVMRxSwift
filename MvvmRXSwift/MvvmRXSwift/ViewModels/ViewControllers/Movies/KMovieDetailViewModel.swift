@@ -18,11 +18,20 @@ class KMovieDetailViewModel {
     
     var bag = DisposeBag()
     
-    var movieIdSelected: Int?
+    var movieIdSelected: Int? // input from list movie
+    
+    //---
+    var controllers = [UIViewController]()
+    var olderController = Variable<UIViewController?>(nil)
+    var currentController = Variable<UIViewController?>(nil)
+    
+    
     func getData() {
         //---
+        setUpViewController()
         setUpMenuItems()
         getDetailMovie()
+        
     }
     
     func getDetailMovie(){
@@ -46,12 +55,52 @@ class KMovieDetailViewModel {
     func setUpMenuItems(){
         let listMenu: [KCategory] = [
             KCategory(title: "Info", isSelected: true),
-            KCategory(title: "Trailer", isSelected: false),
-            KCategory(title: "Review", isSelected: false),
-            KCategory(title: "Discussions", isSelected: false)
+            KCategory(title: "Photos", isSelected: false),
+            KCategory(title: "Trailers", isSelected: false),
+            KCategory(title: "Reviews", isSelected: false)
         ]
         
         menuItems.value = listMenu
     }
+    
+    
+    func setUpViewController() {
+        let vcTrailer = KMovieTrailerViewController.getViewController() as! KMovieTrailerViewController
+        vcTrailer.vmMovieTrailer.movieIdSelected = movieIdSelected
+        
+        //---
+        let vcNowPlaying = KMovieViewController.getViewController() as! KMovieViewController
+        vcNowPlaying.typeMovie = .nowPlaying
+        
+        //---
+        let vcUpComing = KMovieViewController.getViewController() as! KMovieViewController
+        vcUpComing.typeMovie = .upComing
+        
+        //---
+        let vcTopRated = KMovieViewController.getViewController() as! KMovieViewController
+        vcTopRated.typeMovie = .topRated
+        
+        //---
+        controllers  = [vcTrailer, vcNowPlaying, vcUpComing, vcTopRated]
+        
+        //---
+        currentController.value = controllers[0]
+    }
+    
+   
+    
+    func str2dict(_ str: String) -> [String:String] {
+        return str.components(separatedBy: "&").reduce([:] as [String:String], {
+            var d = $0
+            let components = $1.components(separatedBy: "=")
+            if components.count == 2 {
+                if let key = (components[0] as NSString).removingPercentEncoding, let value = (components[1] as NSString).removingPercentEncoding {
+                    d[key] = value
+                }
+            }
+            return d
+        })
+    }
+
 
 }

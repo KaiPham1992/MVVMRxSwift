@@ -16,7 +16,7 @@ extension Int {
         if hours > 0 {
             return "\(hours)h \(minutes) min"
         }
-        return "\(minutes)min"
+        return "\(minutes) min"
     }
     
     func toCurrency() -> String {

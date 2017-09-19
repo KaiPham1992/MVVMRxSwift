@@ -9,17 +9,17 @@
 import ObjectMapper
 
 class KTrailer : KBaseModel {
-    var id: Int?
+    var id: String?
     var key: String?
-    var name: Bool?
+    var name: String?
     var site: String?
-    var size: String?
+    var size: Int?
     var type: [Int]?
     var iso_639_1: String?
     var iso_3166_1: String?
     
     //---
-    var urlVideo: String = ""
+    var thumbnail: String?
     
 
     required init?(map: Map) {
@@ -33,8 +33,8 @@ class KTrailer : KBaseModel {
         self.iso_639_1 <- map["iso_639_1"]
         self.iso_3166_1 <- map["iso_3166_1"]
         
-        if let _key = self.key, let _id = self.id {
-            self.urlVideo = BASE_VIDEO.replacingOccurrences(of: "{key}", with: _key).replacingOccurrences(of: "{id}", with: _id.description)
+        if let _key = key {
+            self.thumbnail = BASE_IMAGE_YOUTUBE.replacingOccurrences(of: "{id}", with: _key)
         }
         
 

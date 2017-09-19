@@ -2,15 +2,15 @@
   "commitish" : "8.0.5",
   "iOS" : [
     {
-      "hash" : "2b356048a840fbeec5368d86a4a157d66404db331845441d28136a056cc59a80",
-      "name" : "ReactiveMoya"
-    },
-    {
-      "hash" : "3fae6dd72898698a97319e3832d817347083ff731f79b0769882a4fd89fffe0c",
+      "hash" : "05a14d44c965a5a119d2c6d01cb0d4cb5dd11a2bf664c4b36d4ca93bf8044898",
       "name" : "RxMoya"
     },
     {
-      "hash" : "2d8cb162fd75b0c0e48f4fc3c1cbddfe9a768695dbbb97bab2762941b0d624c9",
+      "hash" : "b94f9fcbd2b35b80febb1434e2cdabf9192a07d8d354331a9d2e436086b0cbeb",
+      "name" : "ReactiveMoya"
+    },
+    {
+      "hash" : "3c72681cdb2049e162d3b1dc1737dbaf63ee61f6433483d099a3d07bc370ca4c",
       "name" : "Moya"
     }
   ]

@@ -40,6 +40,12 @@
 		2A8166E21F64E5A700257A12 /* KAPIParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8166E11F64E5A700257A12 /* KAPIParameter.swift */; };
 		2A8166E51F64E68400257A12 /* KMovieParameterGetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8166E41F64E68400257A12 /* KMovieParameterGetList.swift */; };
 		2A8166E71F6508F600257A12 /* KTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8166E61F6508F600257A12 /* KTarget.swift */; };
+		2A87B17C1F6FA71D00A5F418 /* YouTubePlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A87B17B1F6FA71D00A5F418 /* YouTubePlayer.framework */; };
+		2A87B17D1F6FA71D00A5F418 /* YouTubePlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A87B17B1F6FA71D00A5F418 /* YouTubePlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2AC2E3AA1F714C18007F7769 /* KYoutubeParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC2E3A91F714C18007F7769 /* KYoutubeParser.swift */; };
+		2AC461261F701B9C0068A65B /* KMovieTrailerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC461251F701B9C0068A65B /* KMovieTrailerViewController.swift */; };
+		2AC461281F701CE10068A65B /* KMovieTrailerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC461271F701CE10068A65B /* KMovieTrailerViewModel.swift */; };
+		2AC4612A1F7027DC0068A65B /* KTrailerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC461291F7027DC0068A65B /* KTrailerViewCell.swift */; };
 		2AD71E841F61945700C96705 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD71E831F61945700C96705 /* AppDelegate.swift */; };
 		2AD71E8B1F61945700C96705 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AD71E8A1F61945700C96705 /* Assets.xcassets */; };
 		2AD71E8E1F61945700C96705 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AD71E8C1F61945700C96705 /* LaunchScreen.storyboard */; };
@@ -99,6 +105,7 @@
 				2ADF9A291F629211004CF313 /* RxCocoa.framework in Embed Frameworks */,
 				2ADF9A271F629211004CF313 /* ObjectMapper.framework in Embed Frameworks */,
 				2ADF9A461F629660004CF313 /* Result.framework in Embed Frameworks */,
+				2A87B17D1F6FA71D00A5F418 /* YouTubePlayer.framework in Embed Frameworks */,
 				2ADF9A641F629D81004CF313 /* Device.framework in Embed Frameworks */,
 				2ADF9A441F629660004CF313 /* ReactiveSwift.framework in Embed Frameworks */,
 				2ADF9A251F629211004CF313 /* Moya.framework in Embed Frameworks */,
@@ -149,6 +156,11 @@
 		2A8166E11F64E5A700257A12 /* KAPIParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KAPIParameter.swift; sourceTree = "<group>"; };
 		2A8166E41F64E68400257A12 /* KMovieParameterGetList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieParameterGetList.swift; sourceTree = "<group>"; };
 		2A8166E61F6508F600257A12 /* KTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTarget.swift; sourceTree = "<group>"; };
+		2A87B17B1F6FA71D00A5F418 /* YouTubePlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YouTubePlayer.framework; path = Carthage/Build/iOS/YouTubePlayer.framework; sourceTree = "<group>"; };
+		2AC2E3A91F714C18007F7769 /* KYoutubeParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYoutubeParser.swift; sourceTree = "<group>"; };
+		2AC461251F701B9C0068A65B /* KMovieTrailerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieTrailerViewController.swift; sourceTree = "<group>"; };
+		2AC461271F701CE10068A65B /* KMovieTrailerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieTrailerViewModel.swift; sourceTree = "<group>"; };
+		2AC461291F7027DC0068A65B /* KTrailerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTrailerViewCell.swift; sourceTree = "<group>"; };
 		2AD71E801F61945700C96705 /* MvvmRXSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MvvmRXSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AD71E831F61945700C96705 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AD71E8A1F61945700C96705 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -197,6 +209,7 @@
 				2ADF9A281F629211004CF313 /* RxCocoa.framework in Frameworks */,
 				2ADF9A261F629211004CF313 /* ObjectMapper.framework in Frameworks */,
 				2ADF9A451F629660004CF313 /* Result.framework in Frameworks */,
+				2A87B17C1F6FA71D00A5F418 /* YouTubePlayer.framework in Frameworks */,
 				2ADF9A631F629D81004CF313 /* Device.framework in Frameworks */,
 				2ADF9A431F629660004CF313 /* ReactiveSwift.framework in Frameworks */,
 				2ADF9A241F629211004CF313 /* Moya.framework in Frameworks */,
@@ -239,6 +252,7 @@
 				2A0820B81F62EE5C005EA1E2 /* KMovieViewController.swift */,
 				2A7994901F6CC50500F02184 /* KMovieDetailViewController.swift */,
 				2A219F301F6D374C00CB8B46 /* KMovieReviewViewController.swift */,
+				2AC461251F701B9C0068A65B /* KMovieTrailerViewController.swift */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -249,6 +263,7 @@
 				2A0820BB1F62F05F005EA1E2 /* KMovieViewModel.swift */,
 				2A1FB1F31F6C0CC00017F4C1 /* KMovieMainViewModel.swift */,
 				2A7994921F6CCDDB00F02184 /* KMovieDetailViewModel.swift */,
+				2AC461271F701CE10068A65B /* KMovieTrailerViewModel.swift */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -334,9 +349,18 @@
 			path = MovieParameter;
 			sourceTree = "<group>";
 		};
+		2AC461201F7019C60068A65B /* TrailerCell */ = {
+			isa = PBXGroup;
+			children = (
+				2AC461291F7027DC0068A65B /* KTrailerViewCell.swift */,
+			);
+			path = TrailerCell;
+			sourceTree = "<group>";
+		};
 		2AD71E771F61945700C96705 = {
 			isa = PBXGroup;
 			children = (
+				2A87B17B1F6FA71D00A5F418 /* YouTubePlayer.framework */,
 				2A13044C1F6AE21800CB6643 /* MvvmRXSwift-Bridging-Header.h */,
 				2ADF9A311F62921B004CF313 /* Framework */,
 				2AD71E821F61945700C96705 /* MvvmRXSwift */,
@@ -435,6 +459,7 @@
 			children = (
 				2ADF9A601F629CCF004CF313 /* KDevice.swift */,
 				2A219F221F6D2B7A00CB8B46 /* KPlayVideoHelper.swift */,
+				2AC2E3A91F714C18007F7769 /* KYoutubeParser.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -495,6 +520,7 @@
 		2ADF9A3D1F6295FA004CF313 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				2AC461201F7019C60068A65B /* TrailerCell */,
 				2A219F321F6D37DA00CB8B46 /* ReviewCell */,
 				2AFF306E1F653C9F004020D2 /* MovieCell */,
 				2ADF9A6C1F62A111004CF313 /* BaseCell */,
@@ -668,6 +694,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A8166E51F64E68400257A12 /* KMovieParameterGetList.swift in Sources */,
+				2AC461281F701CE10068A65B /* KMovieTrailerViewModel.swift in Sources */,
 				2A219F251F6D2C4700CB8B46 /* UIApplication+Extension.swift in Sources */,
 				2ADF9A4A1F629946004CF313 /* UIView+Extension.swift in Sources */,
 				2ADF9A6E1F62A12E004CF313 /* KBaseCollectionViewCell.swift in Sources */,
@@ -695,12 +722,14 @@
 				2A7994911F6CC50500F02184 /* KMovieDetailViewController.swift in Sources */,
 				2A219F211F6D0ED200CB8B46 /* KTrailerReponse.swift in Sources */,
 				2A1FB1F41F6C0CC00017F4C1 /* KMovieMainViewModel.swift in Sources */,
+				2AC461261F701B9C0068A65B /* KMovieTrailerViewController.swift in Sources */,
 				2A0820B61F62EA31005EA1E2 /* KMovieAPI.swift in Sources */,
 				2A8166DE1F64E58400257A12 /* KAPIHelper.swift in Sources */,
 				2AFF30761F6544C0004020D2 /* UIStoryboard+Extension.swift in Sources */,
 				2A219F3A1F6D380300CB8B46 /* ReviewCell.swift in Sources */,
 				2A219F2F1F6D34EA00CB8B46 /* KReviewReponse.swift in Sources */,
 				2A0820B41F62E3E9005EA1E2 /* KMovieDocument.swift in Sources */,
+				2AC2E3AA1F714C18007F7769 /* KYoutubeParser.swift in Sources */,
 				2ADF9A661F629FD3004CF313 /* Window+Extension.swift in Sources */,
 				2A219F1A1F6CF8D400CB8B46 /* String+Extension.swift in Sources */,
 				2AFF30711F653CEB004020D2 /* MovieCell.swift in Sources */,
@@ -708,6 +737,7 @@
 				2ADF9A6B1F62A0F3004CF313 /* KBaseView.swift in Sources */,
 				2A219F281F6D2ED400CB8B46 /* KMovieTabbarController.swift in Sources */,
 				2A219F311F6D374C00CB8B46 /* KMovieReviewViewController.swift in Sources */,
+				2AC4612A1F7027DC0068A65B /* KTrailerViewCell.swift in Sources */,
 				2A8166E71F6508F600257A12 /* KTarget.swift in Sources */,
 				2A0820B11F62DFCB005EA1E2 /* KMovieDate.swift in Sources */,
 				2ADF9A611F629CCF004CF313 /* KDevice.swift in Sources */,
