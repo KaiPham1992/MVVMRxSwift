@@ -40,6 +40,7 @@ class KAPIHelper {
                         let map = Map(mappingType: .fromJSON, JSON: json.dictionaryObject!)
                         if let objectRespond =  U(map: map) {
                             observer.onNext(objectRespond)
+                            observer.onCompleted()
                         } else {
                             observer.onError(NSError(domain: "Invalid respond", code: 500, userInfo:nil))
                         }

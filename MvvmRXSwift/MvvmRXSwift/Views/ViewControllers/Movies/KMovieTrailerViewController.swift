@@ -22,6 +22,10 @@ class KMovieTrailerViewController: KBaseViewController {
         bindUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        hideTabbar()
+    }
+    
     func bindUI(){
         bindTrailer()
         bindLoading()

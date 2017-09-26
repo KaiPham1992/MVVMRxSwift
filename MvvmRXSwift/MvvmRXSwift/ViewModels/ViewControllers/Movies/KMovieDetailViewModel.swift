@@ -54,10 +54,10 @@ class KMovieDetailViewModel {
     
     func setUpMenuItems(){
         let listMenu: [KCategory] = [
-            KCategory(title: "Info", isSelected: true),
-            KCategory(title: "Photos", isSelected: false),
-            KCategory(title: "Trailers", isSelected: false),
-            KCategory(title: "Reviews", isSelected: false)
+//            KCategory(title: "Info", isSelected: true),
+            KCategory(title: "Trailers", isSelected: false)
+//            KCategory(title: "Photos", isSelected: false),
+//            KCategory(title: "Reviews", isSelected: false)
         ]
         
         menuItems.value = listMenu

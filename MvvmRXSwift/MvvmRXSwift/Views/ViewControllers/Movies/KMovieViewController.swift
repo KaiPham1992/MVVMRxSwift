@@ -30,7 +30,6 @@ class KMovieViewController: KBaseViewController {
     }
     func bindUI() {
         bindDataMoives()
-        bindLoading()
         bindError()
         
         //---
@@ -55,13 +54,6 @@ extension KMovieViewController {
             return cell
             
             }.addDisposableTo(bag)
-    }
-    
-    func bindLoading(){
-        //-- show or hide indicator when isLoading changed
-        vmPopularMovie?.isLoading.asObservable().subscribe(onNext:  { [unowned self] isLoading in
-            isLoading == true ? self.showActivityIndicator(): self.hideActivityIndicator()
-        }).addDisposableTo(bag)
     }
     
     func bindError(){

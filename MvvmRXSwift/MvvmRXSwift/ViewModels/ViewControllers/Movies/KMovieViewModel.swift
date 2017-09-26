@@ -14,7 +14,6 @@ class KMovieViewModel {
     var movieResponse = Variable<KMovieResponse?>(nil)
     var errorMessage = PublishSubject<String?>()
     
-    var isLoading = Variable<Bool>(false)
     var page = Variable<Int?>(nil) //--- nil to skip the first time subcribe
     
     //-- to check before get movies
@@ -61,10 +60,6 @@ extension KMovieViewModel {
     */
     
     func getMovies(page: Int) {
-        if page == 1 {
-            isLoading.value = true
-        }
-       
         var movies: Observable<KMovieResponse>!
         
         switch typeMovie {
@@ -82,9 +77,12 @@ extension KMovieViewModel {
             break
         }
         
+        if page == 1 {
+            movies = movies.showProgressIndicator()
+        }
         //-- subscribe success
         movies.subscribe(onNext: { [unowned self] reponse in
-            self.isLoading.value = false
+//            self.isLoading.value = false
             
             //-- converter genreIds to genres (have id, name)
             let newResponse = reponse
@@ -100,14 +98,9 @@ extension KMovieViewModel {
                 tempMovieResponse?.movies.append(contentsOf: newResponse.movies)
                 self.movieResponse.value = tempMovieResponse
             }
-        })
-        .addDisposableTo(bag)
-        
-        //--- subscribe when error
-        movies.subscribe(onError: { [unowned self] error in
-            self.errorMessage.onNext(error.localizedDescription)
-            self.isLoading.value = false
-        })
+            }, onError: { [unowned self] error in
+                self.errorMessage.onNext(error.localizedDescription)
+            })
         .addDisposableTo(bag)
     }
     

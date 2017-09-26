@@ -39,9 +39,9 @@
 		2A8166DE1F64E58400257A12 /* KAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8166DD1F64E58400257A12 /* KAPIHelper.swift */; };
 		2A8166E21F64E5A700257A12 /* KAPIParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8166E11F64E5A700257A12 /* KAPIParameter.swift */; };
 		2A8166E51F64E68400257A12 /* KMovieParameterGetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8166E41F64E68400257A12 /* KMovieParameterGetList.swift */; };
-		2A8166E71F6508F600257A12 /* KTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8166E61F6508F600257A12 /* KTarget.swift */; };
-		2A87B17C1F6FA71D00A5F418 /* YouTubePlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A87B17B1F6FA71D00A5F418 /* YouTubePlayer.framework */; };
-		2A87B17D1F6FA71D00A5F418 /* YouTubePlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A87B17B1F6FA71D00A5F418 /* YouTubePlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2AB100001F7A6ECD0069C812 /* KProgessHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB1FFFF1F7A6ECD0069C812 /* KProgessHelper.swift */; };
+		2AB1FFFB1F7A62DF0069C812 /* ObservableType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB1FFFA1F7A62DF0069C812 /* ObservableType+Extension.swift */; };
+		2AB1FFFE1F7A6D4F0069C812 /* KLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB1FFFD1F7A6D4F0069C812 /* KLoadingView.swift */; };
 		2AC2E3AA1F714C18007F7769 /* KYoutubeParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC2E3A91F714C18007F7769 /* KYoutubeParser.swift */; };
 		2AC461261F701B9C0068A65B /* KMovieTrailerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC461251F701B9C0068A65B /* KMovieTrailerViewController.swift */; };
 		2AC461281F701CE10068A65B /* KMovieTrailerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC461271F701CE10068A65B /* KMovieTrailerViewModel.swift */; };
@@ -105,7 +105,6 @@
 				2ADF9A291F629211004CF313 /* RxCocoa.framework in Embed Frameworks */,
 				2ADF9A271F629211004CF313 /* ObjectMapper.framework in Embed Frameworks */,
 				2ADF9A461F629660004CF313 /* Result.framework in Embed Frameworks */,
-				2A87B17D1F6FA71D00A5F418 /* YouTubePlayer.framework in Embed Frameworks */,
 				2ADF9A641F629D81004CF313 /* Device.framework in Embed Frameworks */,
 				2ADF9A441F629660004CF313 /* ReactiveSwift.framework in Embed Frameworks */,
 				2ADF9A251F629211004CF313 /* Moya.framework in Embed Frameworks */,
@@ -155,8 +154,9 @@
 		2A8166DD1F64E58400257A12 /* KAPIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KAPIHelper.swift; path = Base/KAPIHelper.swift; sourceTree = "<group>"; };
 		2A8166E11F64E5A700257A12 /* KAPIParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KAPIParameter.swift; sourceTree = "<group>"; };
 		2A8166E41F64E68400257A12 /* KMovieParameterGetList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieParameterGetList.swift; sourceTree = "<group>"; };
-		2A8166E61F6508F600257A12 /* KTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KTarget.swift; sourceTree = "<group>"; };
-		2A87B17B1F6FA71D00A5F418 /* YouTubePlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YouTubePlayer.framework; path = Carthage/Build/iOS/YouTubePlayer.framework; sourceTree = "<group>"; };
+		2AB1FFFA1F7A62DF0069C812 /* ObservableType+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+Extension.swift"; sourceTree = "<group>"; };
+		2AB1FFFD1F7A6D4F0069C812 /* KLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLoadingView.swift; sourceTree = "<group>"; };
+		2AB1FFFF1F7A6ECD0069C812 /* KProgessHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KProgessHelper.swift; sourceTree = "<group>"; };
 		2AC2E3A91F714C18007F7769 /* KYoutubeParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYoutubeParser.swift; sourceTree = "<group>"; };
 		2AC461251F701B9C0068A65B /* KMovieTrailerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieTrailerViewController.swift; sourceTree = "<group>"; };
 		2AC461271F701CE10068A65B /* KMovieTrailerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieTrailerViewModel.swift; sourceTree = "<group>"; };
@@ -209,7 +209,6 @@
 				2ADF9A281F629211004CF313 /* RxCocoa.framework in Frameworks */,
 				2ADF9A261F629211004CF313 /* ObjectMapper.framework in Frameworks */,
 				2ADF9A451F629660004CF313 /* Result.framework in Frameworks */,
-				2A87B17C1F6FA71D00A5F418 /* YouTubePlayer.framework in Frameworks */,
 				2ADF9A631F629D81004CF313 /* Device.framework in Frameworks */,
 				2ADF9A431F629660004CF313 /* ReactiveSwift.framework in Frameworks */,
 				2ADF9A241F629211004CF313 /* Moya.framework in Frameworks */,
@@ -336,7 +335,6 @@
 			children = (
 				2A8166DD1F64E58400257A12 /* KAPIHelper.swift */,
 				2A8166E11F64E5A700257A12 /* KAPIParameter.swift */,
-				2A8166E61F6508F600257A12 /* KTarget.swift */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -347,6 +345,15 @@
 				2A8166E41F64E68400257A12 /* KMovieParameterGetList.swift */,
 			);
 			path = MovieParameter;
+			sourceTree = "<group>";
+		};
+		2AB1FFFC1F7A6D2F0069C812 /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				2AB1FFFD1F7A6D4F0069C812 /* KLoadingView.swift */,
+			);
+			name = LoadingView;
+			path = LoadingView/LoadingView;
 			sourceTree = "<group>";
 		};
 		2AC461201F7019C60068A65B /* TrailerCell */ = {
@@ -360,7 +367,6 @@
 		2AD71E771F61945700C96705 = {
 			isa = PBXGroup;
 			children = (
-				2A87B17B1F6FA71D00A5F418 /* YouTubePlayer.framework */,
 				2A13044C1F6AE21800CB6643 /* MvvmRXSwift-Bridging-Header.h */,
 				2ADF9A311F62921B004CF313 /* Framework */,
 				2AD71E821F61945700C96705 /* MvvmRXSwift */,
@@ -450,6 +456,7 @@
 				2A219F191F6CF8D400CB8B46 /* String+Extension.swift */,
 				2A219F1B1F6D05B300CB8B46 /* Int+Extension.swift */,
 				2A219F241F6D2C4700CB8B46 /* UIApplication+Extension.swift */,
+				2AB1FFFA1F7A62DF0069C812 /* ObservableType+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -460,6 +467,7 @@
 				2ADF9A601F629CCF004CF313 /* KDevice.swift */,
 				2A219F221F6D2B7A00CB8B46 /* KPlayVideoHelper.swift */,
 				2AC2E3A91F714C18007F7769 /* KYoutubeParser.swift */,
+				2AB1FFFF1F7A6ECD0069C812 /* KProgessHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -541,8 +549,9 @@
 		2ADF9A3F1F6295FA004CF313 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2A1FB1EE1F6BFD1D0017F4C1 /* MenuSlideTop */,
+				2AB1FFFC1F7A6D2F0069C812 /* LoadingView */,
 				2ADF9A671F62A093004CF313 /* BaseView */,
+				2A1FB1EE1F6BFD1D0017F4C1 /* MenuSlideTop */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -622,6 +631,7 @@
 				2AD71E7D1F61945700C96705 /* Frameworks */,
 				2AD71E7E1F61945700C96705 /* Resources */,
 				2ADF9A301F629211004CF313 /* Embed Frameworks */,
+				2A0F11E81F754C5000623043 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -645,7 +655,7 @@
 					2AD71E7F1F61945700C96705 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = KGRXCGAUA5;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -688,6 +698,33 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2A0F11E81F754C5000623043 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Device.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxMoya.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Moya.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SDWebImage.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2AD71E7C1F61945700C96705 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -696,6 +733,7 @@
 				2A8166E51F64E68400257A12 /* KMovieParameterGetList.swift in Sources */,
 				2AC461281F701CE10068A65B /* KMovieTrailerViewModel.swift in Sources */,
 				2A219F251F6D2C4700CB8B46 /* UIApplication+Extension.swift in Sources */,
+				2AB100001F7A6ECD0069C812 /* KProgessHelper.swift in Sources */,
 				2ADF9A4A1F629946004CF313 /* UIView+Extension.swift in Sources */,
 				2ADF9A6E1F62A12E004CF313 /* KBaseCollectionViewCell.swift in Sources */,
 				2A19DA491F6A77F400BCC14E /* KGenreResponse.swift in Sources */,
@@ -738,8 +776,9 @@
 				2A219F281F6D2ED400CB8B46 /* KMovieTabbarController.swift in Sources */,
 				2A219F311F6D374C00CB8B46 /* KMovieReviewViewController.swift in Sources */,
 				2AC4612A1F7027DC0068A65B /* KTrailerViewCell.swift in Sources */,
-				2A8166E71F6508F600257A12 /* KTarget.swift in Sources */,
+				2AB1FFFB1F7A62DF0069C812 /* ObservableType+Extension.swift in Sources */,
 				2A0820B11F62DFCB005EA1E2 /* KMovieDate.swift in Sources */,
+				2AB1FFFE1F7A6D4F0069C812 /* KLoadingView.swift in Sources */,
 				2ADF9A611F629CCF004CF313 /* KDevice.swift in Sources */,
 				2A0820AD1F62DCF2005EA1E2 /* KMovie.swift in Sources */,
 			);
@@ -865,8 +904,10 @@
 				);
 				INFOPLIST_FILE = MvvmRXSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kai.MvvmRXSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kai.themoviedb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1d442bbb-934b-4ccc-9f05-e80cd04a5554";
+				PROVISIONING_PROFILE_SPECIFIER = TheMovieDB_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "MvvmRXSwift-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -876,6 +917,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = KGRXCGAUA5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -883,8 +925,10 @@
 				);
 				INFOPLIST_FILE = MvvmRXSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kai.MvvmRXSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kai.themoviedb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c1346a3d-cf3d-4adc-9c1b-6add93f1d42a";
+				PROVISIONING_PROFILE_SPECIFIER = TheMovieDb_Dis;
 				SWIFT_OBJC_BRIDGING_HEADER = "MvvmRXSwift-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
