@@ -14,10 +14,15 @@ class KProgessHelper {
     var vLoading = KLoadingView()
     
     func showIndicator(){
-        vLoading.showActivityIndicator()
+        DispatchQueue.main.async {
+            self.vLoading.showActivityIndicator()
+        }
     }
     
     func hideIndicator(){
-        vLoading.hideActivityIndicator()
+        DispatchQueue.main.async {
+            self.vLoading.hideActivityIndicator()
+        }
+        
     }
 }

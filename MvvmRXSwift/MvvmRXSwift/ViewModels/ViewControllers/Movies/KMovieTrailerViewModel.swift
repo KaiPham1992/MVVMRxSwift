@@ -12,7 +12,6 @@ class KMovieTrailerViewModel {
     let bag = DisposeBag()
     var trailerResponse = Variable<KTrailerReponse?>(nil)
     var errorMessage = PublishSubject<String?>()
-    var isLoading = Variable<Bool>(false)
     
     
     //---
@@ -37,20 +36,21 @@ class KMovieTrailerViewModel {
     }
     
     private func getTrailer(movieId: Int){
-        let trailer = KMovieAPI.getTrailler(movieId: movieId)
+        let trailer = KMovieAPI.getTrailler(movieId: movieId).showProgressIndicator()
         trailer.subscribe(onNext: { [unowned self] reponse in
             self.trailerResponse.value = reponse
         }).addDisposableTo(bag)
     }
     
     func getVideo(youtubeId: String){
-        isLoading.value = true
-        let video = KAPIHelper.getVideoYoutube(youtubeId: youtubeId)
+        let video = KAPIHelper.getVideoYoutube(youtubeId: youtubeId).showProgressIndicator()
        
         video.subscribe(onNext: { [unowned self] streamMap in
-            self.isLoading.value = false
             self.streamMap.value = streamMap
             KPlayerVideoHelper.shared.showVideoUrl(url: streamMap[0].url)
+            },
+        onError: { error in
+            print(error.localizedDescription)
         })
         .addDisposableTo(bag)
         
@@ -59,6 +59,4 @@ class KMovieTrailerViewModel {
             print(error.localizedDescription)
         }).addDisposableTo(bag)
     }
-    
-    
 }

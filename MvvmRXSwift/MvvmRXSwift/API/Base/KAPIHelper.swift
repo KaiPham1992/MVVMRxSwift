@@ -68,6 +68,7 @@ class KAPIHelper {
                         do {
                             let stream = try FormatStreamMapFromString(strData).filter {$0.type.contains("video/mp4")}
                             observer.onNext(stream)
+                            observer.onCompleted()
                         } catch let error {
                             observer.onError(error)
                         }

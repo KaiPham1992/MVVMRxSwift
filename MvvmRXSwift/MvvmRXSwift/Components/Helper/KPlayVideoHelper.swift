@@ -38,9 +38,10 @@ class KPlayerVideoHelper {
         let playerViewController = AVPlayerViewController()
         playerViewController.player = player
         
-        
-        vcCurrent.present(playerViewController, animated: true, completion: {
-            playerViewController.player?.play()
-        })
+        DispatchQueue.main.async {
+            vcCurrent.present(playerViewController, animated: true, completion: {
+                playerViewController.player?.play()
+            })
+        }
     }
 }

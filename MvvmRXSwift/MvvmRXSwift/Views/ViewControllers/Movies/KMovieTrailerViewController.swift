@@ -28,7 +28,6 @@ class KMovieTrailerViewController: KBaseViewController {
     
     func bindUI(){
         bindTrailer()
-        bindLoading()
     }
 }
 
@@ -58,13 +57,6 @@ extension KMovieTrailerViewController {
             self.vmMovieTrailer.youtubeId.value = trailer.key
         }).addDisposableTo(bag)
     }
-    
-    func bindLoading(){
-        vmMovieTrailer.isLoading.asObservable().subscribe(onNext: { isLoading in
-            isLoading == true ? self.showActivityIndicator(): self.hideActivityIndicator()
-        }).addDisposableTo(bag)
-    }
-    
 }
 
 //---MARK: handle table

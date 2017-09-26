@@ -40,30 +40,32 @@ class KLoadingView: KBaseView {
     }
     
     func showActivityIndicator(){
-        if let vc = UIApplication.topViewController() {
-            vc.view.endEditing(true)
-        }
-        self.lbUpLoading.isHidden = true
-        if let window = UIApplication.shared.keyWindow {
-            window.addSubview(blackView)
-            blackView.fillSuperview()
-            activityIndicator.startAnimating()
-        }
+//        if let vc = UIApplication.topViewController() {
+//            vc.view.endEditing(true)
+//        }
+//        self.lbUpLoading.isHidden = true
+//        if let window = UIApplication.shared.keyWindow {
+//            window.addSubview(blackView)
+//            blackView.fillSuperview()
+//            activityIndicator.startAnimating()
+//        }
     }
     
     func showActivityIndicatorHaveProgess(){
-        if let vc = UIApplication.topViewController() {
-            vc.view.endEditing(true)
-        }
-        self.lbUpLoading.isHidden = false
-        if let window = UIApplication.shared.keyWindow {
-            window.addSubview(blackView)
-            blackView.fillSuperview()
-            activityIndicator.startAnimating()
-        }
+//        if let vc = UIApplication.topViewController() {
+//            vc.view.endEditing(true)
+//        }
+//        self.lbUpLoading.isHidden = false
+//        if let window = UIApplication.shared.keyWindow {
+//            window.addSubview(blackView)
+//            blackView.fillSuperview()
+//            activityIndicator.startAnimating()
+//        }
     }
     
     func hideActivityIndicator(){
-        blackView.removeFromSuperview()
+        DispatchQueue.main.async {
+//            self.blackView.removeFromSuperview()
+        }
     }
 }

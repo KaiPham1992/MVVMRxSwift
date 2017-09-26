@@ -12,7 +12,6 @@ import RxSwift
 class KMovieDetailViewModel {
     var movieSelected = Variable<KMovie?>(nil)
     var errorMessage = Variable<String?>(nil)
-    var isLoading = Variable<Bool>(false)
     
     var menuItems = Variable<[KCategory]>([])
     
@@ -36,19 +35,14 @@ class KMovieDetailViewModel {
     
     func getDetailMovie(){
         guard let id = movieIdSelected else { return }
-        isLoading.value = true
-        let movieDetail = KMovieAPI.getDetailMovie(movieId: id)
+        let movieDetail = KMovieAPI.getDetailMovie(movieId: id).showProgressIndicator()
         
         //-- when success
         movieDetail.subscribe(onNext: { [unowned self] movie in
-           self.isLoading.value = false
            self.movieSelected.value = movie
-        }).addDisposableTo(bag)
-        
-        //-- when error
-        movieDetail.subscribe(onError: { [unowned self] mess in
-            self.isLoading.value = false
-            self.errorMessage.value = mess.localizedDescription
+            },
+        onError: { [unowned self] mess in
+                self.errorMessage.value = mess.localizedDescription
         }).addDisposableTo(bag)
     }
     

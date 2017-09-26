@@ -62,7 +62,6 @@ class KMovieDetailViewController: KBaseViewController {
         bindMenu()
         bindError()
         bindMovieDetail()
-        bindLoading()
         
         //---
         bindCurrentController()
@@ -89,12 +88,6 @@ extension KMovieDetailViewController {
         vmMovieDetail.movieSelected.asObservable().subscribe(onNext: { [unowned self] movie in
             guard let _movie = movie else { return }
             self.showInfoMovie(movie: _movie)
-        }).addDisposableTo(bag)
-    }
-    
-    func bindLoading(){
-        vmMovieDetail.isLoading.asObservable().subscribe(onNext: { [unowned self] isLoading in
-            isLoading == true  ? self.showActivityIndicator() : self.hideActivityIndicator()
         }).addDisposableTo(bag)
     }
     

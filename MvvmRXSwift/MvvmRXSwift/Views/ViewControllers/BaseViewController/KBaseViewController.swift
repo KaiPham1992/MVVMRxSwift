@@ -19,27 +19,7 @@ enum StyleNavigation {
 class KBaseViewController: UIViewController {
     let bag = DisposeBag()
     
-    let activityIndicator: UIActivityIndicatorView = {
-        let aiv = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-        aiv.startAnimating()
-        return aiv
-    }()
-    let blackView: UIView = {
-        let view = UIView()
-        view.backgroundColor = KColor.backgroundIndicator
-        
-        return view
-    }()
-    
-    let lbUpLoading: UILabel = {
-        let lb = UILabel()
-        lb.font = KFont.fontRegular15
-        lb.textAlignment = .center
-        lb.textColor = KColor.whiteColor
-        
-        return lb
-    }()
-    
+   
     
     static func getViewController(storyboard: UIStoryboard = UIStoryboard.movieStoryBoard()) -> UIViewController {
         let storyboardId = String(describing: self)
@@ -53,7 +33,6 @@ class KBaseViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = KColor.background
         setupNavigation()
-        setupActivityIndicator()
         
         //---detect Keyboard
         NotificationCenter.default.removeObserver(self)
@@ -146,42 +125,6 @@ class KBaseViewController: UIViewController {
     }
     
 }
-// MARK: Indicator
-extension KBaseViewController {
-    func setupActivityIndicator(){
-        blackView.addSubview(activityIndicator)
-        activityIndicator.centerSuperview()
-        self.blackView.addSubview(lbUpLoading)
-        lbUpLoading.centerXToSuperview()
-        lbUpLoading.topAnchor.constraint(equalTo: activityIndicator.bottomAnchor, constant: 20).isActive = true
-    }
-    
-    func showActivityIndicator(){
-        self.dismissKeyboard()
-        self.lbUpLoading.isHidden = true
-        if let window = UIApplication.shared.keyWindow {
-            window.addSubview(blackView)
-            blackView.fillSuperview()
-            activityIndicator.startAnimating()
-        }
-    }
-    
-    func showActivityIndicatorHaveProgess(){
-        self.dismissKeyboard()
-        self.lbUpLoading.isHidden = false
-        if let window = UIApplication.shared.keyWindow {
-            window.addSubview(blackView)
-            blackView.fillSuperview()
-            activityIndicator.startAnimating()
-        }
-    }
-    
-    func hideActivityIndicator(){
-        blackView.removeFromSuperview()
-    }
-    
-}
-
 //--MARK: handle keyboard
 
 extension KBaseViewController {
