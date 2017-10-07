@@ -31,6 +31,7 @@ class KMovieTrailerViewController: KBaseViewController {
     }
 }
 
+//---MARK:  bindUI
 extension KMovieTrailerViewController {
     func bindTrailer(){
         let trailerObs = vmMovieTrailer.trailerResponse.asObservable().map { response -> [KTrailer] in

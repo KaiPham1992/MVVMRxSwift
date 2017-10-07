@@ -14,7 +14,7 @@ class KImageMovie: KBaseModel {
     var height: Double?
     var voteAverage: Int?
     var voteCount: Int?
-    var width: Int?
+    var width: Double?
     
     required init?(map: Map) {
         super.init(map: map)
@@ -24,5 +24,9 @@ class KImageMovie: KBaseModel {
         self.voteAverage <- map["vote_average"]
         self.voteCount <- map["vote_count"]
         self.width <- map["width"]
+        if self.urlPhoto != nil {
+            self.urlPhoto = "\(BASE_IMAGE_URL)\(self.urlPhoto!)"
+        }
+        
     }
 }

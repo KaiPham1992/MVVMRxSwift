@@ -66,4 +66,5 @@ struct KImage {
 struct KCell {
     static let movieCell = "MovieCell"
     static let trailerCell = "KTrailerViewCell"
+    static let imageCell = "KImageCell"
 }

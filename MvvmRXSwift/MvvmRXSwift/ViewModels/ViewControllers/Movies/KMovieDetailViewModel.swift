@@ -61,8 +61,8 @@ class KMovieDetailViewModel {
         vcTrailer.vmMovieTrailer.movieIdSelected = movieIdSelected
         
         //---
-        let vcNowPlaying = KMovieViewController.getViewController(fromAppStoryboard: .movie)
-        vcNowPlaying.typeMovie = .nowPlaying
+        let vcImage = KMovieImageViewController.getViewController(fromAppStoryboard: .movie)
+        vcImage.vmMovieImage.movieIdSelected = movieIdSelected
         
         //---
         let vcUpComing = KMovieViewController.getViewController(fromAppStoryboard: .movie)
@@ -73,7 +73,7 @@ class KMovieDetailViewModel {
         vcTopRated.typeMovie = .topRated
         
         //---
-        controllers  = [vcTrailer, vcNowPlaying, vcUpComing, vcTopRated]
+        controllers  = [vcTrailer, vcImage, vcUpComing, vcTopRated]
     }
     
     func changedViewController(index: Int) {
@@ -82,7 +82,7 @@ class KMovieDetailViewModel {
             olderController.value = currentController.value
             currentController.value = controllers[currentIndex]
         } else {
-            olderController.value = controllers[0]
+            olderController.value = currentController.value
             currentController.value = nil
         }
     }

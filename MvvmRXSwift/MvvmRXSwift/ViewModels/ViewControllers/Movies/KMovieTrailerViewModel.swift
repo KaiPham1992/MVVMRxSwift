@@ -28,7 +28,6 @@ class KMovieTrailerViewModel {
         getTrailer(movieId: id)
         
         //--- get video when have youtube id
-        
         youtubeId.asObservable().subscribe(onNext: { [unowned self] id in
             guard let _id = id else { return }
             self.getVideo(youtubeId: _id)
@@ -47,7 +46,7 @@ class KMovieTrailerViewModel {
        
         video.subscribe(onNext: { [unowned self] streamMap in
             self.streamMap.value = streamMap
-            KPlayerVideoHelper.shared.showVideoUrl(url: streamMap[0].url)
+                KPlayerVideoHelper.shared.showVideoUrl(url: streamMap[0].url)
             },
         onError: { error in
             print(error.localizedDescription)

@@ -49,9 +49,9 @@ extension KMovieAPI {
         return KAPIHelper.fetch(target: .getTrailers(movieId: movieId), KMovieDocument.self, KTrailerReponse.self)
     }
     
-    class func getImages(movieId: Int) -> Observable<KImageMovie> {
+    class func getImages(movieId: Int) -> Observable<KImageMovieResponse> {
         print("getImages : \(movieId)")
-        return KAPIHelper.fetch(target: .getImages(moviedId: movieId), KMovieDocument.self , KImageMovie.self)
+        return KAPIHelper.fetch(target: .getImages(moviedId: movieId), KMovieDocument.self , KImageMovieResponse.self)
     }
     
     
