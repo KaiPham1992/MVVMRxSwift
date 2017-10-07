@@ -17,13 +17,6 @@ public let BASE_IMAGE_YOUTUBE = "https://i.ytimg.com/vi/{id}/hqdefault.jpg"
 public let BASE_VIDEO_YOUTUBE = "http://www.youtube.com/get_video_info?video_id={id}"
 var appMovieGenres = [KGenre]()
 
-enum KMovieType: String {
-    case popular
-    case topRated
-    case nowPlaying
-    case upComing
-}
-
 
 struct KColor {
     static let navigationColor = UIColor(red: 51/255, green: 51/255, blue: 56/255, alpha: 1)
@@ -69,8 +62,6 @@ struct KImage {
     //--- tabbar
     static let imgTabMovieNomarl = UIImage(named: "movie")!.withRenderingMode(.alwaysOriginal)
 }
-
-
 
 struct KCell {
     static let movieCell = "MovieCell"

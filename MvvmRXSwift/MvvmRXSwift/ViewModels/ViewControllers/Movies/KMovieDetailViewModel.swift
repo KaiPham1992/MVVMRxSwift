@@ -48,53 +48,42 @@ class KMovieDetailViewModel {
     
     func setUpMenuItems(){
         let listMenu: [KCategory] = [
-//            KCategory(title: "Info", isSelected: true),
-            KCategory(title: "Trailers", isSelected: false)
-//            KCategory(title: "Photos", isSelected: false),
-//            KCategory(title: "Reviews", isSelected: false)
+            KCategory(title: "Info", isSelected: true),
+            KCategory(title: "Trailers", isSelected: false),
+            KCategory(title: "Photos", isSelected: false),
+            KCategory(title: "Reviews", isSelected: false)
         ]
-        
         menuItems.value = listMenu
     }
     
-    
     func setUpViewController() {
-        let vcTrailer = KMovieTrailerViewController.getViewController() as! KMovieTrailerViewController
+        let vcTrailer = KMovieTrailerViewController.getViewController(fromAppStoryboard: .movie)
         vcTrailer.vmMovieTrailer.movieIdSelected = movieIdSelected
         
         //---
-        let vcNowPlaying = KMovieViewController.getViewController() as! KMovieViewController
+        let vcNowPlaying = KMovieViewController.getViewController(fromAppStoryboard: .movie)
         vcNowPlaying.typeMovie = .nowPlaying
         
         //---
-        let vcUpComing = KMovieViewController.getViewController() as! KMovieViewController
+        let vcUpComing = KMovieViewController.getViewController(fromAppStoryboard: .movie)
         vcUpComing.typeMovie = .upComing
         
         //---
-        let vcTopRated = KMovieViewController.getViewController() as! KMovieViewController
+        let vcTopRated = KMovieViewController.getViewController(fromAppStoryboard: .movie)
         vcTopRated.typeMovie = .topRated
         
         //---
         controllers  = [vcTrailer, vcNowPlaying, vcUpComing, vcTopRated]
-        
-        //---
-        currentController.value = controllers[0]
     }
     
-   
-    
-    func str2dict(_ str: String) -> [String:String] {
-        return str.components(separatedBy: "&").reduce([:] as [String:String], {
-            var d = $0
-            let components = $1.components(separatedBy: "=")
-            if components.count == 2 {
-                if let key = (components[0] as NSString).removingPercentEncoding, let value = (components[1] as NSString).removingPercentEncoding {
-                    d[key] = value
-                }
-            }
-            return d
-        })
+    func changedViewController(index: Int) {
+        if index != 0 {
+            let currentIndex = index - 1
+            olderController.value = currentController.value
+            currentController.value = controllers[currentIndex]
+        } else {
+            olderController.value = controllers[0]
+            currentController.value = nil
+        }
     }
-
-
 }

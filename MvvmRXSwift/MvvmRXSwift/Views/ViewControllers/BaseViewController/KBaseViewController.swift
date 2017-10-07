@@ -11,20 +11,14 @@ import RxSwift
 
 //MARK: Style Navigation Bar
 
-enum StyleNavigation {
-    case left
-    case right
-}
 
 class KBaseViewController: UIViewController {
     let bag = DisposeBag()
     
-   
-    
-    static func getViewController(storyboard: UIStoryboard = UIStoryboard.movieStoryBoard()) -> UIViewController {
-        let storyboardId = String(describing: self)
-        return storyboard.instantiateViewController(withIdentifier: storyboardId)
-    }
+//    static func getViewController(storyboard: UIStoryboard = UIStoryboard.movieStoryBoard()) -> UIViewController {
+//        let storyboardId = String(describing: self)
+//        return storyboard.instantiateViewController(withIdentifier: storyboardId)
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         showTabbar()
@@ -134,7 +128,8 @@ extension KBaseViewController {
     func keyboardWillShow(notification: Notification){
         
     }
-    func keyboardWillHide(notification: Notification){
+    func keyboardWillHide(notification: Notification) {
+        
     }
 }
 
@@ -156,6 +151,7 @@ extension KBaseViewController {
     }
     
     func insertController(controller: UIViewController, vContent: UIView) {
+        //---
         self.addChildViewController(controller)
         controller.view.frame = vContent.bounds
         vContent.addSubview(controller.view)

@@ -51,6 +51,7 @@ class KMovieDetailViewController: KBaseViewController {
     
     func setUpView(){
         self.vContent.isHidden = true
+        vMenu.delegate = self
     }
     
     override func setupNavigation() {
@@ -130,14 +131,29 @@ extension KMovieDetailViewController {
     }
     
     //--- bind ui menu
-    
     func bindCurrentController(){
+        //-- remove from supper view
+        let olderController = vmMovieDetail.olderController.asObservable()
+        olderController.subscribe(onNext: { [unowned self] vc in
+            guard let _vc = vc else { return }
+            self.removeController(controller: _vc)
+        }).addDisposableTo(bag)
+        
+        //-- add into view
         let currentObservable = vmMovieDetail.currentController.asObservable()
         currentObservable.subscribe(onNext: { [unowned self] vc in
             guard let _vc = vc else { return }
             self.insertController(controller: _vc, vContent: self.vContentMenu)
         }).addDisposableTo(bag)
+        
+        
     }
 }
 
+
+extension KMovieDetailViewController : KMenuSlideTopViewDelegate{
+    func itemMenuSelected(index: Int) {
+        vmMovieDetail.changedViewController(index: index)
+    }
+}
 

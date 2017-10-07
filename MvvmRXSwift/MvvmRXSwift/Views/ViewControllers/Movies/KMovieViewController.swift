@@ -67,7 +67,7 @@ extension KMovieViewController {
         tbMovie.rx.modelSelected(KBaseModel.self).subscribe(onNext: { [unowned self] movie in
             guard let _movie = movie as? KMovie else { return }
             
-            let vc = KMovieDetailViewController.getViewController() as!KMovieDetailViewController
+            let vc = KMovieDetailViewController.getViewController(fromAppStoryboard: .movie)
             vc.vmMovieDetail.movieIdSelected = _movie.id
             self.navigationController?.pushViewController(vc, animated: true)
         }).addDisposableTo(bag)

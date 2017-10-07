@@ -10,12 +10,6 @@ import Foundation
 import Device
 
 
-enum TypeDevice {
-    case SMALL
-    case NORMAL
-    case BIG
-    
-}
 
 class KDevie {
     class func getTypeDevice() -> TypeDevice {

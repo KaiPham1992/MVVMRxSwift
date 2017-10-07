@@ -21,19 +21,19 @@ class KMovieMainViewModel {
     }
     
     func setUpViewController() {
-        let vcPopular = KMovieViewController.getViewController() as! KMovieViewController
+        let vcPopular = KMovieViewController.getViewController(fromAppStoryboard: .movie)
         vcPopular.typeMovie = .popular
         
         //---
-        let vcNowPlaying = KMovieViewController.getViewController() as! KMovieViewController
+        let vcNowPlaying = KMovieViewController.getViewController(fromAppStoryboard: .movie)
         vcNowPlaying.typeMovie = .nowPlaying
         
         //---
-        let vcUpComing = KMovieViewController.getViewController() as! KMovieViewController
+        let vcUpComing = KMovieViewController.getViewController(fromAppStoryboard: .movie)
         vcUpComing.typeMovie = .upComing
         
         //---
-        let vcTopRated = KMovieViewController.getViewController() as! KMovieViewController
+        let vcTopRated = KMovieViewController.getViewController(fromAppStoryboard: .movie)
         vcTopRated.typeMovie = .topRated
         
         //---

@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+
+//--- MARK: Show alert
 extension UIViewController {
     func showErrorMessage(errorMessage: String?) {
         guard  let _mes = errorMessage else { return }
@@ -17,4 +20,21 @@ extension UIViewController {
         alert.addAction(btnOk)
         self.present(alert, animated: true, completion: nil)
     }
+}
+
+//---MARK: Init
+extension UIViewController {
+    class var storyboardId: String {
+        return "\(self)"
+    }
+    
+    static func getViewController(fromAppStoryboard: AppStoryboard) -> Self {
+        return fromAppStoryboard.viewController(viewControllerClass: self)
+    }
+}
+
+
+//---MARK:  push, pop, dissmiss, present
+extension UIViewController {
+    
 }

@@ -15,7 +15,7 @@ class KMovieTabbarController: UITabBarController {
     }
     
     func setUpView(){
-        let vcMovie = KMovieMainViewController.getViewController()
+        let vcMovie = KMovieMainViewController.getViewController(fromAppStoryboard: .movie)
         vcMovie.tabBarItem = setUpBarItem(title: "Movie", normalImage: KImage.imgTabMovieNomarl, selectedImage: #imageLiteral(resourceName: "movie"))
         
         let ncMovie = UINavigationController(rootViewController: vcMovie)
