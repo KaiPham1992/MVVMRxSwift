@@ -28,27 +28,13 @@ extension KMovieImageViewController {
     }
     
     func bindImage(){
-        //--- get backdrop from reponse
-        let imageBackdrop = vmMovieImage.images.asObservable().map { imageResponse -> [KImageMovie] in
-            guard let _imageResponse = imageResponse else { return [] }
-            return _imageResponse.backdrops
-        }
-        //--- get poster from reponse
-        let imagePoster = vmMovieImage.images.asObservable().map { imageResponse -> [KImageMovie] in
-            guard let _imageResponse = imageResponse else { return [] }
-            return _imageResponse.posters
-        }
-        
-        //---
-        let images = imageBackdrop.concat(imagePoster)
-        images.bind(to: cvImage.rx.items){ collection, index, image in
+        vmMovieImage.images.asObservable().bind(to: cvImage.rx.items){ collection, index, image in
             let indexPath = IndexPath(item: index, section: 0)
             let cell = collection.dequeueReusableCell(withReuseIdentifier: KCell.imageCell, for: indexPath) as! KImageCell
             cell.imageMovie = image
-            
+
             return cell
         }.addDisposableTo(bag)
-        
     }
 }
 

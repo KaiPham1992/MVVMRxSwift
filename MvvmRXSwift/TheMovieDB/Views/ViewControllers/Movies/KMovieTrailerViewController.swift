@@ -65,9 +65,7 @@ extension KMovieTrailerViewController: UICollectionViewDelegateFlowLayout {
     func configureCollection(){
         cvTrailer.delegate = self
         cvTrailer.register(KTrailerCell.self, forCellWithReuseIdentifier: KCell.trailerCell)
-        
         cvTrailer.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
-        
         if let layout = cvTrailer.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.minimumInteritemSpacing = 2
             layout.minimumLineSpacing = 2

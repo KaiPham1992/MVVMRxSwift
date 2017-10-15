@@ -11,7 +11,7 @@ import RxSwift
 class KMovieImageViewModel {
     var movieIdSelected: Int?
     var bag = DisposeBag()
-    var images = Variable<KImageMovieResponse?>(nil)
+    var images = Variable<[KImageMovie]>([])
     
     //---
     func getData(){
@@ -22,7 +22,7 @@ class KMovieImageViewModel {
     private func getImages(moiveId: Int){
         let imagesObserver = KMovieAPI.getImages(movieId: moiveId).showProgressIndicator()
         imagesObserver.subscribe(onNext: { [unowned self] imageResponse in
-            self.images.value = imageResponse
+            self.images.value = imageResponse.backdrops
         }).addDisposableTo(bag)
     }
 }
