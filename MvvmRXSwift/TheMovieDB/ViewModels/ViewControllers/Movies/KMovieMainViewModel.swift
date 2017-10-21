@@ -37,7 +37,7 @@ class KMovieMainViewModel {
         vcTopRated.typeMovie = .topRated
         
         //---
-        controllers  = [vcPopular, vcNowPlaying, vcUpComing, vcTopRated]
+        controllers  = [vcUpComing, vcPopular, vcNowPlaying, vcTopRated]
         
         //---
         currentController.value = controllers[0]
@@ -45,9 +45,9 @@ class KMovieMainViewModel {
     
     func setUpMenuItems(){
         let listMenu: [KCategory] = [
-            KCategory(title: "Popular", isSelected: true),
+            KCategory(title: "Up Coming", isSelected: true),
+            KCategory(title: "Popular", isSelected: false),
             KCategory(title: "Now Playing", isSelected: false),
-            KCategory(title: "Up Coming", isSelected: false),
             KCategory(title: "Top Rated", isSelected: false)
         ]
         

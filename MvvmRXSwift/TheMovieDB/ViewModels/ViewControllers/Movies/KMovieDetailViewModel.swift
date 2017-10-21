@@ -50,8 +50,8 @@ class KMovieDetailViewModel {
         let listMenu: [KCategory] = [
             KCategory(title: "Info", isSelected: true),
             KCategory(title: "Trailers", isSelected: false),
-            KCategory(title: "Photos", isSelected: false),
-            KCategory(title: "Reviews", isSelected: false)
+            KCategory(title: "Photos", isSelected: false)
+//            KCategory(title: "Reviews", isSelected: false)
         ]
         menuItems.value = listMenu
     }
@@ -65,15 +65,15 @@ class KMovieDetailViewModel {
         vcImage.vmMovieImage.movieIdSelected = movieIdSelected
         
         //---
-        let vcUpComing = KMovieViewController.getViewController(fromAppStoryboard: .movie)
-        vcUpComing.typeMovie = .upComing
+//        let vcUpComing = KMovieViewController.getViewController(fromAppStoryboard: .movie)
+//        vcUpComing.typeMovie = .upComing
         
         //---
-        let vcTopRated = KMovieViewController.getViewController(fromAppStoryboard: .movie)
-        vcTopRated.typeMovie = .topRated
+//        let vcTopRated = KMovieViewController.getViewController(fromAppStoryboard: .movie)
+//        vcTopRated.typeMovie = .topRated
         
         //---
-        controllers  = [vcTrailer, vcImage, vcUpComing, vcTopRated]
+        controllers  = [vcTrailer, vcImage]
     }
     
     func changedViewController(index: Int) {

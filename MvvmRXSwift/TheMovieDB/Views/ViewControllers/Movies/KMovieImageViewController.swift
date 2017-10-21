@@ -19,6 +19,10 @@ class KMovieImageViewController: KBaseViewController {
         vmMovieImage.getData()
         bindUI()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        hideTabbar()
+    }
 }
 
 //---MARK:  bindUI

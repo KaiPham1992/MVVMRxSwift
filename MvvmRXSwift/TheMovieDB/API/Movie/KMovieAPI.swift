@@ -34,8 +34,12 @@ class KMovieAPI {
         return KAPIHelper.fetch(target: .getGenres(), KMovieDocument.self, KGenreResponse.self)
     }
     
-    //--- get detail 
+    class func searchMovie(page: Int, key: String) -> Observable<KMovieResponse> {
+        print("searchMovie: \(page) - key: \(key)")
+        return KAPIHelper.fetch(target: .searchMovie(page: page, key: key), KMovieDocument.self, KMovieResponse.self)
+    }
     
+    //--- get detail
     class func getDetailMovie(movieId: Int) -> Observable<KMovie> {
         print("getDetailMovie in KMovieAPI \(movieId)")
         return KAPIHelper.fetch(target: .getDetail(movieId: movieId), KMovieDocument.self, KMovie.self)

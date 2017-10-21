@@ -25,6 +25,8 @@ class KMovieMainViewController: KBaseViewController {
     override func setupNavigation() {
         super.setupNavigation()
         addButtonToNavigation(image: KImage.imgCategory, style: .left, action: nil)
+        setTitle(title: "The Movie DB")
+        addButtonToNavigation(image: KImage.imgSearch, style: .right, action: #selector(btnSearchTapped))
     }
     
     func setUpView(){
@@ -36,6 +38,12 @@ class KMovieMainViewController: KBaseViewController {
         bindMenu()
         bindCurrentController()
         bindOlderController()
+    }
+    
+    func btnSearchTapped(){
+       let vc = KMovieSearchViewController.getViewController(fromAppStoryboard: .movie)
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
 }
 

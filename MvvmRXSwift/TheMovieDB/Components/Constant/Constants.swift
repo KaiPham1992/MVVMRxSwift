@@ -56,6 +56,7 @@ struct KImage {
     static let imgLoadingPortrait = UIImage(named: "placeholder_l")!
     static let imgLoadingLandscape = UIImage(named: "placeholder_sq")!
     static let imgPlay = UIImage(named: "play")!
+    static let imgSearch = UIImage(named: "search")!
     
     
     

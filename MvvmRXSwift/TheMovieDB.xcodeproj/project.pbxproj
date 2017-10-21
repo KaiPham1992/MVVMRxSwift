@@ -98,6 +98,8 @@
 		2A0E89061F931E3300218BA2 /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A201F629211004CF313 /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2A0E89071F931E3300218BA2 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A1B1F629211004CF313 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2A0E89751F93251000218BA2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AD71E8F1F61945700C96705 /* Info.plist */; };
+		2A53F49D1F9B7FD7009AD6F6 /* KMovieSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A53F49C1F9B7FD7009AD6F6 /* KMovieSearchViewController.swift */; };
+		2A53F49F1F9B8183009AD6F6 /* KMovieSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A53F49E1F9B8183009AD6F6 /* KMovieSearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -159,6 +161,8 @@
 		2A4D04D41F88A9B5007C0DCE /* EnumConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumConstant.swift; sourceTree = "<group>"; };
 		2A4D04D71F88B5ED007C0DCE /* KImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KImageCell.swift; sourceTree = "<group>"; };
 		2A4D04D91F88C0E9007C0DCE /* KMovieImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMovieImageViewModel.swift; sourceTree = "<group>"; };
+		2A53F49C1F9B7FD7009AD6F6 /* KMovieSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMovieSearchViewController.swift; sourceTree = "<group>"; };
+		2A53F49E1F9B8183009AD6F6 /* KMovieSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMovieSearchViewModel.swift; sourceTree = "<group>"; };
 		2A77D6FC1F6BBC1700CCBAF0 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		2A7994901F6CC50500F02184 /* KMovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieDetailViewController.swift; sourceTree = "<group>"; };
 		2A7994921F6CCDDB00F02184 /* KMovieDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieDetailViewModel.swift; sourceTree = "<group>"; };
@@ -266,6 +270,7 @@
 				2A219F301F6D374C00CB8B46 /* KMovieReviewViewController.swift */,
 				2AC461251F701B9C0068A65B /* KMovieTrailerViewController.swift */,
 				2AD962B71F82908A00B4C75D /* KMovieImageViewController.swift */,
+				2A53F49C1F9B7FD7009AD6F6 /* KMovieSearchViewController.swift */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 				2A7994921F6CCDDB00F02184 /* KMovieDetailViewModel.swift */,
 				2AC461271F701CE10068A65B /* KMovieTrailerViewModel.swift */,
 				2A4D04D91F88C0E9007C0DCE /* KMovieImageViewModel.swift */,
+				2A53F49E1F9B8183009AD6F6 /* KMovieSearchViewModel.swift */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -411,11 +417,11 @@
 				2A13043F1F6AE14C00CB6643 /* Libraries */,
 				2ADF9A331F6295FA004CF313 /* Components */,
 				2ADF9A521F629BEC004CF313 /* Resources */,
-				2AD71E831F61945700C96705 /* AppDelegate.swift */,
 				2ADF9A321F6295FA004CF313 /* API */,
 				2ADF9A371F6295FA004CF313 /* Models */,
 				2ADF9A381F6295FA004CF313 /* ViewModels */,
 				2ADF9A3C1F6295FA004CF313 /* Views */,
+				2AD71E831F61945700C96705 /* AppDelegate.swift */,
 				2AD71E8A1F61945700C96705 /* Assets.xcassets */,
 				2AD71E8C1F61945700C96705 /* LaunchScreen.storyboard */,
 				2AD71E8F1F61945700C96705 /* Info.plist */,
@@ -770,6 +776,7 @@
 				2A0E88AE1F931E3300218BA2 /* KMovieImageViewController.swift in Sources */,
 				2A0E88AF1F931E3300218BA2 /* KProgessHelper.swift in Sources */,
 				2A0E88B01F931E3300218BA2 /* UIView+Extension.swift in Sources */,
+				2A53F49F1F9B8183009AD6F6 /* KMovieSearchViewModel.swift in Sources */,
 				2A0E88B11F931E3300218BA2 /* KBaseCollectionViewCell.swift in Sources */,
 				2A0E88B21F931E3300218BA2 /* KImageMovie.swift in Sources */,
 				2A0E88B31F931E3300218BA2 /* KGenreResponse.swift in Sources */,
@@ -816,6 +823,7 @@
 				2A0E88DC1F931E3300218BA2 /* KMovieTabbarController.swift in Sources */,
 				2A0E88DD1F931E3300218BA2 /* KMovieReviewViewController.swift in Sources */,
 				2A0E88DE1F931E3300218BA2 /* KTrailerCell.swift in Sources */,
+				2A53F49D1F9B7FD7009AD6F6 /* KMovieSearchViewController.swift in Sources */,
 				2A0E88DF1F931E3300218BA2 /* ObservableType+Extension.swift in Sources */,
 				2A0E88E01F931E3300218BA2 /* KMovieDate.swift in Sources */,
 				2A0E88E11F931E3300218BA2 /* KLoadingView.swift in Sources */,

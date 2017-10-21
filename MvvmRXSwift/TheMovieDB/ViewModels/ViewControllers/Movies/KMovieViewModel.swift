@@ -82,8 +82,6 @@ extension KMovieViewModel {
         }
         //-- subscribe success
         movies.subscribe(onNext: { [unowned self] reponse in
-//            self.isLoading.value = false
-            
             //-- converter genreIds to genres (have id, name)
             let newResponse = reponse
             if !appMovieGenres.isEmpty {

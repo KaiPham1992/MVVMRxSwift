@@ -50,14 +50,16 @@ class KBaseViewController: UIViewController {
         if let _action = action {
             btn.addTarget(self , action: _action, for: .touchUpInside)
         }
-        
-        btn.sizeToFit()
+        btn.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+//        btn.sizeToFit()
         
         let button = UIBarButtonItem(customView: btn)
         if style == .left {
             self.navigationItem.leftBarButtonItem = button
+            btn.contentHorizontalAlignment = .left
         } else {
             self.navigationItem.rightBarButtonItem = button
+            btn.contentHorizontalAlignment = .right
         }
     }
     func addButtonTextToNavigation(title: String, style: StyleNavigation, action: Selector?){
