@@ -39,6 +39,15 @@ extension KMovieImageViewController {
 
             return cell
         }.addDisposableTo(bag)
+        
+        //---
+        cvImage.rx.itemSelected.subscribe( onNext: { indexPath in
+            let vcPhoto = KPreviewPhotoViewController()
+            vcPhoto.listImage = self.vmMovieImage.images.value
+            vcPhoto.indexSelected = 0
+            self.present(controller: vcPhoto)
+            
+        }).addDisposableTo(bag)
     }
 }
 

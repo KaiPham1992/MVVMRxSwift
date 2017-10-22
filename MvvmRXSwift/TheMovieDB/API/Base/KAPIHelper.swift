@@ -34,6 +34,12 @@ class KAPIHelper {
                         if let _message = json["status_message"].string {
                             message = _message
                         }
+                        if message.isEmpty {
+                            if let _error = json["errors"].array, let _errorFirst = _error.first, let _message = _errorFirst.string {
+                                message = _message
+                            }
+                        }
+                        
                         observer.onError(NSError(domain: message, code: response.statusCode, userInfo:nil))
                     } else {
                         let json = JSON(data: response.data)

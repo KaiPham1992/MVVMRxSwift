@@ -44,11 +44,23 @@ class KMovieSearchViewController: KBaseViewController {
         tfSearch.frame = CGRect(x: 0, y: 0, width: self.view.frame.width - 88, height: 36)
     }
     
+    func btnSearchTapped() {
+        self.tfSearch.endEditing(true)
+        vmMovieSearch.inputs.btnSearchTapped.onNext(true)
+    }
+}
+
+//---MARK: Bind data
+
+extension KMovieSearchViewController {
     func bindData(){
         tfSearch.rx.text.bind(to: vmMovieSearch.inputs.keySearch)
             .addDisposableTo(disposeBag)
         
         bindDataMoives()
+        bindError()
+        bindRefresh()
+        goToDetail()
     }
     
     func bindDataMoives(){
@@ -68,8 +80,30 @@ class KMovieSearchViewController: KBaseViewController {
             }.addDisposableTo(bag)
     }
     
-    func btnSearchTapped() {
-        vmMovieSearch.inputs.btnSearchTapped.onNext(true)
+    func bindError(){
+        //--- handle when error
+        vmMovieSearch.outputs.errorMessage.asObservable().skip(1)
+            .subscribe(onNext: { [unowned self] errorString in
+                self.showErrorMessage(errorMessage: errorString)
+            }).addDisposableTo(bag)
+    }
+    
+    func bindRefresh(){
+        refreshControl.rx.controlEvent(UIControlEvents.valueChanged)
+            .subscribe(onNext: { [weak self] in
+                self?.vmMovieSearch.inputs.refreshMovie()
+                self?.refreshControl.endRefreshing()
+            }).addDisposableTo(bag)
+    }
+    
+    func goToDetail(){
+        tbMovie.rx.modelSelected(KBaseModel.self).subscribe(onNext: { [weak self] movie in
+            guard let _self = self, let _movie = movie as? KMovie else { return }
+            let vc = KMovieDetailViewController.getViewController(fromAppStoryboard: .movie)
+            vc.vmMovieDetail.movieIdSelected = _movie.id
+            _self.navigationController?.pushViewController(vc, animated: true)
+            
+        }).addDisposableTo(bag)
     }
 }
 
@@ -84,15 +118,11 @@ extension KMovieSearchViewController: UITableViewDelegate {
         //--- load more
         tbMovie.addInfiniteScrolling(actionHandler: { [unowned self] in
             self.tbMovie.infiniteScrollingView.stopAnimating()
+            self.vmMovieSearch.inputs.loadMoreMovie()
         })
         
         //-- refesh
-        refreshControl.addTarget(self , action: #selector(pullToRefresh), for: .valueChanged)
         tbMovie.addSubview(refreshControl)
-    }
-    
-    func pullToRefresh(){
-        refreshControl.endRefreshing()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -36,5 +36,15 @@ extension UIViewController {
 
 //---MARK:  push, pop, dissmiss, present
 extension UIViewController {
+    func pop(){
+        self.navigationController?.popViewController(animated: true)
+    }
     
+    func present(controller: UIViewController) {
+        self.present(controller, animated: true, completion: nil)
+    }
+    
+    func push(controller: UIViewController) {
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }

@@ -10,14 +10,14 @@ import Foundation
 
 class KLoadingView: KBaseView {
     let activityIndicator: UIActivityIndicatorView = {
-        let aiv = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        let aiv = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         aiv.startAnimating()
         return aiv
     }()
     let blackView: UIView = {
         let view = UIView()
-        view.backgroundColor = KColor.backgroundIndicator
-        
+        view.backgroundColor = .clear //KColor.backgroundIndicator
+        view.setBorder(cornerRadius: 5)
         return view
     }()
     
@@ -46,7 +46,9 @@ class KLoadingView: KBaseView {
         self.lbUpLoading.isHidden = true
         if let window = UIApplication.shared.keyWindow {
             window.addSubview(blackView)
-            blackView.fillSuperview()
+            blackView.centerSuperview()
+            blackView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+            blackView.heightAnchor.constraint(equalToConstant: 100).isActive = true
             activityIndicator.startAnimating()
         }
     }

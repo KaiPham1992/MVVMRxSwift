@@ -84,6 +84,7 @@ class KBaseViewController: UIViewController {
     
     func addCloseToNavigation(){
         addButtonToNavigation(image: KImage.imgClose, style: .left, action: #selector(btnCloseTapped))
+        
     }
     
     func setTitle(title: String) {
@@ -100,11 +101,13 @@ class KBaseViewController: UIViewController {
     
     func btnBackTapped(){
         if let navigation = self.navigationController {
+            KProgessHelper.shared.hideIndicator()
             navigation.popViewController(animated: true)
         }
     }
     
     func btnCloseTapped(){
+        KProgessHelper.shared.hideIndicator()
         self.dismiss(animated: true, completion: nil)
     }
     

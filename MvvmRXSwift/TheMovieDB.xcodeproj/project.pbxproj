@@ -98,6 +98,8 @@
 		2A0E89061F931E3300218BA2 /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A201F629211004CF313 /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2A0E89071F931E3300218BA2 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADF9A1B1F629211004CF313 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2A0E89751F93251000218BA2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AD71E8F1F61945700C96705 /* Info.plist */; };
+		2A11665D1F9C56DC00C73CE5 /* KPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A11665C1F9C56DC00C73CE5 /* KPreviewCell.swift */; };
+		2A11665F1F9C576A00C73CE5 /* KPreviewPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A11665E1F9C576A00C73CE5 /* KPreviewPhotoViewController.swift */; };
 		2A53F49D1F9B7FD7009AD6F6 /* KMovieSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A53F49C1F9B7FD7009AD6F6 /* KMovieSearchViewController.swift */; };
 		2A53F49F1F9B8183009AD6F6 /* KMovieSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A53F49E1F9B8183009AD6F6 /* KMovieSearchViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -135,6 +137,8 @@
 		2A0820B81F62EE5C005EA1E2 /* KMovieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieViewController.swift; sourceTree = "<group>"; };
 		2A0820BB1F62F05F005EA1E2 /* KMovieViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMovieViewModel.swift; sourceTree = "<group>"; };
 		2A0E890D1F931E3300218BA2 /* TheMovieDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovieDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A11665C1F9C56DC00C73CE5 /* KPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPreviewCell.swift; sourceTree = "<group>"; };
+		2A11665E1F9C576A00C73CE5 /* KPreviewPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPreviewPhotoViewController.swift; sourceTree = "<group>"; };
 		2A1304411F6AE17800CB6643 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
 		2A1304421F6AE17800CB6643 /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
 		2A1304431F6AE17800CB6643 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
@@ -286,6 +290,22 @@
 				2A53F49E1F9B8183009AD6F6 /* KMovieSearchViewModel.swift */,
 			);
 			path = Movies;
+			sourceTree = "<group>";
+		};
+		2A11665A1F9C568000C73CE5 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				2A11665E1F9C576A00C73CE5 /* KPreviewPhotoViewController.swift */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		2A11665B1F9C56CB00C73CE5 /* PreviewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2A11665C1F9C56DC00C73CE5 /* KPreviewCell.swift */,
+			);
+			path = PreviewCell;
 			sourceTree = "<group>";
 		};
 		2A13043F1F6AE14C00CB6643 /* Libraries */ = {
@@ -568,6 +588,7 @@
 		2ADF9A3D1F6295FA004CF313 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				2A11665B1F9C56CB00C73CE5 /* PreviewCell */,
 				2A4D04D61F88B5CD007C0DCE /* ImageCell */,
 				2AC461201F7019C60068A65B /* TrailerCell */,
 				2A219F321F6D37DA00CB8B46 /* ReviewCell */,
@@ -580,6 +601,7 @@
 		2ADF9A3E1F6295FA004CF313 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2A11665A1F9C568000C73CE5 /* Photo */,
 				2A219F261F6D2ED400CB8B46 /* Tabbar */,
 				2A0820B71F62EE24005EA1E2 /* Movies */,
 				2ADF9A4B1F629A7C004CF313 /* BaseViewController */,
@@ -776,6 +798,7 @@
 				2A0E88AE1F931E3300218BA2 /* KMovieImageViewController.swift in Sources */,
 				2A0E88AF1F931E3300218BA2 /* KProgessHelper.swift in Sources */,
 				2A0E88B01F931E3300218BA2 /* UIView+Extension.swift in Sources */,
+				2A11665F1F9C576A00C73CE5 /* KPreviewPhotoViewController.swift in Sources */,
 				2A53F49F1F9B8183009AD6F6 /* KMovieSearchViewModel.swift in Sources */,
 				2A0E88B11F931E3300218BA2 /* KBaseCollectionViewCell.swift in Sources */,
 				2A0E88B21F931E3300218BA2 /* KImageMovie.swift in Sources */,
@@ -792,6 +815,7 @@
 				2A0E88BD1F931E3300218BA2 /* KProductionCompany.swift in Sources */,
 				2A0E88BE1F931E3300218BA2 /* KBaseViewController.swift in Sources */,
 				2A0E88BF1F931E3300218BA2 /* KMovieDetailViewModel.swift in Sources */,
+				2A11665D1F9C56DC00C73CE5 /* KPreviewCell.swift in Sources */,
 				2A0E88C01F931E3300218BA2 /* UIButton+Extension.swift in Sources */,
 				2A0E88C11F931E3300218BA2 /* KMenuSlideTopView.swift in Sources */,
 				2A0E88C21F931E3300218BA2 /* KBaseModel.swift in Sources */,
